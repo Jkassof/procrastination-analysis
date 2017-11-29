@@ -89,39 +89,42 @@ Procrastination <- Procrastination %>%
 
 # 2c
 
-Procrastination$Occupation[which(Procrastination$Occupation=="")] <- NA
+Procrastination$HasKids <- as.character(Procrastination$HasKids)
+Procrastination$HasKids[which(str_detect(Procrastination$HasKids,"Yes Kids"))] <- "1"
+Procrastination$HasKids[which(str_detect(Procrastination$HasKids,"No Kids"))] <- "0"
 Procrastination$EduLvl[which(Procrastination$EduLvl=="")] <- NA
 Procrastination$WorkStatus[which(Procrastination$WorkStatus=="")] <- NA
 Procrastination$WorkStatus[which(Procrastination$WorkStatus=="0")] <- NA
+Procrastination$Occupation[which(Procrastination$Occupation=="")] <- NA
 Procrastination$Occupation[which(str_detect(tolower(Procrastination$Occupation),"teacher"))] <- "Teacher"
 Procrastination$Occupation[which(str_detect(tolower(Procrastination$Occupation),"professor"))] <- "Professor"
 Procrastination$Occupation[which(str_detect(tolower(Procrastination$Occupation),"^(?=.*admin)(?=.*assist)"))] <- "Administrative Assistant"
 Procrastination$YrsJobHeld <- as.integer(round(Procrastination$YrsJobHeld))
 Procrastination$YrsJobHeld <- as.integer(Procrastination$YrsJobHeld)
-Procrastination$YrsJobHeld <- gsub(x=Procrastination$YrsJobHeld,pattern="999",replacement="0")
+Procrastination$YrsJobHeld[which(str_detect(Procrastination$YrsJobHeld,"999"))] <- 0
 Procrastination$CntryOfRes <- gsub(x=Procrastination$CntryOfRes,pattern="0",replacement=NA)
 Procrastination$Occupation <- gsub(x=Procrastination$Occupation,pattern="please specify",replacement=NA)
 Procrastination$Occupation <- gsub(x=Procrastination$Occupation,pattern="0",replacement=NA)
-Procrastination$NumSons <- gsub(x=Procrastination$NumSons,pattern="Male",replacement="1")
-Procrastination$NumSons <- gsub(x=Procrastination$NumSons,pattern="Female",replacement="2")
+Procrastination$NumSons <- as.character(Procrastination$NumSons)
+Procrastination$NumSons[which(str_detect(Procrastination$NumSons,"Male"))] <- "1"
+Procrastination$NumSons[which(str_detect(Procrastination$NumSons,"Female"))] <- "2"
 Procrastination$CommunitySz[which(str_detect(Procrastination$CommunitySz,"[:digit:]"))] <- NA
 Procrastination$CntryOfRes <- gsub(x=Procrastination$CntryOfRes,pattern="Isreal",replacement="Israel")
 Procrastination$MaritalStat[which(str_detect(Procrastination$MaritalStat,"0"))] <- NA
 Procrastination$MaritalStat[which(Procrastination$MaritalStat=="")] <- NA
 Procrastination$SelfLabeled <- as.character(Procrastination$SelfLabeled)
-Procrastination$OthersLabel <- as.character(Procrastination$OthersLabel)
 Procrastination$SelfLabeled[which(str_detect(Procrastination$SelfLabeled,"yes"))] <- "1"
 Procrastination$SelfLabeled[which(str_detect(Procrastination$SelfLabeled,"no"))] <- "0"
 Procrastination$SelfLabeled[which(Procrastination$SelfLabeled=="")] <- NA
+Procrastination$OthersLabel <- as.character(Procrastination$OthersLabel)
 Procrastination$OthersLabel[which(str_detect(Procrastination$OthersLabel,"yes"))] <- "1"
 Procrastination$OthersLabel[which(str_detect(Procrastination$OthersLabel,"no"))] <- "0"
 Procrastination$OthersLabel[which(Procrastination$OthersLabel=="")] <- NA
 
 # 2d Correcting column data types
 
-Procrastination$HasKids <- gsub(x=Procrastination$HasKids,pattern="Yes Kids",replacement="1")
-Procrastination$HasKids <- gsub(x=Procrastination$HasKids,pattern="No Kids",replacement="0")
 Procrastination$HasKids <- as.factor(Procrastination$HasKids)
+Procrastination$NumSons <- as.numeric(Procrastination$NumSons)
 Procrastination$SelfLabeled <- as.factor(Procrastination$SelfLabeled)
 Procrastination$OthersLabel <- as.factor(Procrastination$OthersLabel)
 
