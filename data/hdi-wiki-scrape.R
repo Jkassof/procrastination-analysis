@@ -15,8 +15,8 @@ tmp_all_tbls <- site %>%
 # was written to clean up each table from wikipedia
 cleaner_fun <- function(tbl) {
   tbl %>%
-    set_names(nm = c("rank", "rank_delta", "Country", "HDI", "hdi_delta_1yr")) %>%
-    select(Country, HDI) %>%
+    set_names(nm = c("rank", "rank_delta", "CntryOfRes", "HDI", "hdi_delta_1yr")) %>%
+    select(CntryOfRes, HDI) %>%
     slice(-1)
 }
 
@@ -33,3 +33,5 @@ hdi_clean <- tmp_all_tbls[1:8] %>%
     HDI >= 0.55 & HDI <= 0.699 ~ "medium",
     HDI < 0.55                 ~ "low"
   ))
+
+write.csv(hdi_clean,"./data/hdi_table.csv",row.names=FALSE)
