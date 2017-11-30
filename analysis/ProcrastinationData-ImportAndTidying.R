@@ -7,7 +7,7 @@ library(stringr)
 
 #2a - Importing data set and outputting number of rows and columns
 
-Procrastination <- read.csv("C:/users/46669510/downloads/MSDS/6306/CaseStudy2/Procrastination.csv",header=TRUE)
+Procrastination <- read.csv("/data/Procrastination.csv",header=TRUE)
 # I could set check.names=FALSE to not force correct names with the periods
 procrastination_row <- nrow(Procrastination)
 procrastination_col <- ncol(Procrastination)
