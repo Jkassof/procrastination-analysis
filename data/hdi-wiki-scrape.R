@@ -25,14 +25,11 @@ cleaner_fun <- function(tbl) {
 # After that we create an hdi_group column which uses HDI groupings introduced
 # 2014
 hdi_clean <- tmp_all_tbls[1:8] %>%
-  map_dfr(cleaner_fun) %>%
+  map_dfr(cleaner_fun)         %>%
   mutate_at("hdi", as.numeric) %>%
   mutate(hdi_group = case_when(
-    hdi >= 0.8 ~ "very high",
-    hdi >= 0.7 & hdi <= .799 ~ "high",
+    hdi >= 0.8                 ~ "very high",
+    hdi >= 0.7 & hdi <= .799   ~ "high",
     hdi >= 0.55 & hdi <= 0.699 ~ "medium",
-    hdi < 0.55 ~ "low"
+    hdi < 0.55                 ~ "low"
   ))
-
-# Finally write the data to a csv file in the data directory
-write.csv(hdi_clean, file = "data/hdi_table.csv", row.names = FALSE)
