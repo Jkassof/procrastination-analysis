@@ -34,7 +34,7 @@ Explanation of which tables. Link to codebook for columns.
 The below codechunk sources the data cleaning script for our procrastination data. There is a 
 commented out write.csv statement if source data is updated and you want to get local
 clean copies of the new source data
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 source("analysis/ProcrastinationData-ImportAndTidying.R")
 #write.csv()
 knitr::kable(procrastination_dims,"html",row.names=FALSE) %>%
@@ -46,7 +46,7 @@ knitr::kable(procrastination_dims,"html",row.names=FALSE) %>%
 The below codechunk sources the wikipedia scraping script for HDI data. There is a 
 commented out write.csv statement if source data is updated and you want to get local
 clean copies of the new source data
-```{r}
+```{r, message=FALSE}
 source("data/hdi-wiki-scrape.R")
 # write.csv(hdi_clean, file = "data/hdi_table.csv", row.names = FALSE)
 ```
@@ -68,7 +68,10 @@ all_data <- merge(
 
 # Preliminary Analysis
 ***
-
+```{r, results='asis'}
+source("analysis/q4-analysis.R")
+knitr::kable(summary_list, col.names = c("Variable", "Min Value", "1st Quartile", "Median", "Mean", "3rd Quartile", "Max Value", "NA Count"), digits = 2)
+```
 
 # Deep Dive
 ***

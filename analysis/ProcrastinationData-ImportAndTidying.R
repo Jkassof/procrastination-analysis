@@ -72,20 +72,21 @@ procras <- Procrastination %>%
       tolower(OthersLabel) == "yes" ~ 1,
       tolower(OthersLabel) == "no" ~ 0,
       TRUE ~ NA_real_
+    ),
+    NumSons = case_when(
+      NumSons == "Male" ~ 1,
+      NumSons == "Female" ~ 0,
+      TRUE ~ as.double(NumSons)
     )
   )
 
 # Some other cleanup
 procras$Occupation[which(str_detect(tolower(procras$Occupation),"^(?=.*admin)(?=.*assist)"))] <- "Administrative Assistant"
-procras$NumSons <- as.character(procras$NumSons)
-procras$NumSons[which(str_detect(procras$NumSons,"Male"))] <- "1"
-procras$NumSons[which(str_detect(procras$NumSons,"Female"))] <- "2"
 procras$CntryOfRes <- gsub(x=procras$CntryOfRes,pattern="Isreal",replacement="Israel")
 
 
 # 2d Correcting column data types
 
-procras$NumSons <- as.numeric(procras$NumSons)
 
 # 2e Creating means columns for each test
 
