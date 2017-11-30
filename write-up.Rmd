@@ -60,7 +60,7 @@ all_data <- merge(
   final_procras,
   hdi_clean,
   by.x = "CntryOfRes",
-  by.y = "country",
+  by.y = "Country",
   all.x = TRUE
 )
 # write.csv()
@@ -68,9 +68,22 @@ all_data <- merge(
 
 # Preliminary Analysis
 ***
-```{r, results='asis'}
+
+Below we source our preliminary analysis script.
+```{r}
 source("analysis/q4-analysis.R")
-knitr::kable(summary_list, col.names = c("Variable", "Min Value", "1st Quartile", "Median", "Mean", "3rd Quartile", "Max Value", "NA Count"), digits = 2)
+
+# Print display friendly table of summary statistics for key variables
+knitr::kable(summary_list, 
+             col.names = c("Variable", "Min Value", "1st Quartile",
+                           "Median", "Mean", "3rd Quartile", 
+                           "Max Value", "Missing Count"), 
+             digits = 2, 
+             format = "html",
+             format.args = list(scientific = FALSE)) %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")
 ```
 
 # Deep Dive

@@ -83,7 +83,7 @@ procras <- Procrastination %>%
 # Some other cleanup
 procras$Occupation[which(str_detect(tolower(procras$Occupation),"^(?=.*admin)(?=.*assist)"))] <- "Administrative Assistant"
 procras$CntryOfRes <- gsub(x=procras$CntryOfRes,pattern="Isreal",replacement="Israel")
-
+procras$AnnualIncome <- as.numeric(procras$AnnualIncome)
 
 # 2d Correcting column data types
 

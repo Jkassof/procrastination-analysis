@@ -15,8 +15,8 @@ tmp_all_tbls <- site %>%
 # was written to clean up each table from wikipedia
 cleaner_fun <- function(tbl) {
   tbl %>%
-    set_names(nm = c("rank", "rank_delta", "country", "hdi", "hdi_delta_1yr")) %>%
-    select(country, hdi) %>%
+    set_names(nm = c("rank", "rank_delta", "Country", "HDI", "hdi_delta_1yr")) %>%
+    select(Country, HDI) %>%
     slice(-1)
 }
 
@@ -26,10 +26,10 @@ cleaner_fun <- function(tbl) {
 # 2014
 hdi_clean <- tmp_all_tbls[1:8] %>%
   map_dfr(cleaner_fun)         %>%
-  mutate_at("hdi", as.numeric) %>%
+  mutate_at("HDI", as.numeric) %>%
   mutate(hdi_group = case_when(
-    hdi >= 0.8                 ~ "very high",
-    hdi >= 0.7 & hdi <= .799   ~ "high",
-    hdi >= 0.55 & hdi <= 0.699 ~ "medium",
-    hdi < 0.55                 ~ "low"
+    HDI >= 0.8                 ~ "very high",
+    HDI >= 0.7 & HDI <= .799   ~ "high",
+    HDI >= 0.55 & HDI <= 0.699 ~ "medium",
+    HDI < 0.55                 ~ "low"
   ))

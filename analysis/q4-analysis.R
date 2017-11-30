@@ -1,5 +1,5 @@
 filt_data <- filter(all_data, Age >= 18)
-summary_cols <- c("Age", "AnnualIncome", "hdi", "DPMean", "AIPMean", "GPMean", "SWLSMean")
+summary_cols <- c("Age", "AnnualIncome", "HDI", "DPMean", "AIPMean", "GPMean", "SWLSMean")
 
 summary_list <- filt_data %>%
   select(summary_cols) %>%

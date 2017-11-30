@@ -74,7 +74,7 @@ all_data <- merge(
   final_procras,
   hdi_clean,
   by.x = "CntryOfRes",
-  by.y = "country",
+  by.y = "Country",
   all.x = TRUE
 )
 # write.csv()
@@ -83,22 +83,116 @@ all_data <- merge(
 # Preliminary Analysis
 ***
 
+Below we source our preliminary analysis script.
+
 ```r
 source("analysis/q4-analysis.R")
-knitr::kable(summary_list, col.names = c("Variable", "Min Value", "1st Quartile", "Median", "Mean", "3rd Quartile", "Max Value", "NA Count"), digits = 2)
+
+# Print display friendly table of summary statistics for key variables
+knitr::kable(summary_list, 
+             col.names = c("Variable", "Min Value", "1st Quartile",
+                           "Median", "Mean", "3rd Quartile", 
+                           "Max Value", "Missing Count"), 
+             digits = 2, 
+             format = "html",
+             format.args = list(scientific = FALSE)) %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")
 ```
 
+<table class="table table-striped table-condensed" style="width: auto !important; ">
+<thead><tr>
+<th style="text-align:left;"> Variable </th>
+   <th style="text-align:right;"> Min Value </th>
+   <th style="text-align:right;"> 1st Quartile </th>
+   <th style="text-align:right;"> Median </th>
+   <th style="text-align:right;"> Mean </th>
+   <th style="text-align:right;"> 3rd Quartile </th>
+   <th style="text-align:right;"> Max Value </th>
+   <th style="text-align:right;"> Missing Count </th>
+  </tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;"> Age </td>
+   <td style="text-align:right;"> 19.00 </td>
+   <td style="text-align:right;"> 28.00 </td>
+   <td style="text-align:right;"> 37.50 </td>
+   <td style="text-align:right;"> 38.28 </td>
+   <td style="text-align:right;"> 45.00 </td>
+   <td style="text-align:right;"> 80.00 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> AnnualIncome </td>
+   <td style="text-align:right;"> 10000.00 </td>
+   <td style="text-align:right;"> 15000.00 </td>
+   <td style="text-align:right;"> 45000.00 </td>
+   <td style="text-align:right;"> 59879.87 </td>
+   <td style="text-align:right;"> 87500.00 </td>
+   <td style="text-align:right;"> 250000.00 </td>
+   <td style="text-align:right;"> 415 </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> HDI </td>
+   <td style="text-align:right;"> 0.48 </td>
+   <td style="text-align:right;"> 0.92 </td>
+   <td style="text-align:right;"> 0.92 </td>
+   <td style="text-align:right;"> 0.91 </td>
+   <td style="text-align:right;"> 0.92 </td>
+   <td style="text-align:right;"> 0.95 </td>
+   <td style="text-align:right;"> 173 </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> DPMean </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 2.40 </td>
+   <td style="text-align:right;"> 3.00 </td>
+   <td style="text-align:right;"> 3.05 </td>
+   <td style="text-align:right;"> 3.80 </td>
+   <td style="text-align:right;"> 5.00 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> AIPMean </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 2.40 </td>
+   <td style="text-align:right;"> 2.93 </td>
+   <td style="text-align:right;"> 2.96 </td>
+   <td style="text-align:right;"> 3.53 </td>
+   <td style="text-align:right;"> 5.00 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> GPMean </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 2.80 </td>
+   <td style="text-align:right;"> 3.25 </td>
+   <td style="text-align:right;"> 3.24 </td>
+   <td style="text-align:right;"> 3.75 </td>
+   <td style="text-align:right;"> 5.00 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> SWLSMean </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 2.40 </td>
+   <td style="text-align:right;"> 3.00 </td>
+   <td style="text-align:right;"> 3.05 </td>
+   <td style="text-align:right;"> 3.80 </td>
+   <td style="text-align:right;"> 5.00 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+</tbody>
+</table>
 
+```r
+par(mfrow = c(1, 2))
+hist(filt_data$Age)
+hist(filt_data$AnnualIncome)
+```
 
-Variable        Min Value   1st Quartile     Median       Mean   3rd Quartile   Max Value   NA Count
--------------  ----------  -------------  ---------  ---------  -------------  ----------  ---------
-Age               1.9e+01        2.8e+01      37.50      38.28          45.00     8.0e+01         NA
-AnnualIncome      1.0e+04        1.5e+04   45000.00   59879.87       87500.00     2.5e+05        415
-hdi               4.8e-01        9.2e-01       0.92       0.91           0.92     9.5e-01        173
-DPMean            1.0e+00        2.4e+00       3.00       3.05           3.80     5.0e+00         NA
-AIPMean           1.0e+00        2.4e+00       2.93       2.96           3.53     5.0e+00         NA
-GPMean            1.0e+00        2.8e+00       3.25       3.24           3.75     5.0e+00         NA
-SWLSMean          1.0e+00        2.4e+00       3.00       3.05           3.80     5.0e+00         NA
+![](write-up_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 # Deep Dive
 ***
