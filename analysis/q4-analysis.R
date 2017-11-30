@@ -1,3 +1,4 @@
+all_data <- read.csv("./data/all_data.csv",header=TRUE)
 filt_data <- filter(all_data, Age >= 18)
 summary_cols <- c("Age", "AnnualIncome", "HDI", "DPMean", "AIPMean", "GPMean", "SWLSMean")
 
