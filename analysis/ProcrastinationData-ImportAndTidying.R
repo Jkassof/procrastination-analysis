@@ -4,10 +4,11 @@ library(knitr)
 library(kableExtra)
 library(dplyr)
 library(stringr)
+library(readr)
 
 #2a - Importing data set and outputting number of rows and columns
 
-Procrastination <- read.csv("/data/Procrastination.csv",header=TRUE)
+Procrastination <- read_csv("C:/users/jeffw/downloads/MSDS/6306/Case Study 2/Procrastination.csv")
 # I could set check.names=FALSE to not force correct names with the periods
 procrastination_row <- nrow(Procrastination)
 procrastination_col <- ncol(Procrastination)
@@ -18,74 +19,76 @@ names(procrastination_str) <- c("Number Of Rows","Number Of Columns")
 
 #2b
 # Initial column name cleanup
-names(Procrastination) <- gsub(x=names(Procrastination),pattern="â",replacement="") # removes weird apostrophe conversion
-names(Procrastination) <- gsub(x=names(Procrastination),pattern="æ",replacement="") # removes weird apostrophe conversion
-names(Procrastination) <- gsub(x=names(Procrastination),pattern="o",replacement="") # removes weird apostrophe conversion
-names(Procrastination) <- gsub(x=names(Procrastination),pattern="\\.",replacement=" ")
-names(Procrastination) <- gsub(x=names(Procrastination),pattern="ï",replacement=" ")
+#names(Procrastination) <- gsub(x=names(Procrastination),pattern="â",replacement="") # removes weird apostrophe conversion
+#names(Procrastination) <- gsub(x=names(Procrastination),pattern="æ",replacement="") # removes weird apostrophe conversion
+#names(Procrastination) <- gsub(x=names(Procrastination),pattern="o",replacement="") # removes weird apostrophe conversion
+#names(Procrastination) <- gsub(x=names(Procrastination),pattern="\\.",replacement=" ")
+#names(Procrastination) <- gsub(x=names(Procrastination),pattern="ï",replacement=" ")
 # replaces the periods from name.check with spaces
-names(Procrastination) <- gsub("(?<=\\b)([a-z])", "\\U\\1", tolower(names(Procrastination)), perl=TRUE) # capitalizes each word
-names(Procrastination) <- gsub(x=names(Procrastination),pattern=" ",replacement="") # collapses the spaces
+#names(Procrastination) <- gsub("(?<=\\b)([a-z])", "\\U\\1", tolower(names(Procrastination)), perl=TRUE) # capitalizes each word
+#names(Procrastination) <- gsub(x=names(Procrastination),pattern=" ",replacement="") # collapses the spaces
 
 # Renaming columns
 Procrastination <- Procrastination %>%
-  rename(EduLvl = Edu) %>%
-  rename(HasKids = Kids) %>%
-  rename(Occupation = CurrentOccupation) %>%
-  rename(YrsJobHeld = HowLongHaveYouHeldThisPositionYears) %>%
-  rename(MosJobHeld = HowLongHaveYouHeldThisPositionMonths) %>%
-  rename(CommunitySz = CommunitySize) %>%
-  rename(CntryOfRes = CountryOfResidence) %>%
-  rename(MaritalStat = MaritalStatus) %>%
-  rename(NumSons = NumberOfSons) %>%
-  rename(NumDaughters = NumberOfDaughters) %>%
-  rename(DP1 = XDp1IWasteALotOfTimeOnTrivialMattersBeforeGettingToTheFinalDecisions) %>%
-  rename(DP2 = XDp2EvenAfterIMakeADecisionIDelayActingUponIt) %>%
-  rename(DP3 = XDp3IDonTMakeDecisionsUnlessIReallyHaveTo) %>%
-  rename(DP4 = XDp4IDelayMakingDecisionsUntilItSTooLate) %>%
-  rename(DP5 = XDp5IPutOffMakingDecisionsUntilItSTooLate) %>%
-  rename(AIP1 = XAip1IPayMyBillsOnTime) %>%
-  rename(AIP2 = XAip2IAmPromptAndOnTimeForMostAppointments) %>%
-  rename(AIP3 = XAip3ILayOutMyClothesTheNightBeforeIHaveAnImportantAppointmentSoIWonTBeLate) %>%
-  rename(AIP4 = XAip4IFindMyselfRunningLaterThanIWouldLikeToBe) %>%
-  rename(AIP5 = XAip5IDonTGetThingsDoneOnTime) %>%
-  rename(AIP6 = XAip6IfSomeoneWereTeachingACourseOnHowToGetThingsDoneOnTimeIWouldAttend) %>%
-  rename(AIP7 = XAip7MyFriendsAndFamilyThinkIWaitUntilTheLastMinute) %>%
-  rename(AIP8 = XAip8IGetImportantThingsDoneWithTimeToSpare) %>%
-  rename(AIP9 = XAip9IAmNotVeryGoodAtMeetingDeadlines) %>%
-  rename(AIP10 = XAip10IFindMyselfRunningOutOfTime) %>%
-  rename(AIP11 = XAip11IScheduleDoctorSAppointmentsWhenIAmSupposedToWithoutDelay) %>%
-  rename(AIP12 = XAip12IAmMorePunctualThanMostPeopleIKnow) %>%
-  rename(AIP13 = XAip13IDoRoutineMaintenanceEGChangingTheCarOilOnThingsIOwnAsOftenAsIShould) %>%
-  rename(AIP14 = XAip14WhenIHaveToBeSomewhereAtACertainTimeMyFriendsExpectMeToRunABitLate) %>%
-  rename(AIP15 = XAip15PuttingThingsOffTillTheLastMinuteHasCostMeMoneyInThePast) %>%
-  rename(GP1 = XGp1IOftenFindMyselfPerformingTasksThatIHadIntendedToDoDaysBefore) %>%
-  rename(GP2 = XGp2IOftenMissConcertsSportingEventsOrTheLikeBecauseIDonTGetAroundToBuyingTicketsOnTime) %>%
-  rename(GP3 = XGp3WhenPlanningAPartyIMakeTheNecessaryArrangementsWellInAdvance) %>%
-  rename(GP4 = XGp4WhenItIsTimeToGetUpInTheMorningIMostOftenGetRightOutOfBed) %>%
-  rename(GP5 = XGp5ALetterMaySitForDaysAfterIWriteItBeforeMailingItPossible) %>%
-  rename(GP6 = XGp6IGenerallyReturnPhoneCallsPromptly) %>%
-  rename(GP7 = XGp7EvenJobsThatRequireLittleElseExceptSittingDownAndDoingThemIFindThatTheySeldomGetDoneForDays) %>%
-  rename(GP8 = XGp8IUsuallyMakeDecisionsAsSoonAsPossible) %>%
-  rename(GP9 = XGp9IGenerallyDelayBeforeStartingOnWorkIHaveToDo) %>%
-  rename(GP10 = XGp10WhenTravelingIUsuallyHaveToRushInPreparingToArriveAtTheAirportOrStationAtTheAppropriateTime) %>%
-  rename(GP11 = XGp11WhenPreparingToGoOutIAmSeldomCaughtHavingToDoSomethingAtTheLastMinute) %>%
-  rename(GP12 = XGp12InPreparationForSomeDeadlinesIOftenWasteTimeByDoingOtherThings) %>%
-  rename(GP13 = XGp13IfABillForASmallAmountComesIPayItRightAway) %>%
-  rename(GP14 = XGp14IUsuallyReturnARsvpRequestVeryShortlyAfterReceivingIt) %>%
-  rename(GP15 = XGp15IOftenHaveATaskFinishedSoonerThanNecessary) %>%
-  rename(GP16 = XGp16IAlwaysSeemToEndUpShoppingForBirthdayGiftsAtTheLastMinute) %>%
-  rename(GP17 = XGp17IUsuallyBuyEvenAnEssentialItemAtTheLastMinute) %>%
-  rename(GP18 = XGp18IUsuallyAccomplishAllTheThingsIPlanToDoInADay) %>%
-  rename(GP19 = XGp19IAmContinuallySayingILlDoItTomorrow) %>%
-  rename(GP20 = XGp20IUsuallyTakeCareOfAllTheTasksIHaveToDoBeforeISettleDownAndRelaxForTheEvening) %>%
-  rename(SWLS1 = XSwls1InMostWaysMyLifeIsCloseToMyIdeal) %>%
-  rename(SWLS2 = XSwls2TheConditionsOfMyLifeAreExcellent) %>%
-  rename(SWLS3 = XSwls3IAmSatisfiedWithMyLife) %>%
-  rename(SWLS4 = XSwls4SoFarIHaveGottenTheImportantThingsIWantInLife) %>%
-  rename(SWLS5 = XSwls5IfICouldLiveMyLifeOverIWouldChangeAlmostNothing) %>%
-  rename(SelfLabeled = DoYouConsiderYourselfAProcrastinator) %>%
-  rename(OthersLabel = DoOthersConsiderYouAProcrastinator)
+  rename(EduLvl = Edu,
+         HasKids = Kids,
+         WorkStatus = `Work Status`,
+         AnnualIncome = `Annual Income`,
+         Occupation = `Current Occupation`,
+         YrsJobHeld = `How long have you held this position?: Years`,
+         MosJobHeld = `How long have you held this position?: Months`,
+         CommunitySz = `Community size`,
+         CntryOfRes = `Country of residence`,
+         MaritalStat = `Marital Status`,
+         NumSons = `Number of sons`,
+         NumDaughters = `Number of daughters`,
+         DP1 = `(DP 1) I waste a lot of time on trivial matters before getting to the final decisions`,
+         DP2 = `(DP 2) Even after I make a decision I delay acting upon it`,
+         DP3 = `(DP 3) I don't make decisions unless I really have to`,
+         DP4 = `(DP 4) I delay making decisions until it's too late`,
+         DP5 = `(DP 5) I put off making decisions until it's too late`,
+         AIP1 = `(AIP 1) I pay my bills on time`,
+         AIP2 = `(AIP 2)I am prompt and on time for most appointments.`,
+         AIP3 = `(AIP 3)I lay out my clothes the night before I have an important appointment, so I won't be late`,
+         AIP4 = `(AIP 4) I find myself running later than I would like to be`,
+         AIP5 = `(AIP 5) I don't get things done on time`,
+         AIP6 = `(AIP 6) If someone were teaching a course on how to get things done on time, I would attend`,
+         AIP7 = `(AIP 7) My friends and family think I wait until the last minute.`,
+         AIP8 = `(AIP 8) I get important things done with time to spare`,
+         AIP9 = `(AIP 9) I am not very good at meeting deadlines`,
+         AIP10 = `(AIP 10) I find myself running out of time.`,
+         AIP11 = `(AIP 11) I schedule doctor's appointments when I am supposed to without delay`,
+         AIP12 = `(AIP 12) I am more punctual than most people I know`,
+         AIP13 = `(AIP 13) I do routine maintenance (e.g., changing the car oil) on things I own as often as I should`,
+         AIP14 = `(AIP 14)When I have to be somewhere at a certain time my friends expect me to run a bit late`,
+         AIP15 = `(AIP 15)Putting things off till the last minute has cost me money in the past`,
+         GP1 = `(GP 1)I often find myself performing tasks that I had intended to do days before`,
+         GP2 = `(GP2) I often miss concerts, sporting events, or the like because I don't get around to buying tickets on time`,
+         GP3 = `(GP 3) When planning a party, I make the necessary arrangements well in advance`,
+         GP4 = `(GP 4) When it is time to get up in the morning, I most often get right out of bed`,
+         GP5 = `(GP 5) A letter may sit for days after I write it before mailing it possible`,
+         GP6 = `(GP 6) I generally return phone calls promptly`,
+         GP7 = `(GP 7) Even jobs that require little else except sitting down and doing them, I find that they seldom get done for days`,
+         GP8 = `(GP 8) I usually make decisions as soon as possible`,
+         GP9 = `(GP 9) I generally delay before starting on work I have to do`,
+         GP10 = `(GP 10) When traveling, I usually have to rush in preparing to arrive at the airport or station at the appropriate time`,
+         GP11 = `(GP 11) When preparing to go out, I am seldom caught having to do something at the last minute`,
+         GP12 = `(GP 12) In preparation for some deadlines, I often waste time by doing other things`,
+         GP13 = `(GP 13) If a bill for a small amount comes, I pay it right away`,
+         GP14 = `(GP 14) I usually return a "RSVP" request very shortly after receiving it`,
+         GP15 = `(GP 15) I often have a task finished sooner than necessary`,
+         GP16 = `(GP 16) I always seem to end up shopping for birthday gifts at the last minute`,
+         GP17 = `(GP 17) I usually buy even an essential item at the last minute`,
+         GP18 = `(GP 18) I usually accomplish all the things I plan to do in a day`,
+         GP19 = `(GP 19) I am continually saying "I'll do it tomorrow"`,
+         GP20 = `(GP 20) I usually take care of all the tasks I have to do before I settle down and relax for the evening`,
+         SWLS1 = `(SWLS 1) In most ways my life is close to my ideal`,
+         SWLS2 = `(SWLS 2)The conditions of my life are excellent`,
+         SWLS3 = `(SWLS 3) I am satisfied with my life.`,
+         SWLS4 = `(SWLS 4) So far I have gotten the important things I want in life`,
+         SWLS5 = `(SWLS 5) If I could live my life over, I would change almost nothing`,
+         SelfLabeled = `Do you consider yourself a procrastinator?`,
+         OthersLabel = `Do others consider you a procrastinator?`)
 
 # 2c
 
