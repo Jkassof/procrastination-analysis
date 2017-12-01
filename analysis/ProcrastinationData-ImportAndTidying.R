@@ -41,9 +41,16 @@ procras <- Procrastination %>%
     # Convert bad values to NA's, consolidate various common jobs by replacing
     Occupation = case_when(
       Occupation %in% c("", "0", "abc", "please specify") ~ NA_character_,
-      str_detect(tolower(Occupation), "teacher") ~ "Teacher",
-      str_detect(tolower(Occupation), "professor") ~ "Professor",
-      str_detect(tolower(Occupation), "writer") ~ "Writer",
+      str_detect(tolower(Occupation), "teacher|professor") ~ "Education",
+      str_detect(tolower(Occupation), "writ") ~ "Writer",
+      str_detect(tolower(Occupation), "account") ~ "Accountant",
+      str_detect(tolower(Occupation), "attorney|counsel") ~ "Attorney",
+      str_detect(tolower(Occupation), "student") ~ "Student",
+      str_detect(tolower(Occupation), "^sales") ~ "Sales",
+      str_detect(tolower(Occupation), "^doctor|nurse") ~ "Medicine",
+      str_detect(tolower(Occupation), "^artist") ~ "Artist",
+      str_detect(tolower(Occupation), "systems|programmer|software|^it") ~ "Software & IT",
+      str_detect(tolower(Occupation), "ologist|scientist") ~ "Science",
       TRUE ~ Occupation
     ),
     # If YrsJobHeld absurdldy large, convert to NA, otherwise round to whole number

@@ -35,10 +35,11 @@ The below codechunk sources the data cleaning script for our procrastination dat
 commented out write.csv statement if source data is updated and you want to get local
 clean copies of the new source data
 ```{r, message=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
 source("analysis/ProcrastinationData-ImportAndTidying.R")
-#write.csv()
-knitr::kable(procrastination_dims,"html",row.names=FALSE) %>%
-  kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
+kable(procrastination_dims,"html",row.names=FALSE) %>%
+  kable_styling(bootstrap_options = c("striped","condensed"), 
                             full_width=F, 
                             position="left")
 ```
@@ -48,7 +49,6 @@ commented out write.csv statement if source data is updated and you want to get 
 clean copies of the new source data
 ```{r, message=FALSE}
 source("data/hdi-wiki-scrape.R")
-# write.csv(hdi_clean, file = "data/hdi_table.csv", row.names = FALSE)
 ```
 
 
@@ -56,14 +56,7 @@ The below codechunk merges the two datasets and saves a copy to the /data direct
 The saving step has been commented out, remove the # sign if data is updated and a new
 copy of the clean and merged data is required.
 ```{r}
-all_data <- merge(
-  final_procras,
-  hdi_clean,
-  by.x = "CntryOfRes",
-  by.y = "Country",
-  all.x = TRUE
-)
-# write.csv()
+source("data/merging-hdi-and-procrastination.R")
 ```
 
 # Preliminary Analysis
@@ -72,16 +65,66 @@ all_data <- merge(
 Below we source our preliminary analysis script.
 ```{r}
 source("analysis/q4-analysis.R")
+```
 
+#### Summary Statistics
+
+```{r}
 # Print display friendly table of summary statistics for key variables
-knitr::kable(summary_list, 
+kable(summary_list, 
              col.names = c("Variable", "Min Value", "1st Quartile",
                            "Median", "Mean", "3rd Quartile", 
                            "Max Value", "Missing Count"), 
              digits = 2, 
              format = "html",
              format.args = list(scientific = FALSE)) %>%
-  kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
+  kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")
+```
+
+### Frequency Tables
+
+##### Gender
+```{r}
+kable(gender_freqs, format = "html", col.names = c("Gender", "Participants")) %>%
+    kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")
+```
+
+##### Work Status
+
+```{r}
+kable(workstatus_freqs, format = "html", col.names = c("Work Status", "Participants")) %>%
+    kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")
+```
+
+##### Occupation
+
+```{r}
+kable(occu_freqs, format = "html", col.names = c("Occupation", "Participants")) %>%
+    kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")
+```
+
+##### Participants by Country
+
+```{r}
+kable(pcpts_per_country, format = "html") %>%
+    kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")
+```
+
+##### Internal vs External Perception
+
+```{r}
+kable(matching_perception, format = "html") %>%
+    kable_styling(bootstrap_options = c("striped","condensed"), 
                             full_width=F, 
                             position="left")
 ```
