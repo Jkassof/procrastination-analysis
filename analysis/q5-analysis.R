@@ -54,6 +54,8 @@ knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
                             position="left")
 
 # Is there a relationship between age and income?
+logincome <- log(all_data$AnnualIncome)
+logage <- log(all_data$Age)
 
 ggplot(data = all_data, aes(x=logincome, y=logage, color = Gender))+
   geom_point(size=2)+
