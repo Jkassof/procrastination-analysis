@@ -2,6 +2,7 @@ library(ggplot2)
 library(dplyr)
 library(knitr)
 library(kableExtra)
+library(highcharter)
 
 # reading in data
 
@@ -43,6 +44,9 @@ ggplot(top15_gp_hdi,aes(x=CntryOfRes, y=CntryMeanGP,fill=hdi_group))+
   scale_fill_brewer(palette="Accent")+
   coord_flip()
 
+# just dropping this in as a starting point for later - the baby woke up
+hchart(top15_gp_hdi, "column", hcaes(x = CntryOfRes, y = CntryMeanGP, group = hdi_group))
+
 # which countries are in the top 15 across both tests
 top_procrastinators <- top15_aip %>%
   inner_join(top15_gp) %>%
@@ -82,3 +86,17 @@ ggplot(all_data,aes(x=hdi_group,y=SWLSMean,fill=hdi_group))+
   ggtitle("Satisfaction With Life Score by Human Development Index Category")+
   xlab("Mean Satisfaction With Life Score")+ylab("Number of People")+
   scale_fill_brewer(palette="Dark2")
+
+# No apparent relationship between HDI category and SWLS
+# Not surprising since ~87% of this population has an HDI category of 'Very High'
+
+cat_count <- all_data %>%
+  select(hdi_group) %>%
+  group_by(hdi_group) %>%
+  count() %>%
+  summarise(percentage = n/nrow(all_data)) %>%
+  arrange(order(desc(percentage)))
+
+cat_count
+
+
