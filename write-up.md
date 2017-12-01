@@ -8,6 +8,7 @@ output:
     keep_md: true
 ---
 
+
 # Introduction
 ***
 
@@ -16,24 +17,20 @@ Some info about high-level project info and goals
 # Data Sources
 ***
 
-Two primary raw data sources, discussed below.
+This analysis was conducted using two data sources. See below for details about each.
 
 ### Procrastionation Data
 
-Qualtrics data, very rough around the edges, various assumptions made. See codebook for
-details of all columns.
+Qualtrics data, very rough around the edges, various assumptions made. See codebook for details of all columns.
 
 ### Human Development Index Data
 
-Human Development Index maintained by UN, blah blah some info from Wikipedia. Link to source.
-Explanation of which tables. Link to codebook for columns.
+The Human Development Index (HDI) is a statistic created and distributed by the United Nations. It is a composite statistic derived using indicators for education, life expectancy, and income per capita. This score can be viewed as the potential for human development and prosperity in a given country. We access this data with an R script that scrapes the HDI Wikipedia page. 
 
 # Data Importing & Merging
 ***
 
-The below codechunk sources the data cleaning script for our procrastination data. There is a 
-commented out write.csv statement if source data is updated and you want to get local
-clean copies of the new source data
+The below codechunk sources the data cleaning script for our procrastination data. See the script for details of how the file was cleaned.
 
 ```r
 library(knitr)
@@ -41,8 +38,8 @@ library(kableExtra)
 source("analysis/ProcrastinationData-ImportAndTidying.R")
 kable(procrastination_dims,"html",row.names=FALSE) %>%
   kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
+                full_width=F, 
+                position="left")
 ```
 
 <table class="table table-striped table-condensed" style="width: auto !important; ">
@@ -56,18 +53,14 @@ kable(procrastination_dims,"html",row.names=FALSE) %>%
   </tr></tbody>
 </table>
 
-The below codechunk sources the wikipedia scraping script for HDI data. There is a 
-commented out write.csv statement if source data is updated and you want to get local
-clean copies of the new source data
+The below codechunk sources the wikipedia scraping script for HDI data. This script will pick up and save any changes in the wikipedia tables. See the script for details of how the data is scraped.
 
 ```r
 source("data/hdi-wiki-scrape.R")
 ```
 
 
-The below codechunk merges the two datasets and saves a copy to the /data directory.
-The saving step has been commented out, remove the # sign if data is updated and a new
-copy of the clean and merged data is required.
+The below codechunk merges the two datasets and saves a copy to the /data directory. See script for details of how data sets are merged.
 
 ```r
 source("data/merging-hdi-and-procrastination.R")
@@ -76,27 +69,27 @@ source("data/merging-hdi-and-procrastination.R")
 # Preliminary Analysis
 ***
 
-Below we source our preliminary analysis script.
+Below we source our preliminary analysis script. See script for details of how data is summarized for the following tables and histograms.
 
 ```r
 source("analysis/q4-analysis.R")
 ```
 
-#### Summary Statistics
+### Summary Statistics
 
 
 ```r
 # Print display friendly table of summary statistics for key variables
 kable(summary_list, 
-             col.names = c("Variable", "Min Value", "1st Quartile",
-                           "Median", "Mean", "3rd Quartile", 
-                           "Max Value", "Missing Count"), 
-             digits = 2, 
-             format = "html",
-             format.args = list(scientific = FALSE)) %>%
+      col.names = c("Variable", "Min Value", "1st Quartile",
+                    "Median", "Mean", "3rd Quartile", 
+                    "Max Value", "Missing Count"), 
+      digits = 2, 
+      format = "html",
+      format.args = list(scientific = FALSE)) %>%
   kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
+                full_width=F, 
+                position="left")
 ```
 
 <table class="table table-striped table-condensed" style="width: auto !important; ">
@@ -184,7 +177,42 @@ kable(summary_list,
 </tbody>
 </table>
 
-### Frequency Tables
+### Select Histograms
+
+
+```r
+library(ggplot2)
+ggplot(data = na.omit(all_data), aes(x = Age)) +
+  geom_histogram(bins = 10, fill = "powderblue") +
+  xlab("Participant Age") +
+  ylab("Count") +
+  ggtitle("Distribution of Participant's Age") +
+  theme(
+    plot.title = element_text(hjust = .5)
+  )
+```
+
+<img src="write-up_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+
+The above distribution indicates our participant's age skews a bit to the right. The majority of our participants are in the 20-40 range although we have participants in age as high as 80.
+
+
+```r
+ggplot(data = na.omit(all_data), aes(x = DPMean)) +
+  geom_histogram(bins = 20, fill = "powderblue") +
+  xlab("Mean Decisional Procrastination Score") +
+  ylab("Count") +
+  ggtitle("Distribution of Participant's Mean Decisional Procrastination") +
+  theme(
+    plot.title = element_text(hjust = .5)
+  )
+```
+
+<img src="write-up_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+
+The above distribution of mean decisional procrastination is roughly symetric around 3. The data aren't very normal, the decrease in count as you get further from the center is too slow to be normal.
+
+### Key Variables Frequency Tables
 
 ##### Gender
 
@@ -2769,6 +2797,8 @@ kable(matching_perception, format = "html") %>%
   </tr>
 </tbody>
 </table>
+
+Per the above frequency table, 482/4026 don't view themselves as procrastinators AND believe other's don't view them as such either. Conversely, 2358 participants said they self-identify as procrastinators AND believe other's view them the same.
 
 # Deep Dive
 ***
