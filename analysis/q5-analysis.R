@@ -54,11 +54,31 @@ knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
                             position="left")
 
 # Is there a relationship between age and income?
-logincome <- log(all_data$AnnualIncome)
-logage <- log(all_data$Age)
 
-ggplot(data = all_data, aes(x=logincome, y=logage, color = Gender))+
+ggplot(data = all_data, aes(x=AnnualIncome, y=Age, color = Gender))+
   geom_point(size=2)+
-  xlab("Log of Annual Income")+ylab("Log of Age")+
- #geom_abline(intercept=-1.4002, slope = 0.2056)+
+  xlab("Annual Income in USD")+ylab("Age In Years")+
   ggtitle("Examining Relationship Between Age and Income")
+
+paste("There is no apparent relationship between Age and Income.")
+
+# Is there a relationship between life satisfaction (SWLS) and HDI?
+
+ggplot(data = all_data, aes(x=HDI, y=SWLSMean, color = Gender))+
+  geom_point(size=2)+
+  xlab("Human Development Index")+ylab("Mean Satisfaction With Life Score")+
+  ggtitle("Examining Relationship Between HDI and Satisfaction With Life")
+
+# Sure does not look to be a linear relationship at all.
+
+cor_results <- cor.test(all_data$HDI,all_data$SWLSMean)
+
+paste("With an estimated R-squared of ",round(cor_results$estimate,2),", we confirm that no linear relationship exists between human development index and mean satisfaction-with-life score.",sep="")
+
+# Examining relationship between SWLS and HDI category via barplot
+
+ggplot(all_data,aes(x=hdi_group,y=SWLSMean,fill=hdi_group))+
+  geom_bar(aes(reorder(SWLSMean,hdi_group)), stat="identity")+
+  ggtitle("Satisfaction With Life Score by Human Development Index Category")+
+  xlab("Mean Satisfaction With Life Score")+ylab("Number of People")+
+  scale_fill_brewer(palette="Dark2")
