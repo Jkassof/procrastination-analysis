@@ -3,6 +3,7 @@ library(dplyr)
 library(knitr)
 library(kableExtra)
 library(highcharter)
+library(ggiraph)
 
 # reading in data
 
@@ -18,7 +19,10 @@ top15_aip <- all_data %>%
   top_n(15) %>%
   arrange(order(desc(CntryMeanAIP)))
 
-top15_aip_hdi <- merge(top15_aip,hdi_table,by="CntryOfRes")
+top15_aip_hdi <- top15_aip %>%
+  select(CntryOfRes,CntryMeanAIP) %>%
+  inner_join(hdi_table) %>%
+  select(-HDI)
 
 ggplot(top15_aip_hdi,aes(x=CntryOfRes, y=CntryMeanAIP,fill=hdi_group))+
   geom_bar(aes(reorder(CntryOfRes,CntryMeanAIP)), stat="identity")+
@@ -35,7 +39,10 @@ top15_gp <- all_data %>%
   top_n(15) %>%
   arrange(order(desc(CntryMeanGP)))
 
-top15_gp_hdi <- merge(top15_gp,hdi_table,by="CntryOfRes")
+top15_gp_hdi <- top15_gp %>%
+  select(CntryOfRes,CntryMeanGP) %>%
+  inner_join(hdi_table) %>%
+  select(-HDI)
 
 ggplot(top15_gp_hdi,aes(x=CntryOfRes, y=CntryMeanGP,fill=hdi_group))+
   geom_bar(aes(reorder(CntryOfRes,CntryMeanGP)), stat="identity")+
@@ -44,14 +51,28 @@ ggplot(top15_gp_hdi,aes(x=CntryOfRes, y=CntryMeanGP,fill=hdi_group))+
   scale_fill_brewer(palette="Accent")+
   coord_flip()
 
-# just dropping this in as a starting point for later - the baby woke up
-hchart(top15_gp_hdi, "column", hcaes(x = CntryOfRes, y = CntryMeanGP, group = hdi_group))
-
 # which countries are in the top 15 across both tests
-top_procrastinators <- top15_aip %>%
-  inner_join(top15_gp) %>%
-  arrange(order(CntryOfRes))
+top_procrastinators <- top15_aip_hdi %>%
+  select(CntryOfRes,CntryMeanAIP,hdi_group) %>%
+  inner_join(top15_gp_hdi) %>%
+  arrange(CntryOfRes)
 
+top_procrastinators.long <- melt(top_procrastinators)
+
+top_procrastinators.long <- top_procrastinators.long %>% arrange(order(desc(value)))
+
+# interactive plot with tooltips of national mean score
+tooltip <- 
+  ggplot(top_procrastinators.long,aes(x=CntryOfRes, y=value,fill=factor(variable),tooltip=value))+
+  geom_bar(aes(reorder(CntryOfRes,value)), stat="identity", position="dodge")+
+  ggtitle("Top 15 Most Procrastinating Nations (By Average Score)")+
+  xlab("Country")+ylab("Average Score")+
+  scale_fill_brewer(palette="Accent",name="Mean Scores",labels=c("AIP","GP"))+
+  coord_flip()+
+  geom_bar_interactive(stat="identity",position="dodge")
+ggiraph(code= print(tooltip),width=1)
+
+# table output
 knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
   kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
                             full_width=F, 
