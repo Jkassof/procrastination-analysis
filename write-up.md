@@ -9,23 +9,26 @@ output:
 ---
 
 
+
 # Introduction
 ***
 
-Some info about high-level project info and goals
+JWJK Analytics conducted the below analysis to explore and hopefully understand the relationship between procrastination and human development across the globe. This information was requested by the United Nations Development Programme to help provide insight into the factors that play into human development and life satisfaction across nations. Ideally, any insights gleaned from this analysis can help the UN implement programs for social benefit across under-served areas. 
 
 # Data Sources
 ***
 
 This analysis was conducted using two data sources. See below for details about each.
 
-### Procrastionation Data
+### Procrastination Survey Data
 
-Qualtrics data, very rough around the edges, various assumptions made. See codebook for details of all columns.
+'Procrastination.csv' are the raw results of a research study, tabulated by Qualtrics. The study asked participants a series of demographic questions, as well as asked questions related to procrastination. Participants were also measured on several procrastination scales. The data from Qualtrics required extensive cleansing and organizing. 'TidyProcrastination.csv' is a cleaned up, machine-readable version of the raw data.
 
 ### Human Development Index Data
 
-The Human Development Index (HDI) is a statistic created and distributed by the United Nations. It is a composite statistic derived using indicators for education, life expectancy, and income per capita. This score can be viewed as the potential for human development and prosperity in a given country. We access this data with an R script that scrapes the HDI Wikipedia page. 
+The Human Development Index (HDI) is a statistic created and distributed by the United Nations. It is a composite statistic derived using indicators for education, life expectancy, and income per capita. This score can be viewed as the potential for human development and prosperity in a given country. We access this data with an R script that scrapes the HDI Wikipedia page. See below image from Wikipedia for a high level understanding of how the HDI is calculated.
+
+<center><p><a href="https://en.wikipedia.org/wiki/File:HDI_explained_the_best_way.png#/media/File:HDI_explained_the_best_way.png"><img src="https://upload.wikimedia.org/wikipedia/en/2/2b/HDI_explained_the_best_way.png" alt="HDI explained the best way.png"></a><br><a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons Attribution 3.0">CC BY 3.0</a>, <a href="https://en.wikipedia.org/w/index.php?curid=55637565">Link</a></p></center>
 
 # Data Importing & Merging
 ***
@@ -35,7 +38,7 @@ The below code chunk sources the data cleaning script for our procrastination da
 ```r
 library(knitr)
 library(kableExtra)
-source("analysis/ProcrastinationData-ImportAndTidying.R")
+source("data/q2-clean-procras-raw.R")
 kable(procrastination_dims,"html",row.names=FALSE) %>%
   kable_styling(bootstrap_options = c("striped","condensed"), 
                 full_width=F, 
@@ -56,14 +59,14 @@ kable(procrastination_dims,"html",row.names=FALSE) %>%
 The below code chunk sources the Wikipedia scraping script for HDI data. This script will pick up and save any changes in the Wikipedia tables. See the script for details of how the data is scraped.
 
 ```r
-source("data/hdi-wiki-scrape.R")
+source("data/q3-hdi-wiki-scrape.R")
 ```
 
 
 The below code chunk merges the two data sets and saves a copy to the /data directory. See script for details of how data sets are merged.
 
 ```r
-source("data/merging-hdi-and-procrastination.R")
+source("data/q3-merging-hdi-and-procrastination.R")
 ```
 
 # Preliminary Analysis
@@ -109,7 +112,7 @@ kable(summary_list,
    <td style="text-align:right;"> 19.00 </td>
    <td style="text-align:right;"> 28.00 </td>
    <td style="text-align:right;"> 37.50 </td>
-   <td style="text-align:right;"> 38.37 </td>
+   <td style="text-align:right;"> 38.28 </td>
    <td style="text-align:right;"> 45.00 </td>
    <td style="text-align:right;"> 80.00 </td>
    <td style="text-align:right;"> NA </td>
@@ -119,10 +122,10 @@ kable(summary_list,
    <td style="text-align:right;"> 10000.00 </td>
    <td style="text-align:right;"> 15000.00 </td>
    <td style="text-align:right;"> 45000.00 </td>
-   <td style="text-align:right;"> 59668.56 </td>
-   <td style="text-align:right;"> 67500.00 </td>
+   <td style="text-align:right;"> 59879.87 </td>
+   <td style="text-align:right;"> 87500.00 </td>
    <td style="text-align:right;"> 250000.00 </td>
-   <td style="text-align:right;"> 348 </td>
+   <td style="text-align:right;"> 415 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> HDI </td>
@@ -132,7 +135,7 @@ kable(summary_list,
    <td style="text-align:right;"> 0.91 </td>
    <td style="text-align:right;"> 0.92 </td>
    <td style="text-align:right;"> 0.95 </td>
-   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 173 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> DPMean </td>
@@ -149,7 +152,7 @@ kable(summary_list,
    <td style="text-align:right;"> 1.00 </td>
    <td style="text-align:right;"> 2.40 </td>
    <td style="text-align:right;"> 2.93 </td>
-   <td style="text-align:right;"> 2.97 </td>
+   <td style="text-align:right;"> 2.96 </td>
    <td style="text-align:right;"> 3.53 </td>
    <td style="text-align:right;"> 5.00 </td>
    <td style="text-align:right;"> NA </td>
@@ -231,15 +234,15 @@ kable(gender_freqs, format = "html", col.names = c("Gender", "Participants")) %>
 <tbody>
 <tr>
 <td style="text-align:left;"> Female </td>
-   <td style="text-align:right;"> 2204 </td>
+   <td style="text-align:right;"> 2309 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Male </td>
-   <td style="text-align:right;"> 1654 </td>
+   <td style="text-align:right;"> 1721 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> NA </td>
-   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6 </td>
   </tr>
 </tbody>
 </table>
@@ -262,27 +265,27 @@ kable(workstatus_freqs, format = "html", col.names = c("Work Status", "Participa
 <tbody>
 <tr>
 <td style="text-align:left;"> full-time </td>
-   <td style="text-align:right;"> 2196 </td>
+   <td style="text-align:right;"> 2260 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> student </td>
-   <td style="text-align:right;"> 787 </td>
+   <td style="text-align:right;"> 837 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> part-time </td>
-   <td style="text-align:right;"> 453 </td>
+   <td style="text-align:right;"> 465 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> unemployed </td>
-   <td style="text-align:right;"> 240 </td>
+   <td style="text-align:right;"> 258 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> retired </td>
-   <td style="text-align:right;"> 163 </td>
+   <td style="text-align:right;"> 174 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> NA </td>
-   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 42 </td>
   </tr>
 </tbody>
 </table>
@@ -306,15 +309,15 @@ kable(head(occu_freqs, 10), format = "html", col.names = c("Occupation", "Partic
 <tbody>
 <tr>
 <td style="text-align:left;"> NA </td>
-   <td style="text-align:right;"> 2514 </td>
+   <td style="text-align:right;"> 2662 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Education </td>
-   <td style="text-align:right;"> 151 </td>
+   <td style="text-align:right;"> 155 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Software &amp; IT </td>
-   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 66 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Attorney </td>
@@ -326,15 +329,15 @@ kable(head(occu_freqs, 10), format = "html", col.names = c("Occupation", "Partic
   </tr>
 <tr>
 <td style="text-align:left;"> Healthcare </td>
-   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 36 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> engineer </td>
-   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 32 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> manager </td>
-   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 32 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Science </td>
@@ -342,7 +345,7 @@ kable(head(occu_freqs, 10), format = "html", col.names = c("Occupation", "Partic
   </tr>
 <tr>
 <td style="text-align:left;"> retired </td>
-   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 28 </td>
   </tr>
 </tbody>
 <tfoot>
@@ -382,6 +385,10 @@ kable(head(pcpts_per_country, 10), format = "html") %>%
    <td style="text-align:right;"> 177 </td>
   </tr>
 <tr>
+<td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> 160 </td>
+  </tr>
+<tr>
 <td style="text-align:left;"> Australia </td>
    <td style="text-align:right;"> 99 </td>
   </tr>
@@ -403,10 +410,6 @@ kable(head(pcpts_per_country, 10), format = "html") %>%
   </tr>
 <tr>
 <td style="text-align:left;"> Ireland </td>
-   <td style="text-align:right;"> 19 </td>
-  </tr>
-<tr>
-<td style="text-align:left;"> Israel </td>
    <td style="text-align:right;"> 19 </td>
   </tr>
 </tbody>
@@ -438,14 +441,14 @@ kable(matching_perception, format = "html") %>%
 <tr>
 <td style="text-align:left;"> No </td>
    <td style="text-align:left;"> No </td>
-   <td style="text-align:right;"> 460 </td>
-   <td style="text-align:right;"> 3863 </td>
+   <td style="text-align:right;"> 482 </td>
+   <td style="text-align:right;"> 4036 </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Yes </td>
    <td style="text-align:left;"> Yes </td>
-   <td style="text-align:right;"> 2264 </td>
-   <td style="text-align:right;"> 3863 </td>
+   <td style="text-align:right;"> 2358 </td>
+   <td style="text-align:right;"> 4036 </td>
   </tr>
 </tbody>
 </table>
@@ -492,24 +495,52 @@ ggplot(top15_gp_hdi,aes(x=CntryOfRes, y=CntryMeanGP,fill=hdi_group))+
 ### Linear Relationships Across Variables
 
 The below code chunk generates a scatter plot of Annual Income vs Age to infer whether a linear relationship exists.
+
 ##### Income versus Age
 
+
 ```r
-ggplot(data = all_data, aes(x=AnnualIncome, y=Age, color = Gender))+
-  geom_point(size=2)+
+ggplot(data = all_data, aes(x = Age, y = AnnualIncome)) +
+  geom_point(size = 2, na.rm = TRUE,  alpha = 0.5, aes(color = Gender)) +
+  geom_smooth(method = "lm", na.rm = TRUE) + 
   xlab("Annual Income in USD")+ylab("Age In Years")+
   ggtitle("Examining Relationship Between Age and Income")
 ```
 
 <img src="write-up_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
 
+```r
+knitr::kable(summary(inc_vs_age.mod)$coefficients, digits = 2) %>%
+    kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left") %>%
+  add_footnote("Linear Model of Annual Income vs Age")
+```
+
+               Estimate   Std. Error   t value   Pr(>|t|)
+------------  ---------  -----------  --------  ---------
+(Intercept)     1950.98      2592.53      0.75       0.45
+Age             1496.77        63.23     23.67       0.00
+
+__Note:__
+^a^ Linear Model of Annual Income vs Age
+
+The above plot and linear model results agree, there is a significant positive relationship between annual income and age. This isn't too surprising, older individuals tend to be more experienced and command higher incomes. That being said, the R~2~ of our linear model is quite low, indicating age alone doesn't provide a significant amount of information on someone's income. Given drastically different standards and customs from country to country, it is not surprising that individuals from different countries make very different amounts of money on average. 
+
 ##### Life Satisfaction versus Human Development Index
 
+The below code chunk generates a plot of Mean Life Satisfaction scores vs HDI for the country of residence of the participant.
+
 ```r
-ggplot(data = all_data, aes(x=HDI, y=SWLSMean, color = Gender))+
-  geom_point(size=2)+
-  xlab("Human Development Index")+ylab("Mean Satisfaction With Life Score")+
+ggplot(data = all_data, aes(x = HDI, y = SWLSMean, color = Gender)) +
+  geom_point(size = 2, na.rm = TRUE,  alpha = 0.5) +
+  xlab("Human Development Index") +
+  ylab("Mean Satisfaction With Life Score") +
   ggtitle("Examining Relationship Between HDI and Satisfaction With Life")
 ```
 
 <img src="write-up_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
+
+
+
+# References
