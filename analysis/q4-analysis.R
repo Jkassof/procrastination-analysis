@@ -31,11 +31,15 @@ occu_freqs <- filt_data %>%
   count(Occupation)  %>%
   arrange(desc(n))
 
+readr::write_csv(occu_freqs, path = "./data/occupation_counts.csv")
+
 # Part 4D: Get a frequency count by country of residence, this table will be
 # displayed in the report.
 pcpts_per_country <- filt_data %>%
   count(CntryOfRes)  %>%
   arrange(desc(n))
+
+readr::write_csv(pcpts_per_country, path = "./data/participants_by_country.csv")
 
 # Part 4E: Below we select out the two columns that represent self identifying
 # and others identifying the participant as a procrastinator. We filter for
