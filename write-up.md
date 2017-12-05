@@ -62,7 +62,6 @@ The below code chunk sources the Wikipedia scraping script for HDI data. This sc
 source("data/q3-hdi-wiki-scrape.R")
 ```
 
-
 The below code chunk merges the two data sets and saves a copy to the /data directory. See script for details of how data sets are merged.
 
 ```r
@@ -80,102 +79,132 @@ source("analysis/q4-analysis.R")
 
 ### Summary Statistics
 
+To begin understanding our data, we will take some standard summary statistics for a number of key variables.
+
 
 ```r
 # Print display friendly table of summary statistics for key variables
-kable(summary_list, 
-      col.names = c("Variable", "Min Value", "1st Quartile",
-                    "Median", "Mean", "3rd Quartile", 
-                    "Max Value", "Missing Count"), 
-      digits = 2, 
-      format = "html",
-      format.args = list(scientific = FALSE)) %>%
-  kable_styling(bootstrap_options = c("striped","condensed"), 
-                full_width=F, 
+kable(summary_list,
+      digits = 2,
+      format = "html") %>%
+  kable_styling(bootstrap_options = c("striped","condensed"),
+                full_width=F,
                 position="left")
 ```
 
 <table class="table table-striped table-condensed" style="width: auto !important; ">
 <thead><tr>
 <th style="text-align:left;"> Variable </th>
-   <th style="text-align:right;"> Min Value </th>
-   <th style="text-align:right;"> 1st Quartile </th>
-   <th style="text-align:right;"> Median </th>
-   <th style="text-align:right;"> Mean </th>
-   <th style="text-align:right;"> 3rd Quartile </th>
-   <th style="text-align:right;"> Max Value </th>
-   <th style="text-align:right;"> Missing Count </th>
+   <th style="text-align:left;"> Missing </th>
+   <th style="text-align:left;"> Complete </th>
+   <th style="text-align:left;"> Total </th>
+   <th style="text-align:left;"> Mean </th>
+   <th style="text-align:left;"> Standard Deviation </th>
+   <th style="text-align:left;"> Minimum </th>
+   <th style="text-align:left;"> 25th Percentile </th>
+   <th style="text-align:left;"> Median </th>
+   <th style="text-align:left;"> 75th Percentile </th>
+   <th style="text-align:left;"> Maximum </th>
+   <th style="text-align:left;"> Distribution </th>
   </tr></thead>
 <tbody>
 <tr>
 <td style="text-align:left;"> Age </td>
-   <td style="text-align:right;"> 19.00 </td>
-   <td style="text-align:right;"> 28.00 </td>
-   <td style="text-align:right;"> 37.50 </td>
-   <td style="text-align:right;"> 38.28 </td>
-   <td style="text-align:right;"> 45.00 </td>
-   <td style="text-align:right;"> 80.00 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-<tr>
-<td style="text-align:left;"> AnnualIncome </td>
-   <td style="text-align:right;"> 10000.00 </td>
-   <td style="text-align:right;"> 15000.00 </td>
-   <td style="text-align:right;"> 45000.00 </td>
-   <td style="text-align:right;"> 59879.87 </td>
-   <td style="text-align:right;"> 87500.00 </td>
-   <td style="text-align:right;"> 250000.00 </td>
-   <td style="text-align:right;"> 415 </td>
-  </tr>
-<tr>
-<td style="text-align:left;"> HDI </td>
-   <td style="text-align:right;"> 0.48 </td>
-   <td style="text-align:right;"> 0.92 </td>
-   <td style="text-align:right;"> 0.92 </td>
-   <td style="text-align:right;"> 0.91 </td>
-   <td style="text-align:right;"> 0.92 </td>
-   <td style="text-align:right;"> 0.95 </td>
-   <td style="text-align:right;"> 173 </td>
-  </tr>
-<tr>
-<td style="text-align:left;"> DPMean </td>
-   <td style="text-align:right;"> 1.00 </td>
-   <td style="text-align:right;"> 2.40 </td>
-   <td style="text-align:right;"> 3.00 </td>
-   <td style="text-align:right;"> 3.05 </td>
-   <td style="text-align:right;"> 3.80 </td>
-   <td style="text-align:right;"> 5.00 </td>
-   <td style="text-align:right;"> NA </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 38.28 </td>
+   <td style="text-align:left;"> 13.72 </td>
+   <td style="text-align:left;"> 19 </td>
+   <td style="text-align:left;"> 28 </td>
+   <td style="text-align:left;"> 37.5 </td>
+   <td style="text-align:left;"> 45 </td>
+   <td style="text-align:left;"> 80 </td>
+   <td style="text-align:left;"> ▇▇▃▆▅▁▂▁ </td>
   </tr>
 <tr>
 <td style="text-align:left;"> AIPMean </td>
-   <td style="text-align:right;"> 1.00 </td>
-   <td style="text-align:right;"> 2.40 </td>
-   <td style="text-align:right;"> 2.93 </td>
-   <td style="text-align:right;"> 2.96 </td>
-   <td style="text-align:right;"> 3.53 </td>
-   <td style="text-align:right;"> 5.00 </td>
-   <td style="text-align:right;"> NA </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 2.96 </td>
+   <td style="text-align:left;"> 0.8 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> 2.4 </td>
+   <td style="text-align:left;"> 2.93 </td>
+   <td style="text-align:left;"> 3.53 </td>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:left;"> ▁▃▆▇▆▆▃▁ </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> AnnualIncome </td>
+   <td style="text-align:left;"> 415 </td>
+   <td style="text-align:left;"> 3,621 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 59,879.87 </td>
+   <td style="text-align:left;"> 55,329.93 </td>
+   <td style="text-align:left;"> 10,000 </td>
+   <td style="text-align:left;"> 15,000 </td>
+   <td style="text-align:left;"> 45,000 </td>
+   <td style="text-align:left;"> 87,500 </td>
+   <td style="text-align:left;"> 250,000 </td>
+   <td style="text-align:left;"> ▇▅▂▁▂▁▁▁ </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> DPMean </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 3.05 </td>
+   <td style="text-align:left;"> 0.97 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> 2.4 </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> 3.8 </td>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:left;"> ▂▅▅▇▅▇▂▃ </td>
   </tr>
 <tr>
 <td style="text-align:left;"> GPMean </td>
-   <td style="text-align:right;"> 1.00 </td>
-   <td style="text-align:right;"> 2.80 </td>
-   <td style="text-align:right;"> 3.25 </td>
-   <td style="text-align:right;"> 3.24 </td>
-   <td style="text-align:right;"> 3.75 </td>
-   <td style="text-align:right;"> 5.00 </td>
-   <td style="text-align:right;"> NA </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 3.24 </td>
+   <td style="text-align:left;"> 0.69 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> 2.8 </td>
+   <td style="text-align:left;"> 3.25 </td>
+   <td style="text-align:left;"> 3.75 </td>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:left;"> ▁▁▃▆▇▇▃▁ </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> HDI </td>
+   <td style="text-align:left;"> 173 </td>
+   <td style="text-align:left;"> 3,863 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 0.91 </td>
+   <td style="text-align:left;"> 0.056 </td>
+   <td style="text-align:left;"> 0.48 </td>
+   <td style="text-align:left;"> 0.92 </td>
+   <td style="text-align:left;"> 0.92 </td>
+   <td style="text-align:left;"> 0.92 </td>
+   <td style="text-align:left;"> 0.95 </td>
+   <td style="text-align:left;"> ▁▁▁▁▁▁▁▇ </td>
   </tr>
 <tr>
 <td style="text-align:left;"> SWLSMean </td>
-   <td style="text-align:right;"> 1.00 </td>
-   <td style="text-align:right;"> 2.40 </td>
-   <td style="text-align:right;"> 3.00 </td>
-   <td style="text-align:right;"> 3.05 </td>
-   <td style="text-align:right;"> 3.80 </td>
-   <td style="text-align:right;"> 5.00 </td>
-   <td style="text-align:right;"> NA </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 4,036 </td>
+   <td style="text-align:left;"> 3.05 </td>
+   <td style="text-align:left;"> 0.97 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> 2.4 </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> 3.8 </td>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:left;"> ▃▃▃▇▅▇▂▂ </td>
   </tr>
 </tbody>
 </table>
@@ -540,7 +569,3 @@ ggplot(data = all_data, aes(x = HDI, y = SWLSMean, color = Gender)) +
 ```
 
 <img src="write-up_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
-
-
-
-# References

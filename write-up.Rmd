@@ -51,7 +51,6 @@ The below code chunk sources the Wikipedia scraping script for HDI data. This sc
 source("data/q3-hdi-wiki-scrape.R")
 ```
 
-
 The below code chunk merges the two data sets and saves a copy to the /data directory. See script for details of how data sets are merged.
 ```{r}
 source("data/q3-merging-hdi-and-procrastination.R")
@@ -67,21 +66,22 @@ source("analysis/q4-analysis.R")
 
 ### Summary Statistics
 
+To begin understanding our data, we will run some standard summary statistics for a number of key variables.
+
 ```{r}
 # Print display friendly table of summary statistics for key variables
-kable(summary_list, 
-      col.names = c("Variable", "Min Value", "1st Quartile",
-                    "Median", "Mean", "3rd Quartile", 
-                    "Max Value", "Missing Count"), 
-      digits = 2, 
-      format = "html",
-      format.args = list(scientific = FALSE)) %>%
-  kable_styling(bootstrap_options = c("striped","condensed"), 
-                full_width=F, 
+kable(summary_list,
+      digits = 2,
+      format = "html") %>%
+  kable_styling(bootstrap_options = c("striped","condensed"),
+                full_width=F,
                 position="left")
+
 ```
 
 ### Select Histograms
+
+Below are full sized histograms for a couple of select variables.
 
 ```{r}
 library(ggplot2)
@@ -95,7 +95,7 @@ ggplot(data = na.omit(all_data), aes(x = Age)) +
   )
 ```
 
-The above distribution indicates our participant's age skews a bit to the right. The majority of our participants are in the 20-40 range although we have participants in age as high as 80.
+The above distribution indicates our participant's age skews a bit to the right. The majority of our participants are in the 20-50 range although we have participants in age as high as 80.
 
 ```{r}
 ggplot(data = na.omit(all_data), aes(x = DPMean)) +
@@ -113,6 +113,8 @@ The above distribution of mean decisional procrastination is roughly symmetric a
 
 ### Key Variables Frequency Tables
 
+To continue getting acquainted with our data, lets look at frequency tables for a number of variables.
+
 ##### Gender
 ```{r}
 kable(gender_freqs, format = "html", col.names = c("Gender", "Participants")) %>%
@@ -120,6 +122,8 @@ kable(gender_freqs, format = "html", col.names = c("Gender", "Participants")) %>
                             full_width=F, 
                             position="left")
 ```
+
+Looks like our participants tilt female, with around 57% of respondents identifying as such.
 
 ##### Work Status
 
@@ -129,6 +133,8 @@ kable(workstatus_freqs, format = "html", col.names = c("Work Status", "Participa
                             full_width=F, 
                             position="left")
 ```
+
+The majority of our participants are full-time employed.
 
 ##### Occupation
 
@@ -140,6 +146,8 @@ kable(head(occu_freqs, 10), format = "html", col.names = c("Occupation", "Partic
   add_footnote(label = "See 'data/occupation_counts.csv' for full table", notation = 'symbol')
 ```
 
+It seems most participants did not provide an occupation, this may not be a good variable to look at too much.
+
 ##### Participants by Country
 
 ```{r}
@@ -150,6 +158,8 @@ kable(head(pcpts_per_country, 10), format = "html") %>%
   add_footnote(label = "See 'data/participants_by_country.csv' for full table", notation = 'symbol')
 ```
 
+Our results are heavily skewed towards United States based participants, something to keep in mind for any insights taken away. For the purposes of the UN, it is likely we need to conduct the procrastination survey more with international participants.
+
 ##### Internal vs External Perception
 
 ```{r}
@@ -159,7 +169,7 @@ kable(matching_perception, format = "html") %>%
                             position="left")
 ```
 
-Per the above frequency table, 482/4026 don't view themselves as procrastinators AND believe others' don't view them as such either. Conversely, 2358 participants said they self-identify as procrastinators AND believe others' view them the same.
+Per the above frequency table, 482/4026 don't view themselves as procrastinators AND believe others' don't view them as such either. Conversely, 2358 participants said they self-identify as procrastinators AND believe others' view them the same. It seems like *quite* a few people view themselves as procrastinators.
 
 # Deep Dive
 ***
@@ -224,7 +234,3 @@ ggplot(data = all_data, aes(x = HDI, y = SWLSMean, color = Gender)) +
   ylab("Mean Satisfaction With Life Score") +
   ggtitle("Examining Relationship Between HDI and Satisfaction With Life")
 ```
-
-
-
-# References
