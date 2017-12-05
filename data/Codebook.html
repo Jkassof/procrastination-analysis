@@ -246,6 +246,51 @@ div.tocify {
 </ul>
 </div>
 </div>
+<div id="all_data.csv" class="section level2">
+<h2><strong>all_data.csv</strong></h2>
+<p>A collection of demographic information and Procrastination survey responses, merged with human development index (HDI) information from the particpant’s country of residence.</p>
+<ul>
+<li>Type: Comma-separated value file</li>
+<li>Dimensions: 4036 observations X 67 variables</li>
+</ul>
+<p>Variable Information:</p>
+<ul>
+<li>CntryOfRes (character): The participant’s country of residence</li>
+<li>Age (numeric): The participant’s age</li>
+<li>Gender (character): The participant’s gender</li>
+<li>HasKids (numeric): A binary variable for whether or not the participant has children</li>
+<li>EduLvl (character): The participant’s education level (deg, dip, grade, high, lthigh, ltuni, ma, phd, or NA)</li>
+<li>WorkStatus (character): The participant’s employment status (full-time, part-time, retired, student, unemployed, or NA)</li>
+<li>AnnualIncome (numeric): The participant’s annual income in USD</li>
+<li>Occupation (character): The participant’s occupation</li>
+<li>YrsJobHeld (numeric): The length of time in years that the participant has held their current job</li>
+<li>MosJobHeld (numeric): The length of time in months that the participant has held their current job</li>
+<li>CommmunitySz (character): The size of the participant’s community (Large-City, Large-Town, Medium-Sized, Rural/Country, Small City, Small Town, Village, or NA)</li>
+<li>MaritalStat (character): The participant’s marital status (Divorced, Married, Separated, Single, Widowed, or NA)</li>
+<li>NumSons (numeric): The number of the participant’s sons</li>
+<li>NumDaughters (numeric) : The number of the participant’s daughters</li>
+<li>DP1 through DP5 (numeric): The Decisional Procrastination Scale (Mann, 1982)</li>
+<li>AIP1 through AIP15 (numeric): The Adult Inventory of Procrastination (McCown &amp; Johnson, 1989)</li>
+<li>GP1 through GP20 (numeric): The General Procrastination scale (Lay, 1986)</li>
+<li>SWLS1 through SWLS5 (numeric): The Satisfaction with Life Scale (Diener et al., 1985)</li>
+<li>SelfLabeled (numeric): A binary variable for whether or not the participant considers themselves to be a procrastinator</li>
+<li>OthersLabel (numeric): A binary variable for whether or not the participants thinks others consider themselves to be a procrastinator</li>
+<li>DPMean (numeric): The participant’s mean score across the Decisional Procrastination Scale</li>
+<li>AIPMean (numeric): The participant’s mean score across the Adult Inventory of Procrastination</li>
+<li>GPMean (numeric): The participant’s mean score across the General Procrastination scale</li>
+<li>SWLSMean (numeric): The participant’s mean score across the Satisfaction with Life Scale</li>
+<li>HDI (numeric): HDI (numeric): The Human Development Index score (during the creation of this report the values are estimated in 2016 for the year 2015)</li>
+<li>hdi_group (character) : This variable uses standardized ranges to categorize a country’s HDI in to groups of low, middle, high, or very-high. See the <code>data/hdi-wiki-scrape.R</code> file for the range of HDI values each group represents.</li>
+</ul>
+</div>
+<div id="hdi_table.csv" class="section level2">
+<h2>hdi_table.csv</h2>
+<ul>
+<li>CntryOfRes (character): Country the HDI score is for</li>
+<li>HDI (numeric): The Human Development Index score (during the creation of this report the values are estimated in 2016 for the year 2015)</li>
+<li>hdi_group (character): This variable uses standardized ranges to categorize a country’s HDI in to groups of low, middle, high, or very-high. See the <code>data/hdi-wiki-scrape.R</code> file for the range of HDI values each group represents.</li>
+</ul>
+</div>
 </div>
 
 
