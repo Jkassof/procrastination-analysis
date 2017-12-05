@@ -124,7 +124,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3",
+      selectors: "h1,h2,h3,h4",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
@@ -229,8 +229,8 @@ div.tocify {
 <div id="data-files" class="section level4">
 <h4>Data files</h4>
 <ul>
-<li>all_data.csv - a data frame containing merged demographic data, procrastination data, and human development index (HDI) data.</li>
-<li>hdi_table.csv - a data frame containing the scraped HDI data.</li>
+<li>all_data.csv - a data frame containing merged demographic data, procrastination data, and human development index (HDI) data, filtered to only include participants 18 years of age or older</li>
+<li>hdi_table.csv - a data frame containing the scraped HDI data</li>
 <li>occupation_counts.csv - a data frame containing the counts of occupations per survey participants</li>
 <li>participants_by_country.csv - a data frame containing the counts of participants per country</li>
 <li>Procrastination.csv - the raw procrastination data obtained from Qualtrics</li>
@@ -241,7 +241,7 @@ div.tocify {
 <h4>Scripts</h4>
 <ul>
 <li>q2-clean-procras-raw.R - an R script for ingesting the raw demographic and procrastination data (Procrastination.csv), tidying the data, and outputting the tidy data file (TidyProcrastination.csv)</li>
-<li>q3-hdi-wiki-scrape.R - an R script for scraping the HDI data from Wikipedia.</li>
+<li>q3-hdi-wiki-scrape.R - an R script for scraping the HDI data from Wikipedia</li>
 <li>q3-merging-hdi-and-procrastination.R - an R script for merging the demographic and procrastination data (TidyProcrastination.csv) with the scraped HDI data (hdi_table.csv) and outputting the merged file (all_data.csv)</li>
 </ul>
 </div>
@@ -317,26 +317,25 @@ div.tocify {
 <p>GP1 through GP20 (numeric): The General Procrastination scale (Lay, 1986). Answer values have been recoded from the original likert scale - (Extremely uncharacteristic; moderately uncharacteristic; neutral; moderately characteristic; extremely characteristic) - to numeric (1-5)</p>
 <ul>
 <li>GP1: I often find myself performing tasks that I had intended to do days before</li>
-<li>GP2*: I do not do assignments until just before they are to be handed in</li>
-<li>GP3*: When I am finished with a library book, I return it right away regardless of the date it is due</li>
+<li>GP2: I often miss concerts, sporting events, or the like because I don’t get around to buying tickets on time</li>
+<li>GP3: When planning a party, I make the necessary arrangements well in advance</li>
 <li>GP4: When it is time to get up in the morning, I most often get right out of bed</li>
 <li>GP5: A letter may sit for days after I write it before mailing it</li>
 <li>GP6: I generally return phone calls promptly</li>
 <li>GP7: Even with jobs that require little else except sitting down and doing them, I find they seldom get done for days</li>
 <li>GP8: I usually make decisions as soon as possible</li>
 <li>GP9: I generally delay before starting on work I have to do</li>
-<li>GP10*: I usually have to rush to complete a task on time</li>
+<li>GP10: When traveling, I usually have to rush in preparing to arrive at the airport or station at the appropriate time</li>
 <li>GP11: When preparing to go out, I am seldom caught having to do something at the last minute</li>
 <li>GP12: In preparing for some deadline, I often waste time by doing other things</li>
-<li>GP13*: I prefer to leave early for an appointment</li>
-<li>GP14*: I usually start an assignment shortly after it is assigned</li>
+<li>GP13: If a bill for a small amount comes, I pay it right away</li>
+<li>GP14: I usually return a “RSVP” request very shortly after receiving it</li>
 <li>GP15: I often have a task finished sooner than necessary</li>
 <li>GP16: I always seem to end up shopping for birthday or Christmas gifts at the last minute</li>
 <li>GP17: I usually buy even an essential item at the last minute</li>
 <li>GP18: I usually accomplish all the things I plan to do in a day</li>
 <li>GP19: I am continually saying “I’ll do it tomorrow.”</li>
-<li><p>GP20: I usually take care of all the tasks I have to do before I settle down and relax for the evening</p>
-<p>*- Items differ from student to non-student forms</p></li>
+<li>GP20: I usually take care of all the tasks I have to do before I settle down and relax for the evening</li>
 </ul>
 </div>
 <div id="satisfaction-with-life-scale" class="section level4">
@@ -558,7 +557,7 @@ Extremely dissatisfied
 <p>This data set contains the countries of residence identified by the survey participants and the number of participants who reside therein.</p>
 <ul>
 <li>Type: Comma-separated value file</li>
-<li>Dimensions: 91 observations x 2 variables</li>
+<li>Dimensions: 5 observations x 2 variables</li>
 </ul>
 <p>Variable Information:</p>
 <ul>
@@ -568,7 +567,231 @@ Extremely dissatisfied
 </div>
 <div id="procrastination.csv" class="section level2">
 <h2><strong>Procrastination.csv</strong></h2>
-<p>Procrastination.csv are the raw results of a research study, tabulated by Qualtrics.</p>
+<p>Procrastination.csv are the raw demographic and procrastination data. Detailed information regarding each of the procrastination instruments have been omitted in this section, as it is present above. Please see the appropriate section in <strong>all_data</strong>.</p>
+<ul>
+<li>Type: Comma-separated value file</li>
+<li>Dimensions: 4264 observations X 61 variables</li>
+</ul>
+<div id="variable-information-1" class="section level3">
+<h3>Variable Information:</h3>
+<div id="demographic-information-1" class="section level4">
+<h4>Demographic Information</h4>
+<ul>
+<li>Age (numeric): The participant’s age</li>
+<li>Gender (character): The gender the participant identifies as (Male or Female)</li>
+<li>Kids (character): A binary variable for whether or not the participant has children (‘Yes Kids’ or ‘No Kids’)</li>
+<li>Edu (character): The participant’s education level (deg, dip, grade, high, lthigh, ltuni, ma, phd, or NA)</li>
+<li>Work Status (character): The participant’s employment status (full-time, part-time, retired, student, unemployed, or NA)</li>
+<li>Annual Income (numeric): The participant’s annual income in USD</li>
+<li>Current Occupation (character): The participant’s occupation</li>
+<li>How long have you held this position?: Years (numeric): The length of time in years that the participant has held their current job</li>
+<li>How long have you held this position?: Months (numeric): The length of time in months that the participant has held their current job</li>
+<li>Commmunity size (character): The size of the participant’s community (Large-City, Large-Town, Medium-Sized, Rural/Country, Small City, Small Town, Village, or NA)</li>
+<li>Country of residence (character): The participant’s country of residence</li>
+<li>Marital Status (character): The participant’s marital status (Divorced, Married, Separated, Single, Widowed, or NA)</li>
+<li>Number of sons (numeric): The number of the participant’s sons</li>
+<li>Number of daughters (numeric) : The number of the participant’s daughters</li>
+</ul>
+</div>
+</div>
+<div id="procrastination-variables-instruments-summary-statistics-and-identification-questions-1" class="section level3">
+<h3>Procrastination Variables (Instruments, Summary Statistics, and Identification Questions)</h3>
+<div id="decisional-procrastination-scale-1" class="section level4">
+<h4>Decisional Procrastination Scale</h4>
+<p>DP1 through DP5 (numeric): The Decisional Procrastination Scale (Mann, 1982). Answer values have been recoded from the original likert scale - (Not true for me; Often untrue for me; Sometimes true/false for me; Often true for me; True for me) - to numeric (1-5).</p>
+<ul>
+<li>(DP 1) I waste a lot of time on trivial matters before getting to the final decisions</li>
+<li>(DP 2) Even after I make a decision I delay acting upon it</li>
+<li>(DP 3) I don’t make decisions unless I really have to</li>
+<li>(DP 4) I delay making decisions until it’s too late</li>
+<li>(DP 5) I put off making decisions until it’s too late</li>
+</ul>
+</div>
+<div id="adult-inventory-of-procrastination-1" class="section level4">
+<h4>Adult Inventory of Procrastination</h4>
+<p>AIP1 through AIP15 (numeric): The Adult Inventory of Procrastination (McCown &amp; Johnson, 1989). Answer values have been recoded from the original likert scale - (Strongly disagree; disagree; sometimes disagree/sometimes agree; agree; strongly agree) - to numeric (1-5).</p>
+<ul>
+<li>(AIP 1)I pay my bills on time</li>
+<li>(AIP 2)I am prompt and on time for most appointments</li>
+<li>(AIP 3)I lay out my clothes the night before I have an appointment so I won’t be late</li>
+<li>(AIP 4)I find myself running later than I would like to be</li>
+<li>(AIP 5)I don’t get things done on time</li>
+<li>(AIP 6)If someone were teaching a course on how to get things done on time I would attend</li>
+<li>(AIP 7)My friends and family think I wait until the last minute</li>
+<li>(AIP 8)I get important things done with time to spare</li>
+<li>(AIP 9)I am not very good at meeting deadlines</li>
+<li>(AIP 10)I find myself running out of time</li>
+<li>(AIP 11)I schedule doctor’s appointments when I am supposed to without delay</li>
+<li>(AIP 12)I am more punctual than most people I know</li>
+<li>(AIP 13)I do routine maintenance (e.g., changing the car’s oil) on things I own as often as I should</li>
+<li>(AIP 14)When I have to be somewhere at a certain time my friends expect me to run a bit late</li>
+<li>(AIP 15)Putting things off until the last minute has cost me money in the past year</li>
+</ul>
+</div>
+<div id="general-procrastination-scale-1" class="section level4">
+<h4>General Procrastination scale</h4>
+<p>GP1 through GP20 (numeric): The General Procrastination scale (Lay, 1986). Answer values have been recoded from the original likert scale - (Extremely uncharacteristic; moderately uncharacteristic; neutral; moderately characteristic; extremely characteristic) - to numeric (1-5)</p>
+<ul>
+<li>(GP 1)I often find myself performing tasks that I had intended to do days before</li>
+<li>(GP 2) I often miss concerts, sporting events, or the like because I don’t get around to buying tickets on time</li>
+<li>(GP 3) When planning a party, I make the necessary arrangements well in advance</li>
+<li>(GP 4) When it is time to get up in the morning, I most often get right out of bed</li>
+<li>(GP 5) A letter may sit for days after I write it before mailing it possible</li>
+<li>(GP 6) I generally return phone calls promptly</li>
+<li>(GP 7) Even jobs that require little else except sitting down and doing them, I find that they seldom get done for days</li>
+<li>(GP 8) I usually make decisions as soon as possible</li>
+<li>(GP 9) I generally delay before starting on work I have to do</li>
+<li>(GP 10) When traveling, I usually have to rush in preparing to arrive at the airport or station at the appropriate time</li>
+<li>(GP 11) When preparing to go out, I am seldom caught having to do something at the last minute</li>
+<li>(GP 12) In preparation for some deadlines, I often waste time by doing other things</li>
+<li>(GP 13) If a bill for a small amount comes, I pay it right away</li>
+<li>(GP 14) I usually return a “RSVP” request very shortly after receiving it</li>
+<li>(GP 15) I often have a task finished sooner than necessary</li>
+<li>(GP 16) I always seem to end up shopping for birthday gifts at the last minute</li>
+<li>(GP 17) I usually buy even an essential item at the last minute</li>
+<li>(GP 18) I usually accomplish all the things I plan to do in a day</li>
+<li>(GP 19) I am continually saying “I’ll do it tomorrow”</li>
+<li>(GP 20) I usually take care of all the tasks I have to do before I settle down and relax for the evening</li>
+</ul>
+</div>
+<div id="satisfaction-with-life-scale-1" class="section level4">
+<h4>Satisfaction with Life Scale</h4>
+<p>SWLS1 through SWLS5 (numeric): The Satisfaction with Life Scale (Diener et al., 1985). Answer values have been recoded from the original 7-point likert scale to numeric (1-5).</p>
+<ul>
+<li>(SWLS 1) In most ways my life is close to my ideal</li>
+<li>(SWLS 2)The conditions of my life are excellent</li>
+<li>(SWLS 3) I am satisfied with my life.</li>
+<li>(SWLS 4) So far I have gotten the important things I want in life</li>
+<li>(SWLS 5) If I could live my life over, I would change almost nothing</li>
+</ul>
+</div>
+</div>
+<div id="identification-questions-1" class="section level3">
+<h3>Identification Questions</h3>
+<ul>
+<li>Do you consider yourself a procrastinator? (character): A binary variable for whether or not the participant considers themselves to be a procrastinator (yes or no)</li>
+<li>Do others consider you a procrastinator? (character): A binary variable for whether or not the participants thinks others consider themselves to be a procrastinator (yes or no)</li>
+</ul>
+</div>
+</div>
+<div id="tidyprocrastination.csv" class="section level2">
+<h2>TidyProcrastination.csv</h2>
+<p>A tidied version of Procrastination.csv, as outputted from <em>q2-clean-procras-raw.R</em>. Information regarding each of the procrastination instruments have been abbreviated in this section, as it is present above.</p>
+<ul>
+<li>Type: Comma-separated value file</li>
+<li>Dimensions: 4264 observations X 65 variables</li>
+</ul>
+<div id="variable-information-2" class="section level3">
+<h3>Variable Information:</h3>
+<div id="demographic-information-2" class="section level4">
+<h4>Demographic Information</h4>
+<ul>
+<li>CntryOfRes (character): The participant’s country of residence</li>
+<li>Age (numeric): The participant’s age</li>
+<li>Gender (character): The gender the participant identifies as (Male or Female)</li>
+<li>HasKids (numeric): A binary variable for whether or not the participant has children</li>
+<li>EduLvl (character): The participant’s education level (deg, dip, grade, high, lthigh, ltuni, ma, phd, or NA)</li>
+<li>WorkStatus (character): The participant’s employment status (full-time, part-time, retired, student, unemployed, or NA)</li>
+<li>AnnualIncome (numeric): The participant’s annual income in USD</li>
+<li>Occupation (character): The participant’s occupation</li>
+<li>YrsJobHeld (numeric): The length of time in years that the participant has held their current job</li>
+<li>MosJobHeld (numeric): The length of time in months that the participant has held their current job</li>
+<li>CommmunitySz (character): The size of the participant’s community (Large-City, Large-Town, Medium-Sized, Rural/Country, Small City, Small Town, Village, or NA)</li>
+<li>MaritalStat (character): The participant’s marital status (Divorced, Married, Separated, Single, Widowed, or NA)</li>
+<li>NumSons (numeric): The number of the participant’s sons</li>
+<li>NumDaughters (numeric) : The number of the participant’s daughters</li>
+</ul>
+</div>
+</div>
+<div id="procrastination-variables-instruments-summary-statistics-and-identification-questions-2" class="section level3">
+<h3>Procrastination Variables (Instruments, Summary Statistics, and Identification Questions)</h3>
+<div id="decisional-procrastination-scale-2" class="section level4">
+<h4>Decisional Procrastination Scale</h4>
+<p>DP1 through DP5 (numeric): The Decisional Procrastination Scale (Mann, 1982). Answer values have been recoded from the original likert scale - (Not true for me; Often untrue for me; Sometimes true/false for me; Often true for me; True for me) - to numeric (1-5).</p>
+<ul>
+<li>DP1: I waste a lot of time on trivial matters before getting to the final decision</li>
+<li>DP2: Even after I make a decision I delay acting on it</li>
+<li>DP3: I don’t make decisions unless I really have to</li>
+<li>DP4: I delay making decisions until it’s too late</li>
+<li>DP5: I put off making decisions</li>
+</ul>
+</div>
+<div id="adult-inventory-of-procrastination-2" class="section level4">
+<h4>Adult Inventory of Procrastination</h4>
+<p>AIP1 through AIP15 (numeric): The Adult Inventory of Procrastination (McCown &amp; Johnson, 1989). Answer values have been recoded from the original likert scale - (Strongly disagree; disagree; sometimes disagree/sometimes agree; agree; strongly agree) - to numeric (1-5).</p>
+<ul>
+<li>AIP1*: I pay my bills on time</li>
+<li>AIP2*: I am prompt and on time for most appointments</li>
+<li>AIP3*: I lay out my clothes the night before I have an appointment so I won’t be late</li>
+<li>AIP4: I find myself running later than I would like to be</li>
+<li>AIP5: I don’t get things done on time</li>
+<li>AIP6: If someone were teaching a course on how to get things done on time I would attend</li>
+<li>AIP7: My friends and family think I wait until the last minute</li>
+<li>AIP8*: I get important things done with time to spare</li>
+<li>AIP9: I am not very good at meeting deadlines</li>
+<li>AIP10: I find myself running out of time</li>
+<li>AIP11*: I schedule doctor’s appointments when I am supposed to without delay</li>
+<li>AIP12*: I am more punctual than most people I know</li>
+<li>AIP13*: I do routine maintenance (e.g., changing the car’s oil) on things I own as often as I should</li>
+<li>AIP14: When I have to be somewhere at a certain time my friends expect me to run a bit late</li>
+<li><p>AIP15: Putting things off until the last minute has cost me money in the past year</p>
+<p>*- Items are reverse-scored</p></li>
+</ul>
+</div>
+<div id="general-procrastination-scale-2" class="section level4">
+<h4>General Procrastination scale</h4>
+<p>GP1 through GP20 (numeric): The General Procrastination scale (Lay, 1986). Answer values have been recoded from the original likert scale - (Extremely uncharacteristic; moderately uncharacteristic; neutral; moderately characteristic; extremely characteristic) - to numeric (1-5)</p>
+<ul>
+<li>GP1: I often find myself performing tasks that I had intended to do days before</li>
+<li>GP2: I often miss concerts, sporting events, or the like because I don’t get around to buying tickets on time</li>
+<li>GP3: When planning a party, I make the necessary arrangements well in advance</li>
+<li>GP4: When it is time to get up in the morning, I most often get right out of bed</li>
+<li>GP5: A letter may sit for days after I write it before mailing it</li>
+<li>GP6: I generally return phone calls promptly</li>
+<li>GP7: Even with jobs that require little else except sitting down and doing them, I find they seldom get done for days</li>
+<li>GP8: I usually make decisions as soon as possible</li>
+<li>GP9: I generally delay before starting on work I have to do</li>
+<li>GP10: When traveling, I usually have to rush in preparing to arrive at the airport or station at the appropriate time</li>
+<li>GP11: When preparing to go out, I am seldom caught having to do something at the last minute</li>
+<li>GP12: In preparing for some deadline, I often waste time by doing other things</li>
+<li>GP13: If a bill for a small amount comes, I pay it right away</li>
+<li>GP14: I usually return a “RSVP” request very shortly after receiving it</li>
+<li>GP15: I often have a task finished sooner than necessary</li>
+<li>GP16: I always seem to end up shopping for birthday or Christmas gifts at the last minute</li>
+<li>GP17: I usually buy even an essential item at the last minute</li>
+<li>GP18: I usually accomplish all the things I plan to do in a day</li>
+<li>GP19: I am continually saying “I’ll do it tomorrow.”</li>
+<li>GP20: I usually take care of all the tasks I have to do before I settle down and relax for the evening</li>
+</ul>
+</div>
+<div id="satisfaction-with-life-scale-2" class="section level4">
+<h4>Satisfaction with Life Scale</h4>
+<p>SWLS1 through SWLS5 (numeric): The Satisfaction with Life Scale (Diener et al., 1985). Answer values have been recoded from the original 7-point likert scale to numeric (1-5).</p>
+<ul>
+<li>SWLS1: In most ways my life is close to my ideal</li>
+<li>SWLS2: The conditions of my life are excellent</li>
+<li>SWLS3: I am satisfied with my life</li>
+<li>SWLS4: So far I have gotten the important things I want in life</li>
+<li>SWLS5: If I could live my life over, I would change almost nothing</li>
+</ul>
+</div>
+</div>
+<div id="summary-statistics-1" class="section level3">
+<h3>Summary Statistics</h3>
+<ul>
+<li>DPMean (numeric): The participant’s mean score across the Decisional Procrastination Scale</li>
+<li>AIPMean (numeric): The participant’s mean score across the Adult Inventory of Procrastination</li>
+<li>GPMean (numeric): The participant’s mean score across the General Procrastination scale</li>
+<li>SWLSMean (numeric): The participant’s mean score across the Satisfaction with Life Scale</li>
+</ul>
+</div>
+<div id="identification-questions-2" class="section level3">
+<h3>Identification Questions</h3>
+<ul>
+<li>SelfLabeled (numeric): A binary variable for whether or not the participant considers themselves to be a procrastinator</li>
+<li>OthersLabel (numeric): A binary variable for whether or not the participants thinks others consider themselves to be a procrastinator</li>
+</ul>
+</div>
 </div>
 <div id="scripts-1" class="section level2">
 <h2>Scripts</h2>
@@ -580,6 +803,7 @@ Extremely dissatisfied
 <p>Ferrari, J., Johnson, J. &amp; McCown, W. (1995). <em>Procrastination and task avoidance : theory, research, and treatment.</em> New York: Plenum Press.</p>
 <p>Kobau, R., Sniezek, J., Zack, M. M., Lucas, R. E., &amp; Burns, A. (2010). Well‐being assessment: An evaluation of well‐being scales for public health and population estimates of well‐being among US adults. Applied Psychology: Health and Well-being, 2(3), 272-297.</p>
 <p>Lay, C. (1986). <em>At last, my research article on procrastination.</em> Journal of Research in Personality, 20, 474-495.</p>
+<p>Zeisler, L (2011). <em>Association Between Stress and Decisional Procrastination in Parents of Children With Down Syndrome During Their Developmental Transitions.</em> Seton Hall University Dissertations and Theses (ETDs). 1361.</p>
 </div>
 </div>
 
