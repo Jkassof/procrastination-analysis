@@ -1,11 +1,13 @@
-# Importing tidy data and hdi_table
+# Import tidy data and hdi_table
 final_procras <- read_csv("./data/TidyProcrastination.csv")
 hdi_table <- read_csv("./data/hdi_table.csv")
 
-# Merging Data
-
+# Merge two data sets by Country, keep all records from the procrastination data 
 all_data <- merge(x=final_procras,y=hdi_table, by="CntryOfRes", all.x = TRUE)
 
+# Filter for only of-age (18+) participants as this study is not cleared for
+# using data from minors
 filt_data <- filter(all_data, Age >= 18)
 
+# Save filtered final data to /data directory for reference
 write_csv(filt_data,"./data/all_data.csv")

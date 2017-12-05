@@ -13,9 +13,22 @@ summary_cols <- c("Age", "AnnualIncome", "HDI", "DPMean", "AIPMean", "GPMean", "
 # displayed in the report
 summary_list <- filt_data %>%
   select(summary_cols) %>%
-  map(summary) %>%
-  map_dfr(broom::tidy) %>%
-  tibble::add_column(summary_cols, .before = 1)
+  skimr::skim() %>%
+  select(-type, -level, -value) %>%
+  tidyr::spread(stat, formatted) %>%
+  select(Variable = var,
+         Missing = missing,
+         Complete = complete,
+         Total = n,
+         Mean = mean,
+         `Standard Deviation` = sd,
+         Minimum = min,
+         `25th Percentile` = p25,
+         Median = median,
+         `75th Percentile` = p75,
+         Maximum = max,
+         Distribution = hist) %>%
+  map_dfr(prettyNum, big.mark = ",")
 
 # Part 4C: Get frequency counts of a few interesting variables. These tables
 # will be displayed in the report
