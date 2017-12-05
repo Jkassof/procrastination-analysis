@@ -44,7 +44,7 @@ Variable Information:
 
 * CntryOfRes (character): The participant's country of residence
 * Age (numeric): The participant's age 
-* Gender (character): The participant's gender
+* Gender (character): The gender the participant identifies as (Male or Female)
 * HasKids (numeric): A binary variable for whether or not the participant has children
 * EduLvl (character): The participant's education level (deg, dip, grade, high, lthigh, ltuni, ma, phd, or NA)
 * WorkStatus (character): The participant's employment status (full-time, part-time, retired, student, unemployed, or NA)
@@ -56,8 +56,28 @@ Variable Information:
 * MaritalStat (character): The participant's marital status (Divorced, Married, Separated, Single, Widowed, or NA)
 * NumSons (numeric): The number of the participant's sons
 * NumDaughters (numeric) : The number of the participant's daughters
-* DP1 through DP5 (numeric): The Decisional Procrastination Scale (Mann, 1982)
-* AIP1 through AIP15 (numeric): The Adult Inventory of Procrastination (McCown & Johnson, 1989)
+* DP1 through DP5 (numeric): The Decisional Procrastination Scale (Mann, 1982). Answer values have been recoded from the original likert scale - (Not true for me; Often untrue for me; Sometimes true/false for me; Often true for me; True for me) - to numeric (1-5).
+    + DP1: I waste a lot of time on trivial matters before getting to the final decision
+    + DP2: Even after I make a decision I delay acting on it
+    + DP3: I don't make decisions unless I really have to
+    + DP4: I delay making decisions until it's too late
+    + DP5: I put off making decisions
+* AIP1 through AIP15 (numeric): The Adult Inventory of Procrastination (McCown & Johnson, 1989). Answer values have been recoded from the original likert scale - (Strongly disagree; disagree; sometimes disagree/sometimes agree; agree; strongly agree) - to numeric (1-5)
+    + AIP1: I pay my bills on time*
+    + AIP2: I am prompt and on time for most appointments *
+    + AIP3: I lay out my clothes the night before I have an appointment so I won't be late *
+    + AIP4: I find myself running later than I would like to be
+    + AIP5: I don't get things done on time
+    + AIP6: If someone were teaching a course on how to get things done on time I would attend
+    + AIP7: My friends and family think I wait until the last minute
+    + AIP8: I get important things done with time to spare *
+    + AIP9: I am not very good at meeting deadlines
+    + AIP10: I find myself running out of time
+    + AIP11: I schedule doctor's appointments when I am supposed to without delay *
+    + AIP12: I am more punctual than most people I know *
+    + AIP13: I do routine maintenance (e.g., changing the car's oil) on things I own as often as I should *
+    + AIP14: When I have to be somewhere at a certain time my friends expect me to run a bit late
+    + AIP15: Putting things off until the last minute has cost me money in the past year
 * GP1 through GP20 (numeric): The General Procrastination scale (Lay, 1986)
 * SWLS1 through SWLS5 (numeric): The Satisfaction with Life Scale (Diener et al., 1985)
 * SelfLabeled (numeric): A binary variable for whether or not the participant considers themselves to be a procrastinator
