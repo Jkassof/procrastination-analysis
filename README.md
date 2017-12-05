@@ -1,17 +1,17 @@
-# JWJK Analytics Consulting
+# JWJK Analytics
 ### Global Procrastination & Human Development
-#### Prepared for:
+#### Prepared for: United Nations Development Programme
 #### Prepared by: Jeffrey Weltman, Jordan Kassof  
 
 ***
 
-This repository contains all data, analysis, and related documents for JWJK Analytic's work for <company name here>
+This repository contains all data, analysis, and related documents for JWJK Analytic's work for the UN Development Programme.
 
 #### Repository Structure  
 
 - Report is contained in main project directory
     - Report is saved in 3 formats, Rmarkdown, markdown, and HTML
-- `/data` directory contains data files, script for data retrieval, and merging
+- `/data` directory contains data files, script for data retrieval, cleaning, and merging
 - `/analysis` directory contains R scripts for analysis components of report
 - `/write-up_files` directory contains files for HTML report
 - The `.Rproj` file is an RStudio project file, if you clone the repo locally, open that project file in RStudio to insure the documents can rerun smoothly
