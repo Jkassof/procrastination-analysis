@@ -9,7 +9,6 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Jeff Weltman" />
 
 
 <title>Codebook</title>
@@ -217,8 +216,6 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Codebook</h1>
-<h4 class="author"><em>Jeff Weltman</em></h4>
-<h4 class="date"><em>December 4, 2017</em></h4>
 
 </div>
 
@@ -229,14 +226,25 @@ div.tocify {
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>This data folder contains the following:</p>
+<div id="data-files" class="section level4">
+<h4>Data files</h4>
 <ul>
-<li>all_data.csv - a data frame containing merged procrastination and human development index (HDI) data.</li>
-<li>hdi-wiki-crape.R - an R script for scraping the HDI data.</li>
+<li>all_data.csv - a data frame containing merged demographic data, procrastination data, and human development index (HDI) data.</li>
 <li>hdi_table.csv - a data frame containing the scraped HDI data.</li>
-<li>merging-hdi-and-procrastination.R - an R script for merging the procrastination and HDI data.</li>
+<li>occupation_counts.csv - a data frame containing the counts of occupations per survey participants</li>
+<li>participants_by_country.csv - a data frame containing the counts of participants per country</li>
 <li>Procrastination.csv - the raw procrastination data obtained from Qualtrics</li>
 <li>TidyProcrastination.csv - a tidied data frame of the procrastination data</li>
 </ul>
+</div>
+<div id="scripts" class="section level4">
+<h4>Scripts</h4>
+<ul>
+<li>q2-clean-procras-raw.R - an R script for ingesting the raw demographic and procrastination data (Procrastination.csv), tidying the data, and outputting the tidy data file (TidyProcrastination.csv)</li>
+<li>q3-hdi-wiki-scrape.R - an R script for scraping the HDI data from Wikipedia.</li>
+<li>q3-merging-hdi-and-procrastination.R - an R script for merging the demographic and procrastination data (TidyProcrastination.csv) with the scraped HDI data (hdi_table.csv) and outputting the merged file (all_data.csv)</li>
+</ul>
+</div>
 </div>
 </div>
 

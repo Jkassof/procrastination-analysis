@@ -1,7 +1,5 @@
 ---
 title: "Codebook"
-author: "Jeff Weltman"
-date: "December 4, 2017"
 output: 
   html_document:
     keep_md: true
@@ -22,9 +20,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This data folder contains the following:
 
-* all_data.csv - a data frame containing merged procrastination and human development index (HDI) data.
-* hdi-wiki-crape.R - an R script for scraping the HDI data.
+#### Data files
+
+* all_data.csv - a data frame containing merged demographic data, procrastination data, and human development index (HDI) data.
 * hdi_table.csv - a data frame containing the scraped HDI data.
-* merging-hdi-and-procrastination.R - an R script for merging the procrastination and HDI data.
+* occupation_counts.csv - a data frame containing the counts of occupations per survey participants
+* participants_by_country.csv - a data frame containing the counts of participants per country
 * Procrastination.csv - the raw procrastination data obtained from Qualtrics
 * TidyProcrastination.csv - a tidied data frame of the procrastination data
+
+#### Scripts
+
+* q2-clean-procras-raw.R - an R script for ingesting the raw demographic and procrastination data (Procrastination.csv), tidying the data, and outputting the tidy data file (TidyProcrastination.csv)
+* q3-hdi-wiki-scrape.R - an R script for scraping the HDI data from Wikipedia.
+* q3-merging-hdi-and-procrastination.R - an R script for merging the demographic and procrastination data (TidyProcrastination.csv) with the scraped HDI data (hdi_table.csv) and outputting the merged file (all_data.csv)
