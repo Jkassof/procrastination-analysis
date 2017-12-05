@@ -1,0 +1,28 @@
+---
+title: "Codebook"
+author: "Jeff Weltman"
+date: "December 4, 2017"
+output: 
+  html_document:
+    keep_md: true
+    toc: true
+    toc_float: true
+    theme: flatly
+    highlight: textmate
+---
+
+
+
+# Codebook - Procrastination Analysis
+***
+
+## Introduction
+
+This data folder contains the following:
+
+* all_data.csv - a data frame containing merged procrastination and human development index (HDI) data.
+* hdi-wiki-crape.R - an R script for scraping the HDI data.
+* hdi_table.csv - a data frame containing the scraped HDI data.
+* merging-hdi-and-procrastination.R - an R script for merging the procrastination and HDI data.
+* Procrastination.csv - the raw procrastination data obtained from Qualtrics
+* TidyProcrastination.csv - a tidied data frame of the procrastination data
