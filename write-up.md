@@ -5,6 +5,8 @@ date: "11/26/2017"
 output:
   html_document:
     toc: true
+    toc_float: 
+      collapsed: false
     keep_md: true
 ---
 
@@ -41,11 +43,10 @@ library(kableExtra)
 source("data/q2-clean-procras-raw.R")
 kable(procrastination_dims,"html",row.names=FALSE) %>%
   kable_styling(bootstrap_options = c("striped","condensed"), 
-                full_width=F, 
-                position="left")
+                full_width = FALSE)
 ```
 
-<table class="table table-striped table-condensed" style="width: auto !important; ">
+<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:right;"> Number of Rows </th>
    <th style="text-align:right;"> Number of Columns </th>
@@ -79,7 +80,7 @@ source("analysis/q4-analysis.R")
 
 ### Summary Statistics
 
-To begin understanding our data, we will take some standard summary statistics for a number of key variables.
+To begin understanding our data, we will run some standard summary statistics for a number of key variables.
 
 
 ```r
@@ -88,11 +89,10 @@ kable(summary_list,
       digits = 2,
       format = "html") %>%
   kable_styling(bootstrap_options = c("striped","condensed"),
-                full_width=F,
-                position="left")
+                full_width = FALSE)
 ```
 
-<table class="table table-striped table-condensed" style="width: auto !important; ">
+<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;"> Variable </th>
    <th style="text-align:left;"> Missing </th>
@@ -211,6 +211,8 @@ kable(summary_list,
 
 ### Select Histograms
 
+Below are full sized histograms for a couple of select variables.
+
 
 ```r
 library(ggplot2)
@@ -226,7 +228,7 @@ ggplot(data = na.omit(all_data), aes(x = Age)) +
 
 <img src="write-up_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
-The above distribution indicates our participant's age skews a bit to the right. The majority of our participants are in the 20-40 range although we have participants in age as high as 80.
+The above distribution indicates our participant's age skews a bit to the right. The majority of our participants are in the 20-50 range although we have participants in age as high as 80.
 
 
 ```r
@@ -246,16 +248,17 @@ The above distribution of mean decisional procrastination is roughly symmetric a
 
 ### Key Variables Frequency Tables
 
+To continue getting acquainted with our data, lets look at frequency tables for a number of variables.
+
 ##### Gender
 
 ```r
 kable(gender_freqs, format = "html", col.names = c("Gender", "Participants")) %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
+                            full_width = FALSE)
 ```
 
-<table class="table table-striped table-condensed" style="width: auto !important; ">
+<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;"> Gender </th>
    <th style="text-align:right;"> Participants </th>
@@ -276,17 +279,18 @@ kable(gender_freqs, format = "html", col.names = c("Gender", "Participants")) %>
 </tbody>
 </table>
 
+Looks like our participants tilt female, with around 57% of respondents identifying as such.
+
 ##### Work Status
 
 
 ```r
 kable(workstatus_freqs, format = "html", col.names = c("Work Status", "Participants")) %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
+                            full_width = FALSE)
 ```
 
-<table class="table table-striped table-condensed" style="width: auto !important; ">
+<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;"> Work Status </th>
    <th style="text-align:right;"> Participants </th>
@@ -319,18 +323,19 @@ kable(workstatus_freqs, format = "html", col.names = c("Work Status", "Participa
 </tbody>
 </table>
 
+The majority of our participants are full-time employed.
+
 ##### Occupation
 
 
 ```r
 kable(head(occu_freqs, 10), format = "html", col.names = c("Occupation", "Participants")) %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left") %>%
+                            full_width = FALSE) %>%
   add_footnote(label = "See 'data/occupation_counts.csv' for full table", notation = 'symbol')
 ```
 
-<table class="table table-striped table-condensed" style="width: auto !important; ">
+<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;"> Occupation </th>
    <th style="text-align:right;"> Participants </th>
@@ -384,18 +389,19 @@ kable(head(occu_freqs, 10), format = "html", col.names = c("Occupation", "Partic
 </tfoot>
 </table>
 
+It seems most participants did not provide an occupation, this may not be a good variable to look at too much.
+
 ##### Participants by Country
 
 
 ```r
 kable(head(pcpts_per_country, 10), format = "html") %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left") %>%
+                            full_width = FALSE) %>%
   add_footnote(label = "See 'data/participants_by_country.csv' for full table", notation = 'symbol')
 ```
 
-<table class="table table-striped table-condensed" style="width: auto !important; ">
+<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;"> CntryOfRes </th>
    <th style="text-align:right;"> n </th>
@@ -449,17 +455,18 @@ kable(head(pcpts_per_country, 10), format = "html") %>%
 </tfoot>
 </table>
 
+Our results are heavily skewed towards United States based participants, something to keep in mind for any insights taken away. For the purposes of the UN, it is likely we need to conduct the procrastination survey more with international participants.
+
 ##### Internal vs External Perception
 
 
 ```r
 kable(matching_perception, format = "html") %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
+                            full_width = FALSE)
 ```
 
-<table class="table table-striped table-condensed" style="width: auto !important; ">
+<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;"> Self Labeled </th>
    <th style="text-align:left;"> Others would Label </th>
@@ -482,7 +489,7 @@ kable(matching_perception, format = "html") %>%
 </tbody>
 </table>
 
-Per the above frequency table, 482/4026 don't view themselves as procrastinators AND believe others' don't view them as such either. Conversely, 2358 participants said they self-identify as procrastinators AND believe others' view them the same.
+Per the above frequency table, 482/4026 don't view themselves as procrastinators AND believe others' don't view them as such either. Conversely, 2358 participants said they self-identify as procrastinators AND believe others' view them the same. It seems like *quite* a few people view themselves as procrastinators.
 
 # Deep Dive
 ***
@@ -541,8 +548,7 @@ ggplot(data = all_data, aes(x = Age, y = AnnualIncome)) +
 ```r
 knitr::kable(summary(inc_vs_age.mod)$coefficients, digits = 2) %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left") %>%
+                            full_width = FALSE) %>%
   add_footnote("Linear Model of Annual Income vs Age")
 ```
 
@@ -569,3 +575,6 @@ ggplot(data = all_data, aes(x = HDI, y = SWLSMean, color = Gender)) +
 ```
 
 <img src="write-up_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
+
+
+# Conclusions and Next Steps

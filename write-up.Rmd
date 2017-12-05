@@ -5,6 +5,8 @@ date: "11/26/2017"
 output:
   html_document:
     toc: true
+    toc_float: 
+      collapsed: false
     keep_md: true
 ---
 
@@ -42,8 +44,7 @@ library(kableExtra)
 source("data/q2-clean-procras-raw.R")
 kable(procrastination_dims,"html",row.names=FALSE) %>%
   kable_styling(bootstrap_options = c("striped","condensed"), 
-                full_width=F, 
-                position="left")
+                full_width = FALSE)
 ```
 
 The below code chunk sources the Wikipedia scraping script for HDI data. This script will pick up and save any changes in the Wikipedia tables. See the script for details of how the data is scraped.
@@ -74,8 +75,7 @@ kable(summary_list,
       digits = 2,
       format = "html") %>%
   kable_styling(bootstrap_options = c("striped","condensed"),
-                full_width=F,
-                position="left")
+                full_width = FALSE)
 
 ```
 
@@ -119,8 +119,7 @@ To continue getting acquainted with our data, lets look at frequency tables for 
 ```{r}
 kable(gender_freqs, format = "html", col.names = c("Gender", "Participants")) %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
+                            full_width = FALSE)
 ```
 
 Looks like our participants tilt female, with around 57% of respondents identifying as such.
@@ -130,8 +129,7 @@ Looks like our participants tilt female, with around 57% of respondents identify
 ```{r}
 kable(workstatus_freqs, format = "html", col.names = c("Work Status", "Participants")) %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
+                            full_width = FALSE)
 ```
 
 The majority of our participants are full-time employed.
@@ -141,8 +139,7 @@ The majority of our participants are full-time employed.
 ```{r}
 kable(head(occu_freqs, 10), format = "html", col.names = c("Occupation", "Participants")) %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left") %>%
+                            full_width = FALSE) %>%
   add_footnote(label = "See 'data/occupation_counts.csv' for full table", notation = 'symbol')
 ```
 
@@ -153,8 +150,7 @@ It seems most participants did not provide an occupation, this may not be a good
 ```{r}
 kable(head(pcpts_per_country, 10), format = "html") %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left") %>%
+                            full_width = FALSE) %>%
   add_footnote(label = "See 'data/participants_by_country.csv' for full table", notation = 'symbol')
 ```
 
@@ -165,8 +161,7 @@ Our results are heavily skewed towards United States based participants, somethi
 ```{r}
 kable(matching_perception, format = "html") %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
+                            full_width = FALSE)
 ```
 
 Per the above frequency table, 482/4026 don't view themselves as procrastinators AND believe others' don't view them as such either. Conversely, 2358 participants said they self-identify as procrastinators AND believe others' view them the same. It seems like *quite* a few people view themselves as procrastinators.
@@ -217,8 +212,7 @@ ggplot(data = all_data, aes(x = Age, y = AnnualIncome)) +
 
 knitr::kable(summary(inc_vs_age.mod)$coefficients, digits = 2) %>%
     kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left") %>%
+                            full_width = FALSE) %>%
   add_footnote("Linear Model of Annual Income vs Age")
 ```
 
@@ -234,3 +228,6 @@ ggplot(data = all_data, aes(x = HDI, y = SWLSMean, color = Gender)) +
   ylab("Mean Satisfaction With Life Score") +
   ggtitle("Examining Relationship Between HDI and Satisfaction With Life")
 ```
+
+
+# Conclusions and Next Steps
