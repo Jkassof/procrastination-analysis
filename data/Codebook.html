@@ -253,7 +253,10 @@ div.tocify {
 <li>Type: Comma-separated value file</li>
 <li>Dimensions: 4036 observations X 67 variables</li>
 </ul>
-<p>Variable Information:</p>
+<div id="variable-information" class="section level3">
+<h3>Variable Information:</h3>
+<div id="demographic-information" class="section level4">
+<h4>Demographic Information</h4>
 <ul>
 <li>CntryOfRes (character): The participant’s country of residence</li>
 <li>Age (numeric): The participant’s age</li>
@@ -268,44 +271,260 @@ div.tocify {
 <li>CommmunitySz (character): The size of the participant’s community (Large-City, Large-Town, Medium-Sized, Rural/Country, Small City, Small Town, Village, or NA)</li>
 <li>MaritalStat (character): The participant’s marital status (Divorced, Married, Separated, Single, Widowed, or NA)</li>
 <li>NumSons (numeric): The number of the participant’s sons</li>
-<li>NumDaughters (numeric) : The number of the participant’s daughters</li>
-<li>DP1 through DP5 (numeric): The Decisional Procrastination Scale (Mann, 1982). Answer values have been recoded from the original likert scale - (Not true for me; Often untrue for me; Sometimes true/false for me; Often true for me; True for me) - to numeric (1-5).
+<li><p>NumDaughters (numeric) : The number of the participant’s daughters</p></li>
+<li>HDI (numeric): HDI (numeric): The Human Development Index score (during the creation of this report the values are estimated in 2016 for the year 2015)</li>
+<li><p>hdi_group (character) : This variable uses standardized ranges to categorize a country’s HDI in to groups of low, middle, high, or very-high. See the <code>data/hdi-wiki-scrape.R</code> file for the range of HDI values each group represents.</p></li>
+</ul>
+</div>
+</div>
+<div id="procrastination-variables-instruments-summary-statistics-and-identification-questions" class="section level3">
+<h3>Procrastination Variables (Instruments, Summary Statistics, and Identification Questions)</h3>
+<div id="decisional-procrastination-scale" class="section level4">
+<h4>Decisional Procrastination Scale</h4>
+<p>DP1 through DP5 (numeric): The Decisional Procrastination Scale (Mann, 1982). Answer values have been recoded from the original likert scale - (Not true for me; Often untrue for me; Sometimes true/false for me; Often true for me; True for me) - to numeric (1-5).</p>
 <ul>
 <li>DP1: I waste a lot of time on trivial matters before getting to the final decision</li>
 <li>DP2: Even after I make a decision I delay acting on it</li>
 <li>DP3: I don’t make decisions unless I really have to</li>
 <li>DP4: I delay making decisions until it’s too late</li>
 <li>DP5: I put off making decisions</li>
-</ul></li>
-<li>AIP1 through AIP15 (numeric): The Adult Inventory of Procrastination (McCown &amp; Johnson, 1989). Answer values have been recoded from the original likert scale - (Strongly disagree; disagree; sometimes disagree/sometimes agree; agree; strongly agree) - to numeric (1-5)
+</ul>
+</div>
+<div id="adult-inventory-of-procrastination" class="section level4">
+<h4>Adult Inventory of Procrastination</h4>
+<p>AIP1 through AIP15 (numeric): The Adult Inventory of Procrastination (McCown &amp; Johnson, 1989). Answer values have been recoded from the original likert scale - (Strongly disagree; disagree; sometimes disagree/sometimes agree; agree; strongly agree) - to numeric (1-5).</p>
 <ul>
-<li>AIP1: I pay my bills on time*</li>
-<li>AIP2: I am prompt and on time for most appointments *</li>
-<li>AIP3: I lay out my clothes the night before I have an appointment so I won’t be late *</li>
+<li>AIP1*: I pay my bills on time</li>
+<li>AIP2*: I am prompt and on time for most appointments</li>
+<li>AIP3*: I lay out my clothes the night before I have an appointment so I won’t be late</li>
 <li>AIP4: I find myself running later than I would like to be</li>
 <li>AIP5: I don’t get things done on time</li>
 <li>AIP6: If someone were teaching a course on how to get things done on time I would attend</li>
 <li>AIP7: My friends and family think I wait until the last minute</li>
-<li>AIP8: I get important things done with time to spare *</li>
+<li>AIP8*: I get important things done with time to spare</li>
 <li>AIP9: I am not very good at meeting deadlines</li>
 <li>AIP10: I find myself running out of time</li>
-<li>AIP11: I schedule doctor’s appointments when I am supposed to without delay *</li>
-<li>AIP12: I am more punctual than most people I know *</li>
-<li>AIP13: I do routine maintenance (e.g., changing the car’s oil) on things I own as often as I should *</li>
+<li>AIP11*: I schedule doctor’s appointments when I am supposed to without delay</li>
+<li>AIP12*: I am more punctual than most people I know</li>
+<li>AIP13*: I do routine maintenance (e.g., changing the car’s oil) on things I own as often as I should</li>
 <li>AIP14: When I have to be somewhere at a certain time my friends expect me to run a bit late</li>
-<li>AIP15: Putting things off until the last minute has cost me money in the past year</li>
-</ul></li>
-<li>GP1 through GP20 (numeric): The General Procrastination scale (Lay, 1986)</li>
-<li>SWLS1 through SWLS5 (numeric): The Satisfaction with Life Scale (Diener et al., 1985)</li>
-<li>SelfLabeled (numeric): A binary variable for whether or not the participant considers themselves to be a procrastinator</li>
-<li>OthersLabel (numeric): A binary variable for whether or not the participants thinks others consider themselves to be a procrastinator</li>
+<li><p>AIP15: Putting things off until the last minute has cost me money in the past year</p>
+<p>*- Items are reverse-scored</p></li>
+</ul>
+</div>
+<div id="general-procrastination-scale" class="section level4">
+<h4>General Procrastination scale</h4>
+<p>GP1 through GP20 (numeric): The General Procrastination scale (Lay, 1986). Answer values have been recoded from the original likert scale - (Extremely uncharacteristic; moderately uncharacteristic; neutral; moderately characteristic; extremely characteristic) - to numeric (1-5)</p>
+<ul>
+<li>GP1: I often find myself performing tasks that I had intended to do days before</li>
+<li>GP2*: I do not do assignments until just before they are to be handed in</li>
+<li>GP3*: When I am finished with a library book, I return it right away regardless of the date it is due</li>
+<li>GP4: When it is time to get up in the morning, I most often get right out of bed</li>
+<li>GP5: A letter may sit for days after I write it before mailing it</li>
+<li>GP6: I generally return phone calls promptly</li>
+<li>GP7: Even with jobs that require little else except sitting down and doing them, I find they seldom get done for days</li>
+<li>GP8: I usually make decisions as soon as possible</li>
+<li>GP9: I generally delay before starting on work I have to do</li>
+<li>GP10*: I usually have to rush to complete a task on time</li>
+<li>GP11: When preparing to go out, I am seldom caught having to do something at the last minute</li>
+<li>GP12: In preparing for some deadline, I often waste time by doing other things</li>
+<li>GP13*: I prefer to leave early for an appointment</li>
+<li>GP14*: I usually start an assignment shortly after it is assigned</li>
+<li>GP15: I often have a task finished sooner than necessary</li>
+<li>GP16: I always seem to end up shopping for birthday or Christmas gifts at the last minute</li>
+<li>GP17: I usually buy even an essential item at the last minute</li>
+<li>GP18: I usually accomplish all the things I plan to do in a day</li>
+<li>GP19: I am continually saying “I’ll do it tomorrow.”</li>
+<li><p>GP20: I usually take care of all the tasks I have to do before I settle down and relax for the evening</p>
+<p>*- Items differ from student to non-student forms</p></li>
+</ul>
+</div>
+<div id="satisfaction-with-life-scale" class="section level4">
+<h4>Satisfaction with Life Scale</h4>
+<p>SWLS1 through SWLS5 (numeric): The Satisfaction with Life Scale (Diener et al., 1985). Answer values have been recoded from the original 7-point likert scale which assigned the following point values:</p>
+<pre class="r"><code>library(knitr)
+library(kableExtra)
+Scale &lt;- c(&quot;Strongly agree&quot;,&quot;Agree&quot;,&quot;Slightly agree&quot;,&quot;Neither agree nor disagree&quot;,&quot;Slightly disagree&quot;,&quot;Disagree&quot;,&quot;Strongly disagree&quot;)
+Points &lt;- c(7,6,5,4,3,2,1)
+SWLS &lt;- data.frame(Scale,Points)
+kable(SWLS,&quot;html&quot;,row.names=FALSE) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;,&quot;condensed&quot;), 
+                full_width=F, position=&quot;left&quot;)</code></pre>
+<table class="table table-striped table-condensed" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Scale
+</th>
+<th style="text-align:right;">
+Points
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Strongly agree
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Agree
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Slightly agree
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Neither agree nor disagree
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Slightly disagree
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Disagree
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Strongly disagree
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<p>A participant’s results were scored as follows:</p>
+<pre class="r"><code>library(knitr)
+library(kableExtra)
+ResultsScale &lt;- c(&quot;Extremely satisfied&quot;,&quot;Satisfied&quot;,&quot;Slightly satisfied&quot;,&quot;Neutral&quot;,&quot;Slightly dissatisfied&quot;,&quot;Dissatisfied&quot;,&quot;Extremely dissatisfied&quot;)
+PointTotal &lt;- c(&quot;31-35&quot;,&quot;26-30&quot;,&quot;21-25&quot;,&quot;20&quot;,&quot;15-19&quot;,&quot;10-14&quot;,&quot;5-9&quot;)
+SWLSresults &lt;- data.frame(ResultsScale,PointTotal)
+kable(SWLSresults,&quot;html&quot;,row.names=FALSE) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;,&quot;condensed&quot;), 
+                full_width=F, position=&quot;left&quot;)</code></pre>
+<table class="table table-striped table-condensed" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+ResultsScale
+</th>
+<th style="text-align:left;">
+PointTotal
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Extremely satisfied
+</td>
+<td style="text-align:left;">
+31-35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Satisfied
+</td>
+<td style="text-align:left;">
+26-30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Slightly satisfied
+</td>
+<td style="text-align:left;">
+21-25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Neutral
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Slightly dissatisfied
+</td>
+<td style="text-align:left;">
+15-19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dissatisfied
+</td>
+<td style="text-align:left;">
+10-14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Extremely dissatisfied
+</td>
+<td style="text-align:left;">
+5-9
+</td>
+</tr>
+</tbody>
+</table>
+<p>These scores were adjusted to a five-point numeric scale (1-5) as in Kobau (2010). Please see the article referenced below for further information.</p>
+<ul>
+<li>SWLS1: In most ways my life is close to my ideal</li>
+<li>SWLS2: The conditions of my life are excellent</li>
+<li>SWLS3: I am satisfied with my life</li>
+<li>SWLS4: So far I have gotten the important things I want in life</li>
+<li>SWLS5: If I could live my life over, I would change almost nothing</li>
+</ul>
+</div>
+</div>
+<div id="summary-statistics" class="section level3">
+<h3>Summary Statistics</h3>
+<ul>
 <li>DPMean (numeric): The participant’s mean score across the Decisional Procrastination Scale</li>
 <li>AIPMean (numeric): The participant’s mean score across the Adult Inventory of Procrastination</li>
 <li>GPMean (numeric): The participant’s mean score across the General Procrastination scale</li>
 <li>SWLSMean (numeric): The participant’s mean score across the Satisfaction with Life Scale</li>
-<li>HDI (numeric): HDI (numeric): The Human Development Index score (during the creation of this report the values are estimated in 2016 for the year 2015)</li>
-<li>hdi_group (character) : This variable uses standardized ranges to categorize a country’s HDI in to groups of low, middle, high, or very-high. See the <code>data/hdi-wiki-scrape.R</code> file for the range of HDI values each group represents.</li>
 </ul>
+</div>
+<div id="identification-questions" class="section level3">
+<h3>Identification Questions</h3>
+<ul>
+<li>SelfLabeled (numeric): A binary variable for whether or not the participant considers themselves to be a procrastinator</li>
+<li>OthersLabel (numeric): A binary variable for whether or not the participants thinks others consider themselves to be a procrastinator</li>
+</ul>
+</div>
 </div>
 <div id="hdi_table.csv" class="section level2">
 <h2><strong>hdi_table.csv</strong></h2>
@@ -347,9 +566,20 @@ div.tocify {
 <li>n (numeric): The count of participants for each country</li>
 </ul>
 </div>
+<div id="procrastination.csv" class="section level2">
+<h2><strong>Procrastination.csv</strong></h2>
+<p>Procrastination.csv are the raw results of a research study, tabulated by Qualtrics.</p>
+</div>
 <div id="scripts-1" class="section level2">
 <h2>Scripts</h2>
 <p>For information regarding the scripts, please refer to the <a href="https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/README.md">README</a> and/or <a href="https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.Rmd">Write-up</a>.</p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<p>Diener, E., Emmons, R. A., Larsen, R. J., &amp; Griffin, S. (1985). The Satisfaction with Life Scale. Journal of Personality Assessment, 49, 71-75</p>
+<p>Ferrari, J., Johnson, J. &amp; McCown, W. (1995). <em>Procrastination and task avoidance : theory, research, and treatment.</em> New York: Plenum Press.</p>
+<p>Kobau, R., Sniezek, J., Zack, M. M., Lucas, R. E., &amp; Burns, A. (2010). Well‐being assessment: An evaluation of well‐being scales for public health and population estimates of well‐being among US adults. Applied Psychology: Health and Well-being, 2(3), 272-297.</p>
+<p>Lay, C. (1986). <em>At last, my research article on procrastination.</em> Journal of Research in Personality, 20, 474-495.</p>
 </div>
 </div>
 
