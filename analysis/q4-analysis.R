@@ -1,7 +1,7 @@
 # Part 4A: Below we read the merged data from the previous step, then filter for
 # participants 18 and older per client requirements
-all_data <- read.csv("./data/all_data.csv",header=TRUE)
-filt_data <- filter(all_data, Age >= 18)
+all_data <- read_csv("./data/all_data.csv")
+
 
 
 # Part 4B: Create a vector of columns we want summary statistics for

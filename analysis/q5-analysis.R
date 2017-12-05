@@ -9,8 +9,8 @@ library(ggiraph)
 
 # reading in data
 
-all_data <- read.csv("./data/all_data.csv",header=TRUE)
-hdi_table <- read.csv("./data/hdi_table.csv",header=TRUE)
+all_data <- read_csv("./data/all_data.csv")
+hdi_table <- read_csv("./data/hdi_table.csv")
 
 # obtaining top 15 average AIP scores
 top15_aip <- all_data %>%
@@ -44,6 +44,12 @@ top_procrastinators <- top15_aip_hdi %>%
   select(CntryOfRes,CntryMeanAIP,hdi_group) %>%
   inner_join(top15_gp_hdi) %>%
   arrange(CntryOfRes)
+
+
+# Run linear model to check relationship between AnnualIncome and age
+
+inc_vs_age.mod <- lm(AnnualIncome ~ Age, data = all_data)
+
 
 top_procrastinators.long <- reshape2::melt(top_procrastinators)
 

@@ -34,4 +34,4 @@ hdi_clean <- tmp_all_tbls[1:8] %>%
     HDI < 0.55                 ~ "low"
   ))
 
-write.csv(hdi_clean,"./data/hdi_table.csv",row.names=FALSE)
+write_csv(hdi_clean,"./data/hdi_table.csv")

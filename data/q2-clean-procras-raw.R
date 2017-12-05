@@ -118,4 +118,4 @@ swlsmeans <- procras %>%
 
 final_procras <- bind_cols(procras, dpmeans, aipmeans, gpmeans, swlsmeans)
 
-write.csv(final_procras,"./data/TidyProcrastination.csv",row.names=FALSE)
+write_csv(final_procras,"./data/TidyProcrastination.csv")
