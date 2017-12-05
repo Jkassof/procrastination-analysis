@@ -25,12 +25,7 @@ This repository contains all data, analysis, and related documents for JWJK Anal
 
 ### Codebook for data files
 
-#### Field specifications for TidyProcrastination.csv
-
-#### Field specifications for hdi_table.csv
-- CntryOfRes (character): Country the HDI score is for
-- HDI (numeric): The Human Development Index score, during the creation of this report the values are estimated in 2016 for the year 2015
-- hdi_group (character): This is a low/middle/high/very-high variable, this ranges are standardized since 2014. See the `data/hdi-wiki-scrape.R` file for the range of HDI values each group represents.
+To view detailed information regarding the data files, pleae refer to the [Codebook](https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/data/Codebook.md)
 
 ***
 

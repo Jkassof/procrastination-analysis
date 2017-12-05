@@ -69,8 +69,43 @@ Variable Information:
 * HDI (numeric): HDI (numeric): The Human Development Index score (during the creation of this report the values are estimated in 2016 for the year 2015)
 * hdi_group (character) : This variable uses standardized ranges to categorize a country's HDI in to groups of low, middle, high, or very-high. See the `data/hdi-wiki-scrape.R` file for the range of HDI values each group represents.
 
-## hdi_table.csv
+## **hdi_table.csv**
 
-* CntryOfRes (character): Country the HDI score is for
+* Type: Comma-separated value file
+* Dimensions: 189 observations X 3 variables
+
+A collection of Human Development Index data for 189 countries. The Human Development Index (HDI) is a statistic created and distributed by the United Nations. It is a composite statistic derived using indicators for education, life expectancy, and income per capita. This score can be viewed as the potential for human development and prosperity in a given country.
+
+Variable Information:
+
+* CntryOfRes (character): The participant's country of residence
 * HDI (numeric): The Human Development Index score (during the creation of this report the values are estimated in 2016 for the year 2015)
 * hdi_group (character): This variable uses standardized ranges to categorize a country's HDI in to groups of low, middle, high, or very-high. See the `data/hdi-wiki-scrape.R` file for the range of HDI values each group represents.
+
+## **occupation_counts.csv**
+
+This data set contains the counts of occupations for the participants of this survey. Some of the values have been grouped in to more general categories, e.g. "ESL teacher" and "Art Teacher" have been generalized to "Teacher". This grouping reduced the number of unique responses from 676 to 512. Further refining is beyond the scope of the present analysis and was not determined to be critical to the research questions.
+
+* Type: Comma-separated value file
+* Dimensions: 512 observations X 2 variables
+
+Variable Information:
+
+* Occupation (character): The participant's occupation
+* n (numeric): The count of participants for each occupation
+
+## **participants_by_country.csv**
+
+This data set contains the countries of residence identified by the survey participants and the number of participants who reside therein.
+
+* Type: Comma-separated value file
+* Dimensions: 91 observations x 2 variables
+
+Variable Information:
+
+* CntryOfRes (character): The participant's country of residence
+* n (numeric): The count of participants for each country
+
+## Scripts
+
+For information regarding the scripts, please refer to the [README](https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/README.md) and/or [Write-up](https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.Rmd).

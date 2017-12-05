@@ -284,12 +284,48 @@ div.tocify {
 </ul>
 </div>
 <div id="hdi_table.csv" class="section level2">
-<h2>hdi_table.csv</h2>
+<h2><strong>hdi_table.csv</strong></h2>
 <ul>
-<li>CntryOfRes (character): Country the HDI score is for</li>
+<li>Type: Comma-separated value file</li>
+<li>Dimensions: 189 observations X 3 variables</li>
+</ul>
+<p>A collection of Human Development Index data for 189 countries. The Human Development Index (HDI) is a statistic created and distributed by the United Nations. It is a composite statistic derived using indicators for education, life expectancy, and income per capita. This score can be viewed as the potential for human development and prosperity in a given country.</p>
+<p>Variable Information:</p>
+<ul>
+<li>CntryOfRes (character): The participant’s country of residence</li>
 <li>HDI (numeric): The Human Development Index score (during the creation of this report the values are estimated in 2016 for the year 2015)</li>
 <li>hdi_group (character): This variable uses standardized ranges to categorize a country’s HDI in to groups of low, middle, high, or very-high. See the <code>data/hdi-wiki-scrape.R</code> file for the range of HDI values each group represents.</li>
 </ul>
+</div>
+<div id="occupation_counts.csv" class="section level2">
+<h2><strong>occupation_counts.csv</strong></h2>
+<p>This data set contains the counts of occupations for the participants of this survey. Some of the values have been grouped in to more general categories, e.g. “ESL teacher” and “Art Teacher” have been generalized to “Teacher”. This grouping reduced the number of unique responses from 676 to 512. Further refining is beyond the scope of the present analysis and was not determined to be critical to the research questions.</p>
+<ul>
+<li>Type: Comma-separated value file</li>
+<li>Dimensions: 512 observations X 2 variables</li>
+</ul>
+<p>Variable Information:</p>
+<ul>
+<li>Occupation (character): The participant’s occupation</li>
+<li>n (numeric): The count of participants for each occupation</li>
+</ul>
+</div>
+<div id="participants_by_country.csv" class="section level2">
+<h2><strong>participants_by_country.csv</strong></h2>
+<p>This data set contains the countries of residence identified by the survey participants and the number of participants who reside therein.</p>
+<ul>
+<li>Type: Comma-separated value file</li>
+<li>Dimensions: 91 observations x 2 variables</li>
+</ul>
+<p>Variable Information:</p>
+<ul>
+<li>CntryOfRes (character): The participant’s country of residence</li>
+<li>n (numeric): The count of participants for each country</li>
+</ul>
+</div>
+<div id="scripts-1" class="section level2">
+<h2>Scripts</h2>
+<p>For information regarding the scripts, please refer to the <a href="https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/README.md">README</a> and/or <a href="https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.Rmd">Write-up</a>.</p>
 </div>
 </div>
 
