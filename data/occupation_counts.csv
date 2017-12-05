@@ -1,14 +1,14 @@
 Occupation,n
-NA,2514
-Education,151
-Software & IT,65
+NA,2662
+Education,155
+Software & IT,66
 Attorney,62
 Writer,45
-Healthcare,33
-engineer,31
-manager,31
+Healthcare,36
+engineer,32
+manager,32
 Science,29
-retired,27
+retired,28
 Student,24
 Editor,21
 Marketing,20
@@ -20,11 +20,11 @@ consultant,12
 Financial Advisor,11
 home maker,11
 Administrator,10
+director,10
 Graphic Designer,10
 Server,10
 Artist,9
 Customer Service,9
-director,9
 Librarian,9
 Administrative Assistant,8
 Research Assistant,8
@@ -39,11 +39,11 @@ clerk,5
 Finance,5
 Graduate Assistant,5
 Market Analyst,5
+Nanny,5
 Pastor ; Life coach  clergy,5
 Tutor,5
 Analyst,4
 Architect,4
-Nanny,4
 operations manager,4
 project manager,4
 Research Associate,4
@@ -61,8 +61,11 @@ law enforcement,3
 Legal Assistant,3
 Musician,3
 na,3
+Pharmacist,3
 psychotherapist,3
 Receptionist,3
+researcher,3
+Academic,2
 Academic Assistant,2
 Art Director,2
 associate,2
@@ -85,6 +88,7 @@ Insurance,2
 Internship,2
 journalist (freelance),2
 laboratory technician,2
+Law clerk,2
 lecturer,2
 letter carrier,2
 Library technician,2
@@ -93,24 +97,22 @@ Network Engineer,2
 Owner,2
 Paralegal,2
 Paraprofessional,2
-Pharmacist,2
 policy analyst,2
 Postdoc,2
 Press Officer,2
-researcher,2
 Self Employed,2
 self-employed Photographer,2
 stocker,2
 Supervisor,2
 veterinarian,2
 vice-president,2
-Academic,1
 acounting analyst,1
 Activities Leader,1
 Actress,1
 acupuncturist,1
 Administrative Asistant for Jewelry Stor,1
 Administrative Officer,1
+adult care,1
 advocate,1
 Agronomist,1
 airline,1
@@ -193,6 +195,7 @@ Deputy Chief of Public Information for t,1
 Deputy Chieif Information Officer,1
 deputy practice manager,1
 detail checker,1
+Developer,1
 Dietitian,1
 Director / information technology,1
 Director of a language program,1
@@ -232,6 +235,7 @@ Executive officer,1
 Executive Vice President / Senior Lender,1
 Facilitator,1
 Facilities Management,1
+Farm Manager,1
 federal excise tax auditor,1
 Field Coordinator,1
 film editor,1
@@ -261,8 +265,10 @@ fulltime office assistant,1
 "furniture maker, home restorer",1
 Gender/Public Health Consultant,1
 Geophysicist,1
+Gove service,1
 Graduate Researcher,1
 Grants Administrator,1
+Grocery Store Salesman,1
 Groundskeeper,1
 Head - Operations & QA,1
 health care,1
@@ -303,7 +309,6 @@ land use planner,1
 landscape designer,1
 Language Service Provider,1
 language trainer,1
-Law clerk,1
 Legal Assistant / Office Manager,1
 Legal Secretary,1
 Legislation Analyst,1
@@ -358,6 +363,7 @@ pathology,1
 PCA for a quadrapilegic and a PCA for a,1
 Pharmaceutical Merchandiser,1
 pharmacy tech.,1
+photo profucer,1
 Physical Science Technician,1
 physician (internist),1
 Physicist,1
@@ -494,11 +500,13 @@ Urban Planner/Economic Development Plann,1
 Vetrans Representative,1
 vice president,1
 Vice President / program office,1
+vidoe,1
 visual artist,1
 VMD,1
 Volunteer Director,1
 volunteer mental health worker,1
 VP Scientific Affairs / pharmaceutical c,1
+warehouse,1
 Warehouse Supervisor,1
 Web Communications,1
 Webmaster / Print Designer,1

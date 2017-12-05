@@ -2,6 +2,7 @@ CntryOfRes,n
 United States,2785
 Canada,243
 United Kingdom,177
+NA,160
 Australia,99
 India,78
 Italy,62
@@ -41,10 +42,13 @@ Argentina,3
 Austria,3
 Czech Republic,3
 Ecuador,3
+Puerto Rico,3
 Uruguay,3
 Albania,2
 Andorra,2
+Bermuda,2
 Bulgaria,2
+Columbia,2
 Ghana,2
 Iran,2
 Malta,2
@@ -54,6 +58,8 @@ South Korea,2
 Thailand,2
 Ukraine,2
 Venezuela,2
+Yugoslavia,2
+Antigua,1
 Bahamas,1
 Barbados,1
 Bolivia,1
@@ -63,6 +69,7 @@ Cyprus,1
 Dominican Republic,1
 Egypt,1
 El Salvador,1
+Guam,1
 Guyana,1
 Hungary,1
 Iceland,1
@@ -71,6 +78,7 @@ Kazakhstan,1
 Kenya,1
 Lithuania,1
 Luxembourg,1
+Macao,1
 Macedonia,1
 Morocco,1
 Myanmar,1
@@ -80,4 +88,5 @@ Panama,1
 Qatar,1
 Russia,1
 Sri Lanka,1
+Taiwan,1
 Vietnam,1
