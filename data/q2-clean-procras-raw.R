@@ -1,9 +1,10 @@
 # Data Tidying for Procrastination Data
+suppressPackageStartupMessages({
 library(dplyr)
 library(stringr)
 library(readr)
 library(tidyr)
-
+})
 #2a - Importing data set and outputting number of rows and columns
 
 Procrastination <- read_csv("./data/Procrastination.csv", col_names = FALSE, skip=1)
