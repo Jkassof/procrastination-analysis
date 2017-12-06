@@ -176,7 +176,7 @@ Per the above frequency table, 482/4026 don't view themselves as procrastinators
 
 The below code chunk generates a bar chart of the top 15 countries by average score on Adult Inventory of Procrastination.
 ```{r}
-source("analysis/q5-analysis.R")
+source("analysis/q5_and_q6-analysis.R")
 
 ggplot(top15_aip_hdi,aes(x=CntryOfRes, y=CntryMeanAIP,fill=hdi_group))+
   geom_bar(aes(reorder(CntryOfRes,CntryMeanAIP)), stat="identity")+

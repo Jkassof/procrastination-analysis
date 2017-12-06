@@ -442,7 +442,7 @@ SWLS1 through SWLS5 (numeric): The Satisfaction with Life Scale (Diener et al., 
 
 ## Scripts
 
-For information regarding the scripts, please refer to the [README](https://github.com/Jkassof/procrastination-analysis) and/or [Write-up](http://htmlpreview.github.io/?https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.html).
+For information regarding the scripts, please refer to the [README](https://github.com/Jkassof/procrastination-analysis) and/or [Write-up](http://htmlpreview.github.io/?https://github.com/Jkassof/procrastination-analysis/blob/master/write-up.html).
 
 ## References
 

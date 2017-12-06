@@ -121,7 +121,7 @@ kable(summary_list,
    <td style="text-align:left;"> 37.5 </td>
    <td style="text-align:left;"> 45 </td>
    <td style="text-align:left;"> 80 </td>
-   <td style="text-align:left;"> &lt;U+2,587&gt;&lt;U+2,587&gt;&lt;U+2,583&gt;&lt;U+2,586&gt;&lt;U+2,585&gt;&lt;U+2,581&gt;&lt;U+2,582&gt;&lt;U+2,581&gt; </td>
+   <td style="text-align:left;"> ▇▇▃▆▅▁▂▁ </td>
   </tr>
 <tr>
 <td style="text-align:left;"> AIPMean </td>
@@ -135,7 +135,7 @@ kable(summary_list,
    <td style="text-align:left;"> 2.93 </td>
    <td style="text-align:left;"> 3.53 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> &lt;U+2,581&gt;&lt;U+2,583&gt;&lt;U+2,586&gt;&lt;U+2,587&gt;&lt;U+2,586&gt;&lt;U+2,586&gt;&lt;U+2,583&gt;&lt;U+2,581&gt; </td>
+   <td style="text-align:left;"> ▁▃▆▇▆▆▃▁ </td>
   </tr>
 <tr>
 <td style="text-align:left;"> AnnualIncome </td>
@@ -149,7 +149,7 @@ kable(summary_list,
    <td style="text-align:left;"> 45,000 </td>
    <td style="text-align:left;"> 87,500 </td>
    <td style="text-align:left;"> 250,000 </td>
-   <td style="text-align:left;"> &lt;U+2,587&gt;&lt;U+2,585&gt;&lt;U+2,582&gt;&lt;U+2,581&gt;&lt;U+2,582&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt; </td>
+   <td style="text-align:left;"> ▇▅▂▁▂▁▁▁ </td>
   </tr>
 <tr>
 <td style="text-align:left;"> DPMean </td>
@@ -163,7 +163,7 @@ kable(summary_list,
    <td style="text-align:left;"> 3 </td>
    <td style="text-align:left;"> 3.8 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> &lt;U+2,582&gt;&lt;U+2,585&gt;&lt;U+2,585&gt;&lt;U+2,587&gt;&lt;U+2,585&gt;&lt;U+2,587&gt;&lt;U+2,582&gt;&lt;U+2,583&gt; </td>
+   <td style="text-align:left;"> ▂▅▅▇▅▇▂▃ </td>
   </tr>
 <tr>
 <td style="text-align:left;"> GPMean </td>
@@ -177,7 +177,7 @@ kable(summary_list,
    <td style="text-align:left;"> 3.25 </td>
    <td style="text-align:left;"> 3.75 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> &lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,583&gt;&lt;U+2,586&gt;&lt;U+2,587&gt;&lt;U+2,587&gt;&lt;U+2,583&gt;&lt;U+2,581&gt; </td>
+   <td style="text-align:left;"> ▁▁▃▆▇▇▃▁ </td>
   </tr>
 <tr>
 <td style="text-align:left;"> HDI </td>
@@ -191,7 +191,7 @@ kable(summary_list,
    <td style="text-align:left;"> 0.92 </td>
    <td style="text-align:left;"> 0.92 </td>
    <td style="text-align:left;"> 0.95 </td>
-   <td style="text-align:left;"> &lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,587&gt; </td>
+   <td style="text-align:left;"> ▁▁▁▁▁▁▁▇ </td>
   </tr>
 <tr>
 <td style="text-align:left;"> SWLSMean </td>
@@ -205,7 +205,7 @@ kable(summary_list,
    <td style="text-align:left;"> 3 </td>
    <td style="text-align:left;"> 3.8 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> &lt;U+2,583&gt;&lt;U+2,583&gt;&lt;U+2,583&gt;&lt;U+2,587&gt;&lt;U+2,585&gt;&lt;U+2,587&gt;&lt;U+2,582&gt;&lt;U+2,582&gt; </td>
+   <td style="text-align:left;"> ▃▃▃▇▅▇▂▂ </td>
   </tr>
 </tbody>
 </table>
@@ -502,7 +502,7 @@ Per the above frequency table, 482/4026 don't view themselves as procrastinators
 The below code chunk generates a bar chart of the top 15 countries by average score on Adult Inventory of Procrastination.
 
 ```r
-source("analysis/q5-analysis.R")
+source("analysis/q5_and_q6-analysis.R")
 
 ggplot(top15_aip_hdi,aes(x=CntryOfRes, y=CntryMeanAIP,fill=hdi_group))+
   geom_bar(aes(reorder(CntryOfRes,CntryMeanAIP)), stat="identity")+
