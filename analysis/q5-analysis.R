@@ -1,9 +1,6 @@
 suppressPackageStartupMessages({
 library(ggplot2)
 library(dplyr)
-library(knitr)
-library(kableExtra)
-library(highcharter)
 library(ggiraph)
 })
 
