@@ -25,7 +25,7 @@ top15_aip_hdi <- top15_aip %>%
   inner_join(hdi_table) %>%
   select(-HDI)
 
-# Part 5c: obtainint top 15 average GP scores.
+# Part 5c: obtaining top 15 average GP scores.
 # This plot will be displayed in the report.
 
 top15_gp <- all_data %>%
@@ -56,7 +56,7 @@ top_procrastinators <- top_procrastinators[,c(1,2,4,3)]
 top_procrastinators.long <- reshape2::melt(top_procrastinators)
 top_procrastinators.long <- top_procrastinators.long %>% arrange(order(desc(value)))
 
-# interactive plot with tooltips of national mean score
+# Stacked bar chart of national mean scores (AIP and GP)
 ggplot(top_procrastinators.long,aes(x=CntryOfRes, y=value,fill=factor(variable)))+
   geom_bar(aes(reorder(CntryOfRes,value)), stat="identity", position="dodge")+
   ggtitle("Top 8 Nations With Highest Mean AIP and GP Scores)")+

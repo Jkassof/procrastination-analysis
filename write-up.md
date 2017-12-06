@@ -700,4 +700,4 @@ knitr::kable(cat_count,"html",row.names=FALSE) %>%
 </tbody>
 </table>
 
-Approximately 93% of the nations represented in the survey have *very high* or *high* HDI ratings. This is indicative of the need for additional research from nations with  *medium* and *low* HDI ratings as an important next step.
+Approximately 93% of the nations represented in the survey have *very high* or *high* HDI ratings. This is indicative of the need for additional research from nations with  *medium* and *low* HDI ratings as an important next step. As was indicated above, the population consists largely of United States residents and full-time employed persons. Further surveying of residents from other nations, and of varying employment statuses, would be necessary in order to provide the truly global analysis sought after by the United Nations.
