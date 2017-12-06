@@ -1,11 +1,12 @@
 ---
-title: "Codebook"
+title: "Codebook - Procrastination Analysis"
 output: 
   html_document:
     keep_md: true
     toc: true
-    toc_float: true
-    toc_depth: 4
+    toc_float: 
+      collapsed: false
+    toc_depth: 3
     theme: flatly
     highlight: textmate
 ---
@@ -13,9 +14,6 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-# Codebook - Procrastination Analysis
-***
 
 ## Introduction
 
@@ -43,7 +41,7 @@ A collection of demographic information and Procrastination survey responses, me
 * Type: Comma-separated value file
 * Dimensions: 4036 observations X 67 variables
 
-### Variable Information:
+### Variable Information
 
 #### Demographic Information
 
@@ -179,7 +177,7 @@ These scores were adjusted to a five-point numeric scale (1-5) as in Kobau (2010
 
 A collection of Human Development Index data for 189 countries. The Human Development Index (HDI) is a statistic created and distributed by the United Nations. It is a composite statistic derived using indicators for education, life expectancy, and income per capita. This score can be viewed as the potential for human development and prosperity in a given country.
 
-Variable Information:
+Variable Information
 
 * CntryOfRes (character): The participant's country of residence
 * HDI (numeric): The Human Development Index score (during the creation of this report the values are estimated in 2016 for the year 2015)
@@ -192,7 +190,7 @@ This data set contains the counts of occupations for the participants of this su
 * Type: Comma-separated value file
 * Dimensions: 512 observations X 2 variables
 
-Variable Information:
+Variable Information
 
 * Occupation (character): The participant's occupation
 * n (numeric): The count of participants for each occupation
@@ -204,7 +202,7 @@ This data set contains the countries of residence identified by the survey parti
 * Type: Comma-separated value file
 * Dimensions: 5 observations x 2 variables
 
-Variable Information:
+Variable Information
 
 * CntryOfRes (character): The participant's country of residence
 * n (numeric): The count of participants for each country
@@ -216,7 +214,7 @@ Procrastination.csv are the raw demographic and procrastination data. Detailed i
 * Type: Comma-separated value file
 * Dimensions: 4264 observations X 61 variables
 
-### Variable Information:
+### Variable Information
 
 #### Demographic Information
 
@@ -316,7 +314,7 @@ A tidied version of Procrastination.csv, as outputted from *q2-clean-procras-raw
 * Type: Comma-separated value file
 * Dimensions: 4264 observations X 65 variables
 
-### Variable Information:
+### Variable Information
 
 #### Demographic Information
 
@@ -418,7 +416,7 @@ SWLS1 through SWLS5 (numeric): The Satisfaction with Life Scale (Diener et al., 
 
 ## Scripts
 
-For information regarding the scripts, please refer to the [README](https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/README.md) and/or [Write-up](https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.Rmd).
+For information regarding the scripts, please refer to the [README](https://github.com/Jkassof/procrastination-analysis) and/or [Write-up](http://htmlpreview.github.io/?https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.html).
 
 ## References
 
