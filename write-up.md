@@ -121,7 +121,7 @@ kable(summary_list,
    <td style="text-align:left;"> 37.5 </td>
    <td style="text-align:left;"> 45 </td>
    <td style="text-align:left;"> 80 </td>
-   <td style="text-align:left;"> ▇▇▃▆▅▁▂▁ </td>
+   <td style="text-align:left;"> &lt;U+2,587&gt;&lt;U+2,587&gt;&lt;U+2,583&gt;&lt;U+2,586&gt;&lt;U+2,585&gt;&lt;U+2,581&gt;&lt;U+2,582&gt;&lt;U+2,581&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> AIPMean </td>
@@ -135,7 +135,7 @@ kable(summary_list,
    <td style="text-align:left;"> 2.93 </td>
    <td style="text-align:left;"> 3.53 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> ▁▃▆▇▆▆▃▁ </td>
+   <td style="text-align:left;"> &lt;U+2,581&gt;&lt;U+2,583&gt;&lt;U+2,586&gt;&lt;U+2,587&gt;&lt;U+2,586&gt;&lt;U+2,586&gt;&lt;U+2,583&gt;&lt;U+2,581&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> AnnualIncome </td>
@@ -149,7 +149,7 @@ kable(summary_list,
    <td style="text-align:left;"> 45,000 </td>
    <td style="text-align:left;"> 87,500 </td>
    <td style="text-align:left;"> 250,000 </td>
-   <td style="text-align:left;"> ▇▅▂▁▂▁▁▁ </td>
+   <td style="text-align:left;"> &lt;U+2,587&gt;&lt;U+2,585&gt;&lt;U+2,582&gt;&lt;U+2,581&gt;&lt;U+2,582&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> DPMean </td>
@@ -163,7 +163,7 @@ kable(summary_list,
    <td style="text-align:left;"> 3 </td>
    <td style="text-align:left;"> 3.8 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> ▂▅▅▇▅▇▂▃ </td>
+   <td style="text-align:left;"> &lt;U+2,582&gt;&lt;U+2,585&gt;&lt;U+2,585&gt;&lt;U+2,587&gt;&lt;U+2,585&gt;&lt;U+2,587&gt;&lt;U+2,582&gt;&lt;U+2,583&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> GPMean </td>
@@ -177,7 +177,7 @@ kable(summary_list,
    <td style="text-align:left;"> 3.25 </td>
    <td style="text-align:left;"> 3.75 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> ▁▁▃▆▇▇▃▁ </td>
+   <td style="text-align:left;"> &lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,583&gt;&lt;U+2,586&gt;&lt;U+2,587&gt;&lt;U+2,587&gt;&lt;U+2,583&gt;&lt;U+2,581&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> HDI </td>
@@ -191,7 +191,7 @@ kable(summary_list,
    <td style="text-align:left;"> 0.92 </td>
    <td style="text-align:left;"> 0.92 </td>
    <td style="text-align:left;"> 0.95 </td>
-   <td style="text-align:left;"> ▁▁▁▁▁▁▁▇ </td>
+   <td style="text-align:left;"> &lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,587&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> SWLSMean </td>
@@ -205,7 +205,7 @@ kable(summary_list,
    <td style="text-align:left;"> 3 </td>
    <td style="text-align:left;"> 3.8 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> ▃▃▃▇▅▇▂▂ </td>
+   <td style="text-align:left;"> &lt;U+2,583&gt;&lt;U+2,583&gt;&lt;U+2,583&gt;&lt;U+2,587&gt;&lt;U+2,585&gt;&lt;U+2,587&gt;&lt;U+2,582&gt;&lt;U+2,582&gt; </td>
   </tr>
 </tbody>
 </table>
@@ -529,6 +529,76 @@ ggplot(top15_gp_hdi,aes(x=CntryOfRes, y=CntryMeanGP,fill=hdi_group))+
 
 <img src="write-up_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
 
+##### Examining Highest Scoring Nations Across Adult Inventory of Procrastination and General Procrastination scales
+
+8 nations, shown below, have a Top 15 ranking AIP and GP score. The table below displays the nations, their mean scores, and their *hdi_group*.
+
+```r
+knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")
+```
+
+<table class="table table-striped table-condensed" style="width: auto !important; ">
+<thead><tr>
+<th style="text-align:left;"> CntryOfRes </th>
+   <th style="text-align:right;"> CntryMeanAIP </th>
+   <th style="text-align:right;"> CntryMeanGP </th>
+   <th style="text-align:left;"> hdi_group </th>
+  </tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;"> Ecuador </td>
+   <td style="text-align:right;"> 3.753333 </td>
+   <td style="text-align:right;"> 3.716667 </td>
+   <td style="text-align:left;"> high </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> France </td>
+   <td style="text-align:right;"> 3.563846 </td>
+   <td style="text-align:right;"> 3.692308 </td>
+   <td style="text-align:left;"> very high </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> Iceland </td>
+   <td style="text-align:right;"> 3.870000 </td>
+   <td style="text-align:right;"> 3.650000 </td>
+   <td style="text-align:left;"> very high </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> Panama </td>
+   <td style="text-align:right;"> 4.000000 </td>
+   <td style="text-align:right;"> 3.950000 </td>
+   <td style="text-align:left;"> high </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> Qatar </td>
+   <td style="text-align:right;"> 4.070000 </td>
+   <td style="text-align:right;"> 4.200000 </td>
+   <td style="text-align:left;"> very high </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> Sri Lanka </td>
+   <td style="text-align:right;"> 3.730000 </td>
+   <td style="text-align:right;"> 3.850000 </td>
+   <td style="text-align:left;"> high </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> Turkey </td>
+   <td style="text-align:right;"> 3.654444 </td>
+   <td style="text-align:right;"> 3.755556 </td>
+   <td style="text-align:left;"> high </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> Uruguay </td>
+   <td style="text-align:right;"> 3.600000 </td>
+   <td style="text-align:right;"> 3.666667 </td>
+   <td style="text-align:left;"> high </td>
+  </tr>
+</tbody>
+</table>
+
 ### Linear Relationships Across Variables
 
 The below code chunk generates a scatter plot of Annual Income vs Age to infer whether a linear relationship exists.
@@ -544,7 +614,7 @@ ggplot(data = all_data, aes(x = Age, y = AnnualIncome)) +
   ggtitle("Examining Relationship Between Age and Income")
 ```
 
-<img src="write-up_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="write-up_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
 
 ```r
 knitr::kable(summary(inc_vs_age.mod)$coefficients, digits = 2) %>%
@@ -575,7 +645,7 @@ ggplot(data = all_data, aes(x = HDI, y = SWLSMean, color = Gender)) +
   ggtitle("Examining Relationship Between HDI and Satisfaction With Life")
 ```
 
-<img src="write-up_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
+<img src="write-up_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" />
 
 
 # Conclusions and Next Steps

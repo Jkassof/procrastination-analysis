@@ -2,6 +2,7 @@ suppressPackageStartupMessages({
 library(ggplot2)
 library(dplyr)
 library(ggiraph)
+library(readr)
 })
 
 # reading in data
@@ -9,7 +10,8 @@ library(ggiraph)
 all_data <- read_csv("./data/all_data.csv")
 hdi_table <- read_csv("./data/hdi_table.csv")
 
-# obtaining top 15 average AIP scores
+# Part 5b: obtaining top 15 average AIP scores.
+# This plot will be displayed in the report.
 top15_aip <- all_data %>%
   filter(!is.na(CntryOfRes)) %>%
   select(CntryOfRes,AIPMean) %>%
@@ -22,6 +24,9 @@ top15_aip_hdi <- top15_aip %>%
   select(CntryOfRes,CntryMeanAIP) %>%
   inner_join(hdi_table) %>%
   select(-HDI)
+
+# Part 5c: obtainint top 15 average GP scores.
+# This plot will be displayed in the report.
 
 top15_gp <- all_data %>%
   filter(!is.na(CntryOfRes)) %>%
@@ -36,43 +41,41 @@ top15_gp_hdi <- top15_gp %>%
   inner_join(hdi_table) %>%
   select(-HDI)
 
-# which countries are in the top 15 across both tests
+# Part 5c: How many countries are in the top 15 across both tests?
+# Which countries are in the top 15 across both tests?
+# This table will be included in the report.
 top_procrastinators <- top15_aip_hdi %>%
   select(CntryOfRes,CntryMeanAIP,hdi_group) %>%
   inner_join(top15_gp_hdi) %>%
   arrange(CntryOfRes)
 
+top_procrastinators <- top_procrastinators[,c(1,2,4,3)]
 
-# Run linear model to check relationship between AnnualIncome and age
-
-inc_vs_age.mod <- lm(AnnualIncome ~ Age, data = all_data)
-
-
+# Melting top procrastinators for side-by-side comparison of GP and AIP scores.
+# This plot will be included in the report.
 top_procrastinators.long <- reshape2::melt(top_procrastinators)
-
 top_procrastinators.long <- top_procrastinators.long %>% arrange(order(desc(value)))
 
 # interactive plot with tooltips of national mean score
-tooltip <- 
-  ggplot(top_procrastinators.long,aes(x=CntryOfRes, y=value,fill=factor(variable),tooltip=value))+
+ggplot(top_procrastinators.long,aes(x=CntryOfRes, y=value,fill=factor(variable)))+
   geom_bar(aes(reorder(CntryOfRes,value)), stat="identity", position="dodge")+
-  ggtitle("Top 15 Most Procrastinating Nations (By Average Score)")+
-  xlab("Country")+ylab("Average Score")+
+  ggtitle("Top 8 Nations With Highest Mean AIP and GP Scores)")+
+  xlab("Country")+ylab("Mean Score")+
   scale_fill_brewer(palette="Accent",name="Mean Scores",labels=c("AIP","GP"))+
   coord_flip()+
   geom_bar_interactive(stat="identity",position="dodge")
-ggiraph(code= print(tooltip),width=1)
 
-# table output
-knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
-  kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
+
+# Part 5d: Run linear model to check relationship between AnnualIncome and age.
+# The plot will be included in the report.
+
+inc_vs_age.mod <- lm(AnnualIncome ~ Age, data = all_data)
 
 cor_results <- cor.test(all_data$HDI,all_data$SWLSMean)
 
 paste("With an estimated R-squared of ",round(cor_results$estimate,2),", we confirm that no linear relationship exists between human development index and mean satisfaction-with-life score.",sep="")
 
+# Part 5e: Examining relationshpip between SWLS and HDI - scatterplot in report.
 # Examining relationship between SWLS and HDI category via barplot
 
 ggplot(all_data,aes(x=hdi_group,y=SWLSMean,fill=hdi_group))+
@@ -83,6 +86,7 @@ ggplot(all_data,aes(x=hdi_group,y=SWLSMean,fill=hdi_group))+
 
 # No apparent relationship between HDI category and SWLS
 # Not surprising since ~87% of this population has an HDI category of 'Very High'
+# The table will be included in the report.
 
 cat_count <- all_data %>%
   select(hdi_group) %>%
@@ -91,6 +95,7 @@ cat_count <- all_data %>%
   summarise(percentage = n/nrow(all_data)) %>%
   arrange(order(desc(percentage)))
 
-cat_count
-
-
+knitr::kable(cat_count,"html",row.names=FALSE) %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")

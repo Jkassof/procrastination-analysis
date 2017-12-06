@@ -198,6 +198,16 @@ ggplot(top15_gp_hdi,aes(x=CntryOfRes, y=CntryMeanGP,fill=hdi_group))+
   coord_flip()
 ```
 
+##### Examining Highest Scoring Nations Across Adult Inventory of Procrastination and General Procrastination scales
+
+8 nations, shown below, have a Top 15 ranking AIP and GP score. The table below displays the nations, their mean scores, and their *hdi_group*.
+```{r}
+knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")
+```
+
 ### Linear Relationships Across Variables
 
 The below code chunk generates a scatter plot of Annual Income vs Age to infer whether a linear relationship exists.
