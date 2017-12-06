@@ -27,6 +27,8 @@ This data folder contains the following:
 * participants_by_country.csv - a data frame containing the counts of participants per country
 * Procrastination.csv - the raw procrastination data obtained from Qualtrics
 * TidyProcrastination.csv - a tidied data frame of the procrastination data
+* top15_aip_hdi.csv - a data frame containing HDI data and mean Adult Inventory of Procrastination scores for the 15 highest scoring nations
+* top15_gp_hdi.csv - a data frame containing HDI data and mean General Procrastination scale scores for the 15 highest scoring nations 
 
 #### Scripts
 
@@ -413,6 +415,30 @@ SWLS1 through SWLS5 (numeric): The Satisfaction with Life Scale (Diener et al., 
 
 * SelfLabeled (numeric): A binary variable for whether or not the participant considers themselves to be a procrastinator
 * OthersLabel (numeric): A binary variable for whether or not the participants thinks others consider themselves to be a procrastinator
+
+## **top15_aip_hdi.csv**
+
+* Type: Comma-separated value file
+* Dimensions: 15 observations X 4 variables
+
+### Variable information
+
+* CntryOfRes (character): The country name. This variable was named to match *CntryOfRes* in the TidyProcrastination.csv file for merging
+* CntryMeanAIP (numeric): The mean Adult Inventory of Procrastination score for all participants in the given country
+* HDI (numeric): HDI (numeric): The Human Development Index score (during the creation of this report the values are estimated in 2016 for the year 2015)
+* hdi_group (character) : This variable uses standardized ranges to categorize a country's HDI in to groups of low, middle, high, or very-high. See the `data/hdi-wiki-scrape.R` file for the range of HDI values each group represents.
+
+## **top15_gp_hdi.csv**
+
+* Type: Comma-separated value file
+* Dimensions: 16 observations X 4 variables (two countris had a tied mean GP score)
+
+### Variable information
+
+* CntryOfRes (character): The country name. This variable was named to match *CntryOfRes* in the TidyProcrastination.csv file for merging
+* CntryMeanGP (numeric): The mean General Procrastination scale score for all participants in the given country
+* HDI (numeric): HDI (numeric): The Human Development Index score (during the creation of this report the values are estimated in 2016 for the year 2015)
+* hdi_group (character) : This variable uses standardized ranges to categorize a country's HDI in to groups of low, middle, high, or very-high. See the `data/hdi-wiki-scrape.R` file for the range of HDI values each group represents.
 
 ## Scripts
 

@@ -204,7 +204,7 @@ ggplot(top15_gp_hdi,aes(x=CntryOfRes, y=CntryMeanGP,fill=hdi_group))+
 
 ##### Examining Highest Scoring Nations Across Adult Inventory of Procrastination and General Procrastination scales
 
-The table below displays the nations, their mean scores, and their *hdi_group*.
+The table below displays the nations, their mean scores, their HDI score, and their *hdi_group*.
 ```{r}
 knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
   kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 

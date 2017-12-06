@@ -535,7 +535,7 @@ ggplot(top15_gp_hdi,aes(x=CntryOfRes, y=CntryMeanGP,fill=hdi_group))+
 
 ##### Examining Highest Scoring Nations Across Adult Inventory of Procrastination and General Procrastination scales
 
-The table below displays the nations, their mean scores, and their *hdi_group*.
+The table below displays the nations, their mean scores, their HDI score, and their *hdi_group*.
 
 ```r
 knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
@@ -548,6 +548,7 @@ knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
 <th style="text-align:left;"> CntryOfRes </th>
    <th style="text-align:right;"> CntryMeanAIP </th>
    <th style="text-align:right;"> CntryMeanGP </th>
+   <th style="text-align:right;"> HDI </th>
    <th style="text-align:left;"> hdi_group </th>
   </tr></thead>
 <tbody>
@@ -555,48 +556,70 @@ knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
 <td style="text-align:left;"> Ecuador </td>
    <td style="text-align:right;"> 3.753333 </td>
    <td style="text-align:right;"> 3.716667 </td>
+   <td style="text-align:right;"> 0.739 </td>
    <td style="text-align:left;"> high </td>
   </tr>
 <tr>
 <td style="text-align:left;"> France </td>
    <td style="text-align:right;"> 3.563846 </td>
    <td style="text-align:right;"> 3.692308 </td>
+   <td style="text-align:right;"> 0.897 </td>
    <td style="text-align:left;"> very high </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Iceland </td>
    <td style="text-align:right;"> 3.870000 </td>
    <td style="text-align:right;"> 3.650000 </td>
+   <td style="text-align:right;"> 0.921 </td>
    <td style="text-align:left;"> very high </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Panama </td>
    <td style="text-align:right;"> 4.000000 </td>
    <td style="text-align:right;"> 3.950000 </td>
+   <td style="text-align:right;"> 0.788 </td>
    <td style="text-align:left;"> high </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> Puerto Rico </td>
+   <td style="text-align:right;"> 4.000000 </td>
+   <td style="text-align:right;"> 4.283333 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:left;"> NA </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Qatar </td>
    <td style="text-align:right;"> 4.070000 </td>
    <td style="text-align:right;"> 4.200000 </td>
+   <td style="text-align:right;"> 0.856 </td>
    <td style="text-align:left;"> very high </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Sri Lanka </td>
    <td style="text-align:right;"> 3.730000 </td>
    <td style="text-align:right;"> 3.850000 </td>
+   <td style="text-align:right;"> 0.766 </td>
    <td style="text-align:left;"> high </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> Taiwan </td>
+   <td style="text-align:right;"> 4.600000 </td>
+   <td style="text-align:right;"> 4.800000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:left;"> NA </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Turkey </td>
    <td style="text-align:right;"> 3.654444 </td>
    <td style="text-align:right;"> 3.755556 </td>
+   <td style="text-align:right;"> 0.767 </td>
    <td style="text-align:left;"> high </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Uruguay </td>
    <td style="text-align:right;"> 3.600000 </td>
    <td style="text-align:right;"> 3.666667 </td>
+   <td style="text-align:right;"> 0.795 </td>
    <td style="text-align:left;"> high </td>
   </tr>
 </tbody>

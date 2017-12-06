@@ -21,8 +21,8 @@ top15_aip <- all_data %>%
 
 top15_aip_hdi <- top15_aip %>%
   select(CntryOfRes,CntryMeanAIP) %>%
-  inner_join(hdi_table) %>%
-  select(-HDI)
+  left_join(hdi_table)
+#  select(-HDI)
 
 # Part 5c: obtaining top 15 average GP scores.
 # This plot will be displayed in the report.
@@ -37,8 +37,8 @@ top15_gp <- all_data %>%
 
 top15_gp_hdi <- top15_gp %>%
   select(CntryOfRes,CntryMeanGP) %>%
-  inner_join(hdi_table) %>%
-  select(-HDI)
+  left_join(hdi_table)
+  #select(-HDI)
 
 # Part 5c: How many countries are in the top 15 across both tests?
 # Which countries are in the top 15 across both tests?
@@ -48,22 +48,13 @@ top_procrastinators <- top15_aip_hdi %>%
   inner_join(top15_gp_hdi) %>%
   arrange(CntryOfRes)
 
-top_procrastinators <- top_procrastinators[,c(1,2,4,3)]
+top_procrastinators <- top_procrastinators[,c(1,2,4,5,3)]
 
 # Melting top procrastinators for side-by-side comparison of GP and AIP scores.
-# This plot will be included in the report.
+# The table will be included in the report.
+
 top_procrastinators.long <- reshape2::melt(top_procrastinators)
 top_procrastinators.long <- top_procrastinators.long %>% arrange(order(desc(value)))
-
-# Stacked bar chart of national mean scores (AIP and GP)
-ggplot(top_procrastinators.long,aes(x=CntryOfRes, y=value,fill=factor(variable)))+
-  geom_bar(aes(reorder(CntryOfRes,value)), stat="identity", position="dodge")+
-  ggtitle("Top 8 Nations With Highest Mean AIP and GP Scores)")+
-  xlab("Country")+ylab("Mean Score")+
-  scale_fill_brewer(palette="Accent",name="Mean Scores",labels=c("AIP","GP"))+
-  coord_flip()+
-  geom_bar_interactive(stat="identity",position="dodge")
-
 
 # Part 5d: Run linear model to check relationship between AnnualIncome and age.
 # The plot will be included in the report.
@@ -94,3 +85,6 @@ cat_count <- all_data %>%
   summarise(percentage = (n/nrow(all_data)) * 100) %>%
   arrange(order(desc(percentage)))
 
+# 6c Outputting datasets for Top 15 GP- and AIP-scoring nations and HDI scores
+write.csv(top15_gp_hdi,"./data/top15_gp_hdi.csv",row.names=FALSE)
+write.csv(top15_aip_hdi,"./data/top15_aip_hdi.csv",row.names=FALSE)
