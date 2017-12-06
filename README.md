@@ -11,15 +11,21 @@ This repository contains all data, analysis, and related documents for JWJK Anal
 
 - Report is contained in main project directory
     - Report is saved in 3 formats, Rmarkdown, markdown, and HTML
-- `/data` directory contains data files, script for data retrieval, cleaning, and merging
+- `/data` directory contains a codebook, data files, scripts for data retrieval, cleaning, and merging
 - `/analysis` directory contains R scripts for analysis components of report
 - `/write-up_files` directory contains files for HTML report
 - The `.Rproj` file is an RStudio project file, if you clone the repo locally, open that project file in RStudio to insure the documents can rerun smoothly
 
-#### Commentary on viewing report
+#### Comments on viewing report
 
-- This report and analysis requires a number of R packages. See .bib file for details of packages/versions used.
-- Click link at bottom of readme to view HTML report
+- [Click Here to view fully rendered HTML report](http://htmlpreview.github.io/?https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.html)
+
+- This report and analysis requires a number of R packages. If you wish to clone this repo and re-run locally, you can run the below code in your R terminal to make sure you have necessary dependencies.
+
+```
+report_deps <- c("dplyr", "ggplot2", "stringr", "tidyr", "purrr", "rvest")
+install.packages(report_deps)
+```
 
 ***
 
@@ -32,5 +38,3 @@ To view detailed information regarding the data files, pleae refer to the [Codeb
 #### Contact
 
 If there are any questions about the content of this analysis, please contact [Jeff Weltman](mailto:jweltman@smu.edu) or [Jordan Kassof](mailto:jkassof@smu.edu).
-
-## [Click Here to view fully rendered HTML report](http://htmlpreview.github.io/?https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.html)
