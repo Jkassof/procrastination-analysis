@@ -34,7 +34,7 @@ if (window.hljs) {
   hljs.configure({languages: []});
   hljs.initHighlightingOnLoad();
   if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlightingOnLoad(); }, 0);
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
   }
 }
 </script>
@@ -131,7 +131,7 @@ $(document).ready(function () {
 <div id="prepared-by-jeffrey-weltman-jordan-kassof" class="section level4">
 <h4>Prepared by: Jeffrey Weltman, Jordan Kassof</h4>
 <hr />
-<p>This repository contains all data, analysis, and related documents for JWJK Analytic’s work for the UN Development Programme.</p>
+<p>This repository contains all data, analysis, and related documents for JWJK Analytics’ work for the UN Development Programme.</p>
 </div>
 <div id="repository-structure" class="section level4">
 <h4>Repository Structure</h4>
@@ -140,32 +140,31 @@ $(document).ready(function () {
 <ul>
 <li>Report is saved in 3 formats, Rmarkdown, markdown, and HTML</li>
 </ul></li>
-<li><code>/data</code> directory contains data files, script for data retrieval, cleaning, and merging</li>
+<li><code>/data</code> directory contains a codebook, data files, scripts for data retrieval, cleaning, and merging</li>
 <li><code>/analysis</code> directory contains R scripts for analysis components of report</li>
 <li><code>/write-up_files</code> directory contains files for HTML report</li>
 <li>The <code>.Rproj</code> file is an RStudio project file, if you clone the repo locally, open that project file in RStudio to insure the documents can rerun smoothly</li>
 </ul>
 </div>
-<div id="commentary-on-viewing-report" class="section level4">
-<h4>Commentary on viewing report</h4>
+<div id="comments-on-viewing-report" class="section level4">
+<h4>Comments on viewing report</h4>
 <ul>
-<li>This report and analysis requires a number of R packages. See .bib file for details of packages/versions used.</li>
-<li>Click link at bottom of readme to view HTML report</li>
+<li><p><a href="http://htmlpreview.github.io/?https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.html">Click Here to view fully rendered HTML report</a></p></li>
+<li><p>This report and its analyses require a number of R packages in order to run. If you wish to clone this repo and re-run locally, you can run the below code in your R terminal to make sure you have necessary dependencies.</p></li>
 </ul>
+<pre><code>report_deps &lt;- c(&quot;dplyr&quot;, &quot;ggplot2&quot;, &quot;stringr&quot;, &quot;tidyr&quot;, &quot;purrr&quot;, &quot;rvest&quot;, &quot;reshape2&quot;)
+install.packages(report_deps)</code></pre>
 <hr />
 </div>
 </div>
 <div id="codebook-for-data-files" class="section level3">
 <h3>Codebook for data files</h3>
-<p>To view detailed information regarding the data files, pleae refer to the <a href="http://htmlpreview.github.io/?https://github.com/Jkassof/procrastination-analysis/blob/master/data/Codebook.html">Codebook</a></p>
+<p>To view detailed information regarding the data files, please refer to the <a href="http://htmlpreview.github.io/?https://github.com/Jkassof/procrastination-analysis/blob/master/data/Codebook.html">Codebook</a></p>
 <hr />
 <div id="contact" class="section level4">
 <h4>Contact</h4>
 <p>If there are any questions about the content of this analysis, please contact <a href="mailto:jweltman@smu.edu">Jeff Weltman</a> or <a href="mailto:jkassof@smu.edu">Jordan Kassof</a>.</p>
 </div>
-</div>
-<div id="click-here-to-view-fully-rendered-html-report" class="section level2">
-<h2><a href="http://htmlpreview.github.io/?https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.html">Click Here to view fully rendered HTML report</a></h2>
 </div>
 </div>
 

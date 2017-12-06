@@ -5,7 +5,7 @@
 
 ***
 
-This repository contains all data, analysis, and related documents for JWJK Analytic's work for the UN Development Programme.
+This repository contains all data, analysis, and related documents for JWJK Analytics' work for the UN Development Programme.
 
 #### Repository Structure  
 
@@ -20,7 +20,7 @@ This repository contains all data, analysis, and related documents for JWJK Anal
 
 - [Click Here to view fully rendered HTML report](http://htmlpreview.github.io/?https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.html)
 
-- This report and analyses requires a number of R packages to run. If you wish to clone this repo and re-run locally, you can run the below code in your R terminal to make sure you have necessary dependencies.
+- This report and its analyses require a number of R packages in order to run. If you wish to clone this repo and re-run locally, you can run the below code in your R terminal to make sure you have necessary dependencies.
 
 ```
 report_deps <- c("dplyr", "ggplot2", "stringr", "tidyr", "purrr", "rvest", "reshape2")
@@ -31,7 +31,7 @@ install.packages(report_deps)
 
 ### Codebook for data files
 
-To view detailed information regarding the data files, pleae refer to the [Codebook](http://htmlpreview.github.io/?https://github.com/Jkassof/procrastination-analysis/blob/master/data/Codebook.html)
+To view detailed information regarding the data files, please refer to the [Codebook](http://htmlpreview.github.io/?https://github.com/Jkassof/procrastination-analysis/blob/master/data/Codebook.html)
 
 ***
 
