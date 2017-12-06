@@ -25,7 +25,7 @@ This repository contains all data, analysis, and related documents for JWJK Anal
 
 ### Codebook for data files
 
-To view detailed information regarding the data files, pleae refer to the [Codebook](https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/data/Codebook.md)
+To view detailed information regarding the data files, pleae refer to the [Codebook](http://htmlpreview.github.io/?https://github.com/Jkassof/procrastination-analysis/blob/master/data/Codebook.html)
 
 ***
 
