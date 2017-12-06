@@ -1,7 +1,6 @@
 suppressPackageStartupMessages({
 library(ggplot2)
 library(dplyr)
-library(ggiraph)
 library(readr)
 })
 
