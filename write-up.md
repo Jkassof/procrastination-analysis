@@ -662,4 +662,42 @@ ggplot(all_data,aes(x=hdi_group,y=SWLSMean,fill=hdi_group))+
 
 The intention of this analysis was to explore and understand the relationship between procrastination and human development across the globe. The initial findings of this analysis yielded evidence which suggests that nations with *very high* and *high* human development index ratings tend to have higher mean scores across the procrastination instruments utilized in the surveying of this population. A positive correlation between Age and Annual Income was also confirmed. Since our survey data is voluntary self-reported information, the findings of this study can only be concluded as associative within the population of the survey participants.
 
-The sampling of the nations themselves is a potentially confounding variable. Approximately 93% of the nations represented in the survey have *very high* or *high* HDI ratings. This is indicative of the need for additional research from nations with  *medium* and *low* HDI ratings as an important next step.
+The sampling of the nations themselves is a potentially confounding variable. The table below illustrates the distribution of countries and their HDI ratings.
+
+```r
+knitr::kable(cat_count,"html",row.names=FALSE) %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
+                            full_width=F, 
+                            position="left")
+```
+
+<table class="table table-striped table-condensed" style="width: auto !important; ">
+<thead><tr>
+<th style="text-align:left;"> hdi_group </th>
+   <th style="text-align:right;"> Percentage </th>
+  </tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;"> very high </td>
+   <td style="text-align:right;"> 90.609514 </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> 4.286422 </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> medium </td>
+   <td style="text-align:right;"> 2.824579 </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> high </td>
+   <td style="text-align:right;"> 2.180377 </td>
+  </tr>
+<tr>
+<td style="text-align:left;"> low </td>
+   <td style="text-align:right;"> 0.099108 </td>
+  </tr>
+</tbody>
+</table>
+
+Approximately 93% of the nations represented in the survey have *very high* or *high* HDI ratings. This is indicative of the need for additional research from nations with  *medium* and *low* HDI ratings as an important next step.

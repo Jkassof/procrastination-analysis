@@ -85,17 +85,13 @@ ggplot(all_data,aes(x=hdi_group,y=SWLSMean,fill=hdi_group))+
   scale_fill_brewer(palette="Dark2")
 
 # No apparent relationship between HDI category and SWLS
-# Not surprising since ~87% of this population has an HDI category of 'Very High'
+# Not surprising since ~91 of this population has an HDI category of 'Very High'
 # The table will be included in the report.
 
 cat_count <- all_data %>%
   select(hdi_group) %>%
   group_by(hdi_group) %>%
   count() %>%
-  summarise(percentage = n/nrow(all_data)) %>%
+  summarise(percentage = (n/nrow(all_data)) * 100) %>%
   arrange(order(desc(percentage)))
 
-knitr::kable(cat_count,"html",row.names=FALSE) %>%
-  kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
