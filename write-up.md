@@ -404,8 +404,8 @@ kable(head(pcpts_per_country, 10), format = "html") %>%
 
 <table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
-<th style="text-align:left;"> CntryOfRes </th>
-   <th style="text-align:right;"> n </th>
+<th style="text-align:left;"> Country of Residence </th>
+   <th style="text-align:right;"> Participants </th>
   </tr></thead>
 <tbody>
 <tr>

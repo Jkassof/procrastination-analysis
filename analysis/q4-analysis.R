@@ -1,16 +1,13 @@
-# Part 4A: Below we read the merged data from the previous step, then filter for
-# participants 18 and older per client requirements
+# Part 4A: Below we read the merged data from the previous step, which was
+# filtered before being saved in q3-merging-hdi-and-procrastination.R
 all_data <- read_csv("./data/all_data.csv")
-
-
 
 # Part 4B: Create a vector of columns we want summary statistics for
 summary_cols <- c("Age", "AnnualIncome", "HDI", "DPMean", "AIPMean", "GPMean", "SWLSMean")
 
-# Part 4B: Select the designated columns above, map the summary function across
-# each column, then map the tidy function from the {broom} package and return
-# a data frame, last add a column with the variable names. This dataframe is
-# displayed in the report
+# Part 4B: Select the designated columns above, use the {skimr} package to get a tidy
+# dataframe of summary statistics, drop unneeded columns, spread the data into a wide format,
+# and lastly rename variables for eye-friendly printing
 summary_list <- filt_data %>%
   select(summary_cols) %>%
   skimr::skim() %>%
@@ -42,7 +39,9 @@ workstatus_freqs <- filt_data %>%
 
 occu_freqs <- filt_data %>%
   count(Occupation)  %>%
-  arrange(desc(n))
+  arrange(desc(n)) %>%
+  rename(Occupation = Occupation,
+         Participants = n)
 
 readr::write_csv(occu_freqs, path = "./data/occupation_counts.csv")
 
@@ -50,7 +49,9 @@ readr::write_csv(occu_freqs, path = "./data/occupation_counts.csv")
 # displayed in the report.
 pcpts_per_country <- filt_data %>%
   count(CntryOfRes)  %>%
-  arrange(desc(n))
+  arrange(desc(n)) %>%
+  rename("Country of Residence" = CntryOfRes,
+         Participants = n)
 
 readr::write_csv(pcpts_per_country, path = "./data/participants_by_country.csv")
 
