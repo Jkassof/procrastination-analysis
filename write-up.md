@@ -8,6 +8,7 @@ output:
     toc_float: 
       collapsed: false
     keep_md: true
+    theme: flatly
 ---
 
 
