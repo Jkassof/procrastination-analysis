@@ -110,7 +110,7 @@ ggplot(data = na.omit(all_data), aes(x = DPMean)) +
 
 ```
 
-The above distribution of mean decisional procrastination is roughly symmetric around 3. The data aren't very normal, the decrease in count as you get further from the center is too slow to be normal.
+The above distribution of mean decisional procrastination is roughly symmetric around 3. The data aren't very normal, as the decrease in count as you get further from the center is too slow to be normal.
 
 ### Key Variables Frequency Tables
 
@@ -144,7 +144,7 @@ kable(head(occu_freqs, 10), format = "html", col.names = c("Occupation", "Partic
   add_footnote(label = "See 'data/occupation_counts.csv' for full table", notation = 'symbol')
 ```
 
-It seems most participants did not provide an occupation, this may not be a good variable to look at too much.
+It seems most participants did not provide an occupation, limiting the research utility of this variable.
 
 ##### Participants by Country
 

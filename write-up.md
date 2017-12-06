@@ -245,7 +245,7 @@ ggplot(data = na.omit(all_data), aes(x = DPMean)) +
 
 <img src="write-up_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
-The above distribution of mean decisional procrastination is roughly symmetric around 3. The data aren't very normal, the decrease in count as you get further from the center is too slow to be normal.
+The above distribution of mean decisional procrastination is roughly symmetric around 3. The data aren't very normal, as the decrease in count as you get further from the center is too slow to be normal.
 
 ### Key Variables Frequency Tables
 
@@ -390,7 +390,7 @@ kable(head(occu_freqs, 10), format = "html", col.names = c("Occupation", "Partic
 </tfoot>
 </table>
 
-It seems most participants did not provide an occupation, this may not be a good variable to look at too much.
+It seems most participants did not provide an occupation, limiting the research utility of this variable.
 
 ##### Participants by Country
 
@@ -674,7 +674,7 @@ knitr::kable(cat_count,"html",row.names=FALSE) %>%
 <table class="table table-striped table-condensed" style="width: auto !important; ">
 <thead><tr>
 <th style="text-align:left;"> hdi_group </th>
-   <th style="text-align:right;"> Percentage </th>
+   <th style="text-align:right;"> percentage </th>
   </tr></thead>
 <tbody>
 <tr>
