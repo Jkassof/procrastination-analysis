@@ -121,7 +121,7 @@ kable(summary_list,
    <td style="text-align:left;"> 37.5 </td>
    <td style="text-align:left;"> 45 </td>
    <td style="text-align:left;"> 80 </td>
-   <td style="text-align:left;"> ▇▇▃▆▅▁▂▁ </td>
+   <td style="text-align:left;"> &lt;U+2,587&gt;&lt;U+2,587&gt;&lt;U+2,583&gt;&lt;U+2,586&gt;&lt;U+2,585&gt;&lt;U+2,581&gt;&lt;U+2,582&gt;&lt;U+2,581&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> AIPMean </td>
@@ -135,7 +135,7 @@ kable(summary_list,
    <td style="text-align:left;"> 2.93 </td>
    <td style="text-align:left;"> 3.53 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> ▁▃▆▇▆▆▃▁ </td>
+   <td style="text-align:left;"> &lt;U+2,581&gt;&lt;U+2,583&gt;&lt;U+2,586&gt;&lt;U+2,587&gt;&lt;U+2,586&gt;&lt;U+2,586&gt;&lt;U+2,583&gt;&lt;U+2,581&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> AnnualIncome </td>
@@ -149,7 +149,7 @@ kable(summary_list,
    <td style="text-align:left;"> 45,000 </td>
    <td style="text-align:left;"> 87,500 </td>
    <td style="text-align:left;"> 250,000 </td>
-   <td style="text-align:left;"> ▇▅▂▁▂▁▁▁ </td>
+   <td style="text-align:left;"> &lt;U+2,587&gt;&lt;U+2,585&gt;&lt;U+2,582&gt;&lt;U+2,581&gt;&lt;U+2,582&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> DPMean </td>
@@ -163,7 +163,7 @@ kable(summary_list,
    <td style="text-align:left;"> 3 </td>
    <td style="text-align:left;"> 3.8 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> ▂▅▅▇▅▇▂▃ </td>
+   <td style="text-align:left;"> &lt;U+2,582&gt;&lt;U+2,585&gt;&lt;U+2,585&gt;&lt;U+2,587&gt;&lt;U+2,585&gt;&lt;U+2,587&gt;&lt;U+2,582&gt;&lt;U+2,583&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> GPMean </td>
@@ -177,7 +177,7 @@ kable(summary_list,
    <td style="text-align:left;"> 3.25 </td>
    <td style="text-align:left;"> 3.75 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> ▁▁▃▆▇▇▃▁ </td>
+   <td style="text-align:left;"> &lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,583&gt;&lt;U+2,586&gt;&lt;U+2,587&gt;&lt;U+2,587&gt;&lt;U+2,583&gt;&lt;U+2,581&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> HDI </td>
@@ -191,7 +191,7 @@ kable(summary_list,
    <td style="text-align:left;"> 0.92 </td>
    <td style="text-align:left;"> 0.92 </td>
    <td style="text-align:left;"> 0.95 </td>
-   <td style="text-align:left;"> ▁▁▁▁▁▁▁▇ </td>
+   <td style="text-align:left;"> &lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,581&gt;&lt;U+2,587&gt; </td>
   </tr>
 <tr>
 <td style="text-align:left;"> SWLSMean </td>
@@ -205,7 +205,7 @@ kable(summary_list,
    <td style="text-align:left;"> 3 </td>
    <td style="text-align:left;"> 3.8 </td>
    <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> ▃▃▃▇▅▇▂▂ </td>
+   <td style="text-align:left;"> &lt;U+2,583&gt;&lt;U+2,583&gt;&lt;U+2,583&gt;&lt;U+2,587&gt;&lt;U+2,585&gt;&lt;U+2,587&gt;&lt;U+2,582&gt;&lt;U+2,582&gt; </td>
   </tr>
 </tbody>
 </table>
@@ -514,7 +514,7 @@ ggplot(top15_aip_hdi,aes(x=CntryOfRes, y=CntryMeanAIP,fill=hdi_group))+
 
 <img src="write-up_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
 
-14 of the top 15 nations with the highest Adult Inventory of Procrastination scale scores have either a *very high* or *high* HDI rating. Kenya, a *medium* HDI nation, is the only exception.
+12 of the top 15 nations with the highest Adult Inventory of Procrastination scale scores have either a *very high* or *high* HDI rating. Kenya, Nicaragua, and Myanmar, *medium* HDI nations, complete the top 15.
 
 ##### Based on General Procrastination scale
 
@@ -574,6 +574,13 @@ knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
    <td style="text-align:left;"> very high </td>
   </tr>
 <tr>
+<td style="text-align:left;"> Myanmar </td>
+   <td style="text-align:right;"> 3.530000 </td>
+   <td style="text-align:right;"> 3.850000 </td>
+   <td style="text-align:right;"> 0.556 </td>
+   <td style="text-align:left;"> medium </td>
+  </tr>
+<tr>
 <td style="text-align:left;"> Panama </td>
    <td style="text-align:right;"> 4.000000 </td>
    <td style="text-align:right;"> 3.950000 </td>
@@ -581,11 +588,11 @@ knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
    <td style="text-align:left;"> high </td>
   </tr>
 <tr>
-<td style="text-align:left;"> Puerto Rico </td>
-   <td style="text-align:right;"> 4.000000 </td>
-   <td style="text-align:right;"> 4.283333 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> NA </td>
+<td style="text-align:left;"> Poland </td>
+   <td style="text-align:right;"> 3.532000 </td>
+   <td style="text-align:right;"> 3.790000 </td>
+   <td style="text-align:right;"> 0.855 </td>
+   <td style="text-align:left;"> very high </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Qatar </td>
@@ -600,13 +607,6 @@ knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
    <td style="text-align:right;"> 3.850000 </td>
    <td style="text-align:right;"> 0.766 </td>
    <td style="text-align:left;"> high </td>
-  </tr>
-<tr>
-<td style="text-align:left;"> Taiwan </td>
-   <td style="text-align:right;"> 4.600000 </td>
-   <td style="text-align:right;"> 4.800000 </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:left;"> NA </td>
   </tr>
 <tr>
 <td style="text-align:left;"> Turkey </td>
@@ -625,7 +625,7 @@ knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
 </tbody>
 </table>
 
-8 nations rank in the top 15 AIP and GP scores. Of these 8 nations, 3 have a *very high* HDI rating and 5 have a *high* HDI rating.
+10 nations rank in the top 15 AIP and GP scores. Of these 10 nations, 4 have a *very high* HDI rating, 5 have a *high* HDI rating, and only one - Myanmar - has a *medium* HDI rating.
 
 ### Linear Relationships Across Variables
 

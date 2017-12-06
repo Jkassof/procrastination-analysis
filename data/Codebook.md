@@ -31,7 +31,8 @@ This data folder contains the following:
 #### Scripts
 
 * q2-clean-procras-raw.R - an R script for ingesting the raw demographic and procrastination data (Procrastination.csv), tidying the data, and outputting the tidy data file (TidyProcrastination.csv)
-* q3-hdi-wiki-scrape.R - an R script for scraping the HDI data from Wikipedia
+* q3-hdi-wiki-scrape.R - an R script for scraping the HDI data from Wikipedia. 
+    + Note that scores have been scraped only for nations whose scores were included in the latest report
 * q3-merging-hdi-and-procrastination.R - an R script for merging the demographic and procrastination data (TidyProcrastination.csv) with the scraped HDI data (hdi_table.csv) and outputting the merged file (all_data.csv)
 
 ## **all_data.csv**
@@ -505,7 +506,7 @@ SWLS1 through SWLS5 (numeric): The Satisfaction with Life Scale (Diener et al., 
 ## **top15_gp_hdi.csv**
 
 * Type: Comma-separated value file
-* Dimensions: 16 observations X 4 variables (two countris had a tied mean GP score)
+* Dimensions: 15 observations X 4 variables
 
 ### Variable information
 
@@ -527,5 +528,7 @@ Ferrari, J., Johnson, J. & McCown, W. (1995). *Procrastination and task avoidanc
 Kobau, R., Sniezek, J., Zack, M. M., Lucas, R. E., & Burns, A. (2010). Well‐being assessment: An evaluation of well‐being scales for public health and population estimates of well‐being among US adults. Applied Psychology: Health and Well-being, 2(3), 272-297.
 
 Lay, C. (1986). *At last, my research article on procrastination.* Journal of Research in Personality, 20, 474-495. 
+
+[List of Countries by Human Development Index](https://en.wikipedia.org/wiki/List_of_countries_by_Human_Development_Index#Complete_list_of_countries)
 
 Zeisler, L (2011). *Association Between Stress and Decisional Procrastination in Parents of Children With Down Syndrome During Their Developmental Transitions.* Seton Hall University Dissertations and Theses (ETDs). 1361.

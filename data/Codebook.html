@@ -37,7 +37,7 @@ if (window.hljs) {
   hljs.configure({languages: []});
   hljs.initHighlightingOnLoad();
   if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlightingOnLoad(); }, 0);
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
   }
 }
 </script>
@@ -246,7 +246,10 @@ div.tocify {
 <h4>Scripts</h4>
 <ul>
 <li>q2-clean-procras-raw.R - an R script for ingesting the raw demographic and procrastination data (Procrastination.csv), tidying the data, and outputting the tidy data file (TidyProcrastination.csv)</li>
-<li>q3-hdi-wiki-scrape.R - an R script for scraping the HDI data from Wikipedia</li>
+<li>q3-hdi-wiki-scrape.R - an R script for scraping the HDI data from Wikipedia.
+<ul>
+<li>Note that scores have been scraped only for nations whose scores were included in the latest report</li>
+</ul></li>
 <li>q3-merging-hdi-and-procrastination.R - an R script for merging the demographic and procrastination data (TidyProcrastination.csv) with the scraped HDI data (hdi_table.csv) and outputting the merged file (all_data.csv)</li>
 </ul>
 </div>
@@ -818,7 +821,7 @@ Extremely dissatisfied
 <h2><strong>top15_gp_hdi.csv</strong></h2>
 <ul>
 <li>Type: Comma-separated value file</li>
-<li>Dimensions: 16 observations X 4 variables (two countris had a tied mean GP score)</li>
+<li>Dimensions: 15 observations X 4 variables</li>
 </ul>
 <div id="variable-information-4" class="section level3">
 <h3>Variable information</h3>
@@ -840,6 +843,7 @@ Extremely dissatisfied
 <p>Ferrari, J., Johnson, J. &amp; McCown, W. (1995). <em>Procrastination and task avoidance : theory, research, and treatment.</em> New York: Plenum Press.</p>
 <p>Kobau, R., Sniezek, J., Zack, M. M., Lucas, R. E., &amp; Burns, A. (2010). Well‐being assessment: An evaluation of well‐being scales for public health and population estimates of well‐being among US adults. Applied Psychology: Health and Well-being, 2(3), 272-297.</p>
 <p>Lay, C. (1986). <em>At last, my research article on procrastination.</em> Journal of Research in Personality, 20, 474-495.</p>
+<p><a href="https://en.wikipedia.org/wiki/List_of_countries_by_Human_Development_Index#Complete_list_of_countries">List of Countries by Human Development Index</a></p>
 <p>Zeisler, L (2011). <em>Association Between Stress and Decisional Procrastination in Parents of Children With Down Syndrome During Their Developmental Transitions.</em> Seton Hall University Dissertations and Theses (ETDs). 1361.</p>
 </div>
 

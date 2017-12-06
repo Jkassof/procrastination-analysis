@@ -13,6 +13,7 @@ hdi_table <- read_csv("./data/hdi_table.csv")
 # This plot will be displayed in the report.
 top15_aip <- all_data %>%
   filter(!is.na(CntryOfRes)) %>%
+  filter(!is.na(HDI)) %>%
   select(CntryOfRes,AIPMean) %>%
   group_by(CntryOfRes) %>%
   summarise(CntryMeanAIP = mean(AIPMean)) %>%
@@ -29,6 +30,7 @@ top15_aip_hdi <- top15_aip %>%
 
 top15_gp <- all_data %>%
   filter(!is.na(CntryOfRes)) %>%
+  filter(!is.na(HDI)) %>%
   select(CntryOfRes,GPMean) %>%
   group_by(CntryOfRes) %>%
   summarise(CntryMeanGP = mean(GPMean)) %>%
