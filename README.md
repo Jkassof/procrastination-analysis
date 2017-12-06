@@ -20,10 +20,10 @@ This repository contains all data, analysis, and related documents for JWJK Anal
 
 - [Click Here to view fully rendered HTML report](http://htmlpreview.github.io/?https://raw.githubusercontent.com/Jkassof/procrastination-analysis/master/write-up.html)
 
-- This report and analysis requires a number of R packages. If you wish to clone this repo and re-run locally, you can run the below code in your R terminal to make sure you have necessary dependencies.
+- This report and analyses requires a number of R packages to run. If you wish to clone this repo and re-run locally, you can run the below code in your R terminal to make sure you have necessary dependencies.
 
 ```
-report_deps <- c("dplyr", "ggplot2", "stringr", "tidyr", "purrr", "rvest")
+report_deps <- c("dplyr", "ggplot2", "stringr", "tidyr", "purrr", "rvest", "reshape2")
 install.packages(report_deps)
 ```
 
