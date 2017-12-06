@@ -93,11 +93,10 @@ procras$Occupation[which(str_detect(tolower(procras$Occupation),"^(?=.*admin)(?=
 procras$CntryOfRes <- gsub(x=procras$CntryOfRes,pattern="Isreal",replacement="Israel")
 procras$AnnualIncome <- as.numeric(procras$AnnualIncome)
 
-# 2d Correcting column data types
+# 2d Column types were managed during step 2c
 
 
 # 2e Creating means columns for each test
-
 # Select out columns that begin with DP, get rounded rowMeans for all rows,
 # we'll do the same thing for the other 3 Question types, the column-bind
 # everything together
