@@ -536,11 +536,10 @@ ggplot(top15_gp_hdi,aes(x=CntryOfRes, y=CntryMeanGP,fill=hdi_group))+
 ```r
 knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
   kableExtra::kable_styling(bootstrap_options = c("striped","condensed"), 
-                            full_width=F, 
-                            position="left")
+                            full_width=FALSE)
 ```
 
-<table class="table table-striped table-condensed" style="width: auto !important; ">
+<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;"> CntryOfRes </th>
    <th style="text-align:right;"> CntryMeanAIP </th>
@@ -647,5 +646,20 @@ ggplot(data = all_data, aes(x = HDI, y = SWLSMean, color = Gender)) +
 
 <img src="write-up_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" />
 
+The below code chunk generates a bar chart of Mean Life Satisfaction scores vs HDI category for the country of residence of the participant.
+
+```r
+ggplot(all_data,aes(x=hdi_group,y=SWLSMean,fill=hdi_group))+
+  geom_bar(aes(reorder(SWLSMean,hdi_group)), stat="identity")+
+  ggtitle("Satisfaction With Life Score by Human Development Index Category")+
+  xlab("Mean Satisfaction With Life Score")+ylab("Number of People")+
+  scale_fill_brewer(palette="Dark2")
+```
+
+<img src="write-up_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" />
 
 # Conclusions and Next Steps
+
+The intention of this analysis was to explore and understand the relationship between procrastination and human development across the globe. The initial findings of this analysis yielded evidence which suggests that nations with *very high* and *high* human development index ratings tend to have higher mean scores across the procrastination instruments utilized in the surveying of this population. A positive correlation between Age and Annual Income was also confirmed. Since our survey data is voluntary self-reported information, the findings of this study can only be concluded as associative within the population of the survey participants.
+
+The sampling of the nations themselves is a potentially confounding variable. Approximately 93% of the nations represented in the survey have *very high* or *high* HDI ratings. This is indicative of the need for additional research from nations with  *medium* and *low* HDI ratings as an important next step.
