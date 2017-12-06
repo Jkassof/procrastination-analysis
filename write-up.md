@@ -58,7 +58,7 @@ kable(procrastination_dims,"html",row.names=FALSE) %>%
   </tr></tbody>
 </table>
 
-The below code chunk sources the Wikipedia scraping script for HDI data. This script will pick up and save any changes in the Wikipedia tables. See the script for details of how the data is scraped.
+The below code chunk sources the Wikipedia scraping script for HDI data. See the script for details of how the data is scraped.
 
 ```r
 source("data/q3-hdi-wiki-scrape.R")
@@ -73,7 +73,7 @@ source("data/q3-merging-hdi-and-procrastination.R")
 # Preliminary Analysis
 ***
 
-Below we source our preliminary analysis script. See script for details of how data is summarized for the following tables and histograms.
+Below we source our preliminary analysis script. See script for details of how data was summarized for the following tables and histograms.
 
 ```r
 source("analysis/q4-analysis.R")

@@ -8,7 +8,7 @@ summary_cols <- c("Age", "AnnualIncome", "HDI", "DPMean", "AIPMean", "GPMean", "
 # Part 4B: Select the designated columns above, use the {skimr} package to get a tidy
 # dataframe of summary statistics, drop unneeded columns, spread the data into a wide format,
 # and lastly rename variables for eye-friendly printing
-summary_list <- filt_data %>%
+summary_list <- all_data %>%
   select(summary_cols) %>%
   skimr::skim() %>%
   select(-type, -level, -value) %>%
@@ -29,15 +29,15 @@ summary_list <- filt_data %>%
 
 # Part 4C: Get frequency counts of a few interesting variables. These tables
 # will be displayed in the report
-gender_freqs <- filt_data %>%
+gender_freqs <- all_data %>%
   count(Gender)  %>%
   arrange(desc(n))
 
-workstatus_freqs <- filt_data %>%
+workstatus_freqs <- all_data %>%
   count(WorkStatus)  %>%
   arrange(desc(n))
 
-occu_freqs <- filt_data %>%
+occu_freqs <- all_data %>%
   count(Occupation)  %>%
   arrange(desc(n)) %>%
   rename(Occupation = Occupation,
@@ -47,7 +47,7 @@ readr::write_csv(occu_freqs, path = "./data/occupation_counts.csv")
 
 # Part 4D: Get a frequency count by country of residence, this table will be
 # displayed in the report.
-pcpts_per_country <- filt_data %>%
+pcpts_per_country <- all_data %>%
   count(CntryOfRes)  %>%
   arrange(desc(n)) %>%
   rename("Country of Residence" = CntryOfRes,
@@ -62,7 +62,7 @@ readr::write_csv(pcpts_per_country, path = "./data/participants_by_country.csv")
 # the two columns. Last, we convert the binary integer answers to yes/no, set
 # cleaner names, and add a column with total observation count for reference. 
 # This dataframe will be displayed in the report.
-matching_perception <- filt_data %>%
+matching_perception <- all_data %>%
   select(SelfLabeled, OthersLabel) %>%
   filter(complete.cases(.) & SelfLabeled == OthersLabel) %>%
   group_by_all() %>%
@@ -71,4 +71,4 @@ matching_perception <- filt_data %>%
   mutate(SelfLabeled = if_else(SelfLabeled==0, "No", "Yes"),
          OthersLabel = if_else(OthersLabel==0, "No", "Yes")) %>%
   set_names(c("Self Labeled", "Others would Label", "Observations")) %>%
-  tibble::add_column("Total Obs" = rep(nrow(filt_data), 2))
+  tibble::add_column("Total Obs" = rep(nrow(all_data), 2))

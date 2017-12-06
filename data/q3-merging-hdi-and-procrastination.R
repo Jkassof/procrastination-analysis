@@ -7,7 +7,7 @@ all_data <- merge(x=final_procras,y=hdi_table, by="CntryOfRes", all.x = TRUE)
 
 # Filter for only of-age (18+) participants as this study is not cleared for
 # using data from minors
-filt_data <- filter(all_data, Age >= 18)
+all_data <- filter(all_data, Age >= 18)
 
 # Save filtered final data to /data directory for reference
-write_csv(filt_data,"./data/all_data.csv")
+write_csv(all_data,"./data/all_data.csv")
