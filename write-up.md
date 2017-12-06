@@ -514,6 +514,8 @@ ggplot(top15_aip_hdi,aes(x=CntryOfRes, y=CntryMeanAIP,fill=hdi_group))+
 
 <img src="write-up_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
 
+14 of the top 15 nations with the highest Adult Inventory of Procrastination scale scores have either a *very high* or *high* HDI rating. Kenya, a *medium* HDI nation, is the only exception.
+
 ##### Based on General Procrastination scale
 
 The below code chunk generates a bar chart of the top 15 countries by average score on General Procrastination scale.
@@ -529,9 +531,11 @@ ggplot(top15_gp_hdi,aes(x=CntryOfRes, y=CntryMeanGP,fill=hdi_group))+
 
 <img src="write-up_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
 
+14 of the top 15 nations with the highest General Procrastination scale scores have either a *very high* or *high* HDI rating. Myanmar, a *medium* HDI nation, is the only exception.
+
 ##### Examining Highest Scoring Nations Across Adult Inventory of Procrastination and General Procrastination scales
 
-8 nations, shown below, have a Top 15 ranking AIP and GP score. The table below displays the nations, their mean scores, and their *hdi_group*.
+The table below displays the nations, their mean scores, and their *hdi_group*.
 
 ```r
 knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
@@ -597,6 +601,8 @@ knitr::kable(top_procrastinators,"html",row.names=FALSE) %>%
   </tr>
 </tbody>
 </table>
+
+8 nations rank in the top 15 AIP and GP scores. Of these 8 nations, 3 have a *very high* HDI rating and 5 have a *high* HDI rating.
 
 ### Linear Relationships Across Variables
 
